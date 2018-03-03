@@ -1,0 +1,54 @@
+\capitulo{3}{Conceptos teóricos}
+\section{Sistemas de Recomendación}
+Un sistema de recomendación es aquella herramienta encargada de recopilar, filtrar y devolver un conjunto de datos destinados para ofrecer al consumidor una orientación en base a sus gustos o en base a los gustos de otros usuarios cuyos aspectos introducidos coincidan.\nocite{wiki:recomendacion} \\
+Los sistemas de recomendación se subdividen en dos grupos: 
+\subsection{Filtro colaborativo}
+Técnica utilizada en los sistemas de recomendación basada en predicción de las preferencias basado en las selecciones de los usuarios. Para ello, el sistema funciona de la siguiente forma: \nocite{andres_gonzalez_sistemas_2014}
+\begin{enumerate}
+\item El usuario rellena el formulario con respecto a las preferencias de aquellos elementos conocidos.
+\item El sistema recopila los datos y realiza las comparaciones con otros usuarios para determinar las similitudes. \nocite{upf:recomendacion}
+\item El sistema informa de aquellos items en los que el cliente podría coincidir con el resto de usuarios pero no ha rellenado. \cite{wiki:filtrado}
+\end{enumerate}
+Una explicación más sencilla sería en que el sistema ofrece a un usuario lo más popular entre aquellos con sus mismos gustos.\nocite{ucm:recomendacion} 
+Existen dos clases de Sistemas de Recomendación con filtro colabroativo: 
+\subsubsection{Basado en modelos}
+La estimación de los items se basa en el rating de los items de los diferentes usuarios. 
+Por ello, para su utilización, se crea inicialmente una tabla, en la que las filas son los diferentes usuarios, mientras que las columnas hacen referencia a los diferentes elementos.
+
+\begin{table}[]
+\centering
+\caption{Tabla de ejemplo de filtro colaborativo basado en modelo}
+\label{tab:1}
+\rowcolors {2}{gray!35}{}
+\begin{tabular}{ lrrrr }
+\toprule
+Example                & $item_{1}$ & $item_{2}$ & ... & $item_{n}$ \\ \midrule
+$user_{1}$ & 5         & 2           & ...           & 4       \\ 
+$user_{2}$ & 5         & 1            & ...           & 3       \\ 
+... & 2        & 5           & ...           & 5       \\ 
+$user_{n}$ & 4         & ?           & ...          & 3       \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Posteriormente se ajusta el modelo para proponer al usuario un valor recomendado para el item desconocido (?).
+\subsubsection{Basado en memoria}
+La estimación de los items se basa en los rating del cliente con respecto a los items de los diferentes usuarios. El sistema, tras rellenar la tabla de usuarios/items busca las similitudes entre las preferencias de los usuarios para ofrecer una recomendación. 
+A su vez, el sistema de recomendación con filtro colaborativo basado en memoria se puede subdividir en: 
+\begin{enumerate}
+
+\item  \textbf{Basado en Usuarios}\\ La estimación del  $item_{i}$ de un $usuario_{u}$ concreto se basa en los rating del $item_{i}$  de los usuarios  con mayor proximidad al $usuario_{u}$.
+
+\item \textbf{Basado en Productos}\\La estimación del  $item_{i}$ de un $usuario_{u}$ concreto se basa en los rating del $usuario_{u}$ a los items similares a $item_{i}$.
+
+\item Híbrido
+\end{enumerate}
+
+Nos centraremos en esta técnica.
+\subsection{Filtrado basado en contenido}
+Técnica utilizada en los sistemas de recomendación,  basada en asignar unos pesos a cada uno de los items conocidos por el usuario, de forma que se pueda utilizar el algoritmo para extraer y recomendar aquellos items que tengan mayor similitud con los gustos del usuario.
+Su explicación se basaría en ofrecer al usuario aquello que se relaciona más con lo que le ha gustado. 
+
+\subsection{Filtrado basado en conocimiento}
+Técnica utilizada en los sistemas de recomendación, basada en 
+\subsection{Filtrado híbrido}
+
