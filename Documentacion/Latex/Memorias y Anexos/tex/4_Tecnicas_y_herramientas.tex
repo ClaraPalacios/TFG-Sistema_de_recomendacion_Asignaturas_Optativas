@@ -233,5 +233,22 @@ El cuestionario realizado se encuentra en la siguiente dirección \url{https://c
 
 
 \section{Integración de funcionalidades del cuestionario}
-Los datos se guardarán en un documento Excel-sincronizado en Drive-  llamado  \textbf{DatosTFG\_SistemasRecomendacion}, almacenado en la siguiente dirección: \url{https://docs.google.com/spreadsheets/d/1Dtu6HPKu_d0zToz2b16dhfz4k7OluqAASYbveHUfSls/edit?usp=sharing} \\La librería que utilizaremos para la integración será OpenPyxl  de forma que se nos permitirá leer y almacenar en una matriz los datos recogidos del Excel. 
+Los datos se guardarán en un documento Excel-sincronizado en Drive-  llamado  \textbf{DatosTFG\_SistemasRecomendacion}, almacenado en la siguiente dirección: \url{https://docs.google.com/spreadsheets/d/1Dtu6HPKu_d0zToz2b16dhfz4k7OluqAASYbveHUfSls/edit?usp=sharing} \\En un principio, teníamos pensado utilizar la librería de Python  OpenPyxl  de forma que se nos permitirá leer y almacenar en una matriz los datos recogidos del Excel. Sin embargo, nos encontramos problemas con la lectura, por lo que hemos decidido utilizar el API de GoogleDrive, descargando un fichero .json para la obtener la clave privada y almacenarla en el ordenador, en el directorio en donde se encuentre el código en Python de la lectura de datos de cuestionario anónimo. \\Además, serán necesarias dos librerías, \textbf{oauth2client} y \textbf{gspread}, pudiéndose instalar con un único código en cmd (Símbolo de Sistema de Windows)  mediante el comando \textbf{``pip install gspread oauth2client''}. \nocite{twilio:api}con la versión de pip 8.1.2, a pesar de no ser la más actual existente. 
+
+\subsection{Funcionamiento del Google Drive API }
+La activación e integración del fichero situado en Drive para poder utilizarlo desde Jupyter se ha realizado de la siguiente manera: 
+\begin{itemize}
+\item Iniciar sesión en Google Drive
+\item Activar en la consola de APIs de Google la API. 
+\item Crear (o en caso de tener uno creado, abrir) un nuevo proyecto. Hay un máximo de 11 proyectos. 
+\item Activar las credenciales de Google Drive. 
+\item Crear credenciales para Servidor Web para acceder a la aplicación. 
+\item Dar un nombre al proyecto y asignarle un rol (Project-Editor)
+\item Descargar el fichero .JSON correspondiente. 
+\item Copiar el fichero (renombrado a client\_secret.json) en el directorio en donde obtengamos los datos en python del Excel. 
+\item Copiar el client\_email situado en el fichero, y compartirlo con el fichero en Drive.
+\item Instalar ambas librerías, e importarlas en el Notebook  de Python. 
+\end{itemize}
+
+
 
