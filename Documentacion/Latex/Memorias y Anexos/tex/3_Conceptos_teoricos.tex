@@ -36,19 +36,37 @@ La estimación de los items se basa en los rating del cliente con respecto a los
 A su vez, el sistema de recomendación con filtro colaborativo basado en memoria se puede subdividir en: 
 \begin{enumerate}
 
-\item  \textbf{Basado en Usuarios}\\ La estimación del  $item_{i}$ de un $usuario_{u}$ concreto se basa en los rating del $item_{i}$  de los usuarios  con mayor proximidad al $usuario_{u}$.
+\item  \textbf{Basado en Usuarios}\\ La estimación del  $item_{i}$ de un $usuario_{u}$ concreto se basa en los rating del $item_{i}$  de los usuarios  con mayor proximidad al $usuario_{u}$. \\Se han utilizado dos fórmulas diferentes para el cálculo del sistema de recomendación basado en usuarios: \\ \begin{itemize}
 
-\item \textbf{Basado en Productos}\\La estimación del  $item_{i}$ de un $usuario_{u}$ concreto se basa en los rating del $usuario_{u}$ a los items similares a $item_{i}$.
-
-\item Híbrido
+\item Similitud de coseno:\\\begin{equation}sim_{u,v}=\frac{\sum_{i\epsilon I}r_{u,i}r_{v,i}}{\sqrt{\sum_{i\epsilon I}r_{u,i}^{2}}\sqrt{\sum_{i\epsilon I}r_{v,i}^{2}}}
+\end{equation}
+\item Coeficiente de Pearson:\\ \begin{equation}sim_{u,v}=\frac{\sum_{i \in I}(r_{u,i}-\bar{r}_{u}) (r_{v,i}-\bar{r}_{v})}{\sqrt{\sum_{i \in I}(r_{u,i}-\bar{r}_{u})^{2}} \sqrt{\sum_{i \in I}(r_{v,i} - \bar{r}_{v})^{2}}}
+\end{equation}
+ \\La fórmula para estimar un ranking de un usuario es la siguiente : \begin{equation}
+\hat{r}_{u,i}= \bar{r_{u}}+\frac{\sum_{v\in \bigcup }(r_{v,i}-\bar{r_{v}})sim_{u,v}}{\sum_{v\in \bigcup } \left | sim_{u,v} \right |} 
+\end{equation}
+\end{itemize}
+\item \textbf{Basado en Productos}\\La estimación del  $item_{i}$ de un $usuario_{u}$ concreto se basa en los rating del $usuario_{u}$ a los items similares a $item_{i}$.\\ \begin{itemize}
+\item Similitud de coseno : \\ \begin{equation}
+sim_{i,j }=\frac{\sum_{u\in U}r_{u,i}r_{u,j}}{\sqrt{\sum_{u\in U}r^{2}_{u,i}}\sqrt{\sum_{u\in U}r^{2}_{u,j}}}
+\end{equation}
+\item Coeficiente de Pearson: \\ \begin{equation}
+sim_{i,j}=\frac{\sum_{u \in U}(r_{u,i}-\bar{r}_{i}) (r_{u,j}-\bar{r}_{j})}{\sqrt{\sum_{u \in U}(r_{u,i}-\bar{r}_{i})^{2}} \sqrt{\sum_{u \in U}(r_{u,j} - \bar{r}_{j})^{2}}}
+\end{equation} \\La fórmula para estimar un ranking en un sistema basado en productos es la siguiente:\nocite{ubu:recomendacion} \\ \begin{equation}
+\hat{r}_{u,i}= \frac{\sum_{j\in I }r_{u,j}sim_{i,j}}{\sum_{j\in I } \left | sim_{i,j} \right |} 
+\end{equation}
+\end{itemize}
 \end{enumerate}
 
-Nos centraremos en esta técnica.
+
+\subsubsection{Basado en modelo}
+La estimación de los items se basa en utilizar la minería de datos con algoritmos de aprendizaje automático. Entre los ejemplos de los algoritmos existentes, podemos indicar los clasificadores bayesianos, redes neuronales y algoritmos genéticos.\nocite{wiki:filtrado} 
+
+
 \subsection{Filtrado basado en contenido}
 Técnica utilizada en los sistemas de recomendación,  basada en asignar unos pesos a cada uno de los items conocidos por el usuario, de forma que se pueda utilizar el algoritmo para extraer y recomendar aquellos items que tengan mayor similitud con los gustos del usuario.
 Su explicación se basaría en ofrecer al usuario aquello que se relaciona más con lo que le ha gustado. 
 
-\subsection{Filtrado basado en conocimiento}
-Técnica utilizada en los sistemas de recomendación, basada en 
+ 
 \subsection{Filtrado híbrido}
 
