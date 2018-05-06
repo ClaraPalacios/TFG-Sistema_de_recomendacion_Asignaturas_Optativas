@@ -5,13 +5,19 @@ Sin embargo, en relación a diferentes proyectos de Trabajo Final de Grado, ést
 Entre las diferentes plataformas, podemos especificar:
 
 \section{Amazon}
-
+Amazon utiliza el sistema de recomendación "ítem to ítem colaborative filtering" inventado por la propia empresa en 1998 ante el problema de los filtros colaborativos basados en usuarios:
+\begin{itemize}
+\item Fallo en la recomendación al disponer de una gran cantidad de elementos y pocas votaciones
+\item Gran coste en el cálculo de las similitudes de usuarios. 
+\item Cambio de perfil de usuarios de forma rápida.\nocite{wiki:filter}
+\end{itemize}
+Por otro lado, utiliza un sofware dirigido por un equipo de trabajadores encargado de enviar ofertas específicas a los diferentes usuarios según las últimas compras realizadas.\nocite{manu:amazon}
 \section{Spotify}
 Spotify  utiliza 3 sistemas de recomendación diferentes para mejorar las recomendaciones de sus canciones en Discovery Weekly: 
 \begin{itemize}
 \item Filtro colaborativo basado en usuarios. 
-\item Modelo basado en el audio en bruto: Sistema de recomendación que utliza una red neuronal (comvolutional neural network) para obtener las características musicales de las canciones escogidas por el usuario. 
-\item NLP Sistema de procesamiento de lenguaje natural para encontrar nuevas tendencias con las que poder trabajar. \cite{isaac:spotify}
+\item Modelo basado en el audio en bruto: Sistema de recomendación que utiliza una red neuronal (comvolutional neural network) para obtener las características musicales de las canciones escogidas por el usuario. 
+\item NLP Sistema de procesamiento de lenguaje natural para encontrar nuevas tendencias musicales con las que poder trabajar. \cite{isaac:spotify}
 \end{itemize}
 
 
