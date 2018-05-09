@@ -9,12 +9,19 @@ Este apéndice se subdivide en los diferentes requisitos necesarios para nuestro
 \end{enumerate}
 \section{Catálogo de Requisitos}
 \begin{itemize}
-\item Recogida de datos\\ \begin{itemize}
-\item Creación de cuestionario anónimo.\\ \item Distribución del cuestionario. \\ \item Recogida de datos y su almacenamiento. 
+\item RF-1. Recogida de datos\\ 
+\begin{itemize}
+\item RF-1.1. Creación de cuestionario anónimo.\\ 
+\item RF-1.2. Distribución del cuestionario. \\ 
+\item RF-1.3. Recogida de datos y su almacenamiento. 
 \end{itemize}
 
-\item Desarrollo de los sistemas de recomendación\\ \begin{itemize}
-\item Recogida de datos de Drive. \item Tratamiento de los datos. \item Desarrollo del sistema de recomendación. \item Devolución de las calificaciones. \item Guardado de los datos. 
+\item RF-2. Desarrollo de los sistemas de recomendación\\ 
+\begin{itemize}
+\item RF-2.1. Recogida de datos de Drive. 
+\item RF-2.2. Tratamiento de los datos. 
+\item RF-2.3. Desarrollo del sistema de recomendación. 
+\item RF-2.4. Devolución de las calificaciones. \item Guardado de los datos. 
 \end{itemize}
 
 \item Desarrollo de una interfaz gráfica \\ \begin{itemize}
@@ -47,7 +54,7 @@ Este apéndice se subdivide en los diferentes requisitos necesarios para nuestro
 \end{itemize}
 
 \section{Diagramas de Casos de Uso}
-\subsection{General}
+\subsection{Diagrama General}
 El siguiente diagrama corresponde al  caso de uso general, junto con el diagrama extendido. \ref{fig:Diagrama_Caso_Uso_General}
 \begin{figure}[h]
 \centering
@@ -55,3 +62,47 @@ El siguiente diagrama corresponde al  caso de uso general, junto con el diagrama
 \caption{Diagrama de caso de uso General}
 \label{fig:Diagrama_Caso_Uso_General}
 \end{figure}
+
+\section{Tablas de Casos de Uso}
+\subsection{Primer Caso de Uso}
+La primera tabla corresponde al desarrollo del cuestionario anónimo y la recogida de datos para poder trabajar posteriormente con ellos. La siguiente tabla hace referencia al dicho caso de uso. \ref{tab:1}
+\begin{table}[]
+\caption{Tabla Caso de Uso 1}
+\label{tab:1}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ lrrr }
+\toprule
+\textbf{Nombre} &   Recogida de Datos         \\ 
+\textbf{Versión} & 1.0  \\ 
+\textbf{Requisitos Funcionales}  & \begin{tabular}[c]{@{}l@{}}RF-1\\ RF-1.1\\ RF-1.2\\ RF-1.3\\\end{tabular}                                                                                                                  \\ 
+\textbf{Descripcíon de Requisitos} & \begin{tabular}[r]{@{}l@{}}Se obtendrán los datos de forma anónima  para el entrenamiento\\ de los sistemas de recomendación\\\end{tabular}                                                                                                                    \\
+\textbf{Precondiciones}     & No tiene \\
+\textbf{Postcondiciones}         &  Se almacenarán los datos en una API de Google \\
+\textbf{Autor}         & Clara Palacios Rodrigo \\
+\textbf{Importancia}        &  Importante \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Segundo Caso de Uso}
+La segunda tabla corresponde con el desarrollo de los sistemas de recomendación. Para ello, se debe obtener los datos de la API de Drive, tratarlos y desarrollar los diferentes sistemas de recomendación. La siguieten tabla hace referencia a dicho caso de uso. \ref{tab:2}
+\begin{table}[]
+\caption{Tabla Caso de Uso 2}
+\label{tab:2}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ lrrr }
+\toprule
+\textbf{Nombre} &   Desarrollo de los sistemas de recomendación        \\ 
+\textbf{Versión} & 1.0  \\ 
+\textbf{Requisitos Funcionales}  & \begin{tabular}[c]{@{}l@{}}RF-2\\ RF-2.1\\ RF-2.2\\ RF-2.3\\RF-2.4\end{tabular}                                                                                                                  \\ 
+\textbf{Descripcíon de Requisitos} &  \\
+\textbf{Precondiciones}     & Disponer de los datos en Drive \\
+\textbf{Postcondiciones}         &   \\
+\textbf{Autor}         & Clara Palacios Rodrigo \\
+\textbf{Importancia}        & Muy Importante \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+
