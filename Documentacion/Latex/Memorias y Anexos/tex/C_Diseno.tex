@@ -1,1 +1,67 @@
 \apendice{Especificación de diseño}
+\section{Clasificación de las asignaturas}
+Se ha realizado una clasificación general de las áreas a las que pertenecen de forma general las  asignaturas, de forma que se pueda mostrar un gráfico en la materia recomendable para un alumno. La siguiente tabla hace referencia a dicha clasificación \ref{tab:1}
+\begin{table}[]
+\caption{Tabla áreas educativas de las asignaturas }
+\label{tab:1}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ lrrrrrrrr }
+\toprule
+ & Matemáticas & Derecho & Programación & Algoritmos & Idiomas & Economía & Diseño & Equipos informáticos \\  
+\textbf{PRIMER SEMESTRE} &  &  &  &  &  &  &  &  \\  
+Fundamentos Deontológicos y Jurídicos de las TIC & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\  
+Álgebra Lineal & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\  
+Informática Básica & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\  
+Fundamentos Físicos de la Informática & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\  
+Matemática Discreta & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\  
+\textbf{SEGUNDO SEMESTRE} &  &  &  &  &  &  &  &  \\  
+Inglés Aplicado a la Informática & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\  
+Cálculo & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\  
+Programación & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\  
+Fundamentos de los Computadores & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\  
+Sistemas Operativos & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\  
+\textbf{TERCER SEMESTRE} &  &  &  &  &  &  &  &  \\  
+Metodología de la Programación & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ 
+Estadística & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+Ingeniería del Software & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\  
+Bases de Datos & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\  
+Arquitectura de Computadores & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\  
+\textbf{CUARTO SEMESTRE} &  &  &  &  &  &  &  &  \\  
+Estructuras de Datos & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\  
+Redes & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\  
+Interacción Hombre-Máquina & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\  
+Fundamentos de Organización y Gestión de Empresas & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\  
+Análisis y Diseño de Sistemas & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\  
+\textbf{QUINTO SEMESTRE} &  &  &  &  &  &  &  &  \\ 
+Arquitecturas Paralelas & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\ 
+Sistemas Inteligentes & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 \\ 
+Gestión de Proyectos & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\ 
+Diseño y Administración de Sistemas y Redes & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\  
+Procesadores del Lenguaje & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\  
+\textbf{SEXTO SEMESTRE} &  &  &  &  &  &  &  &  \\ 
+Programación Concurrente & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\  
+Seguridad Informática & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\ 
+Aplicaciones de Bases de Datos & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\  
+Algoritmia & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ 
+Métodos Numéricos y Optimización & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\  
+\textbf{SÉPTIMO SEMESTRE} &  &  &  &  &  &  &  &  \\  
+Diseño e Implementación de Sistemas Digitales & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\ 
+Gestión de la Información & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 \\ 
+Diseño y Mantenimiento del Software & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\  
+Organización y Gestión de Empresas & 0 & 0 & 1 & 1 & 0 & 1 & 0 & 0 \\  
+ Mantenimiento de Equipos Informáticos & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\  
+Hardware de Aplicación Específica & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\ 
+Control por Computador & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\ 
+Validación y Pruebas & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 \\
+Computación Neuronal y Evolutiva & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ 
+Programación de Sistemas Operativos & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\ 
+\textbf{OCTAVO SEMESTRE} &  &  &  &  &  &  &  &  \\ 
+Sistemas Distribuidos & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 \\ 
+Sistemas Empotrados y de Tiempo Real & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+Métodos Formales & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\ 
+Nuevas Tecnologías y Empresa & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ 
+Minería de Datos & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\ 
+Desarrollo Avanzado de Sistemas Software & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\ \bottomrule
+\end{tabular}
+}
+\end{table}
