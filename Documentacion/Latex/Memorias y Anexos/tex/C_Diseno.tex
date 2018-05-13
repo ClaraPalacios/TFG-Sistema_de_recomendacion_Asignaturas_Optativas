@@ -65,3 +65,42 @@ Desarrollo Avanzado de Sistemas Software & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\ \bot
 \end{tabular}
 }
 \end{table}
+
+
+\section{Modelo de Interfaz Gráfica}
+La interfaz gráfica de escritorio de la primera versión se realizará con PyQt5, de forma que habrá varias ventanas diferentes dependiendo de la funcionalidad seleccionada: 
+\subsection{Inicio de Sesión}
+En la primera pestaña al ejecutar la aplicación, se mostraría la pantalla de inicio sesión para introducir el correo y la contraseña. La siguiente imagen hace referencia a un modelo básico de la pantalla de inicio de sesión. ~\ref{fig:C.1}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{PROTOTIPO_Inicio_sesion}
+\caption{Prototipo de Inicio Sesión}
+\label{fig:C.1}
+\end{figure}
+
+\subsection{Rellenado de cuestionario}
+Una vez registrado por primera vez, un usuario debe rellenar el cuestionario con las ponderaciones de las asignaturas cursadas. Esta pestaña también sirve en caso de que el usuario se haya confundido en la calificación de alguna asignatura o repita el sistema de recomendación tras cursar nuevas asignaturas. Los diferentes cursos se seleccionarán en los botones para evitar un exceso de asignaturas mostradas en la pestaña. La siguiente imagen hace referencia a dicha pestaña. ~\ref{fig:C.2}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{PROTOTIPO_Rellenado_Datos}
+\caption{Prototipo de Rellenado de datos}
+\label{fig:C.2}
+\end{figure}
+\subsection{Muestra de resultados}
+Tras rellenar el cuestionario para la recogida de datos, se seleccionará el sistema de recomendación deseado, y se mostrarán los resultados en base al sistema seleccionado, teniendo como patrón en el centro de la ventana los resultados de las asignaturas no cursadas, y en el tercio derecho, se mostrarán unas gráficas de las asignaturas y preferencias del alumno. La siguiente imagen hace referncia a dicha pestaña: ~\ref{fig:C.3}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{PROTOTIPO_Sistemas_Recomendacion}
+\caption{Prototipo de la muestra de datos}
+\label{fig:C.3}
+\end{figure}
+
+\subsection{Otros datos}
+Habrá un botón adicional que muestre las preferencias generales de media de los usuarios, así como otras gráficas para información adicional al usuario. 
+La siguiente imagen hace referencia a dicha pestaña: ~\ref{fig:C.4}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{PROTOTIPO_Otros_Datos}
+\caption{Prototipo de datos adicionales}
+\label{fig:C.4}
+\end{figure}
