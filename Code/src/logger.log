@@ -1,0 +1,1 @@
+WARNING:root:Warning: fichero csv no existe<class 'AttributeError'>'NoneType' object has no attribute 'pestannas'

@@ -1,0 +1,12 @@
+INSTUPejecucion.Rec_Bas_Prod
+C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\Rec_Bas_Prod.py
+INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&2|6|2|1&&2|7|2|1&&2|8|2|1&&2|9|2|1
+Rec_Bas_Prod.__init__=5
+med_pond=6
+med_pond_ix=7
+coef_corr_pearson=8
+Rec_Bas_Prod=1
+matriz_sim=9
+tabla=4
+__init__=3
+ejecucion.Rec_Bas_Prod=2

@@ -1,0 +1,89 @@
+-- VERSION_4
+-- START DISKCACHE_2
+C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\.metadata\.plugins\org.eclipse.core.resources\.projects\Code\com.python.pydev.analysis\v2_indexcache
+ejecucion.__init__|1523984500894967000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\__init__.py
+ejecucion.obtencionDatos|1524401253937665000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\obtencionDatos.py
+entity.usuario|1525970369577531000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\entity\usuario.py
+ejecucion.Rec_Bas_Usu|1522684826963871000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\Rec_Bas_Usu.py
+main|1524576351619635000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\main.py
+entity.asignatura|1525970348997208000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\entity\asignatura.py
+ejecucion.recomend_bas_usu|1524576408672785000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\recomend_bas_usu.py
+entity.__init__|1525969190830637000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\entity\__init__.py
+ejecucion.RW_Datos_Drive|1523986028606073000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\RW_Datos_Drive.py
+ejecucion.RW_Datos_Fichero|1524401254608192000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\RW_Datos_Fichero.py
+ejecucion.recomend_bas_prod|1521975957319843000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\recomend_bas_prod.py
+__init__|1523985903339111000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\__init__.py
+ejecucion.Rec_Bas_Prod|1524400066223170000|C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\Rec_Bas_Prod.py
+-- END DISKCACHE
+-- START DICTIONARY
+30
+10=Rec_Bas_Prod
+2=main
+30=RW_Datos_Fichero.__init__
+1=entity.asignatura
+28=usuario.setPassword
+4=ejecucion.recomend_bas_usu
+27=asignatura.setNombre
+16=recomend_bas_usu.__init__
+19=asignatura.setCurso
+18=asignatura.setCaracteristica
+26=usuario.setNombre
+5=ejecucion.Rec_Bas_Prod
+29=Rec_Bas_Prod.__init__
+20=usuario.setEmail
+21=asignatura
+11=recomend_bas_usu
+3=ejecucion.obtencionDatos
+9=entity.usuario
+24=usuario.setId
+17=recomend_bas_prod.__init__
+14=obtencionDatos
+7=ejecucion.RW_Datos_Fichero
+8=ejecucion.RW_Datos_Drive
+23=asignatura.setId
+13=recomend_bas_prod
+6=ejecucion.recomend_bas_prod
+22=usuario
+12=RW_Datos_Fichero
+15=RW_Datos_Drive
+25=asignatura.setIsNullable
+-- END DICTIONARY
+-- START TREE 1
+8
+asi|1|asignatura!9@
+d|1|d!19@
+g|1|g!19@
+obt|1|obtencionDatos!25@
+rec|3|recomend_bas_usu!33@Rec_Bas_Prod!41@recomend_bas_prod!49@
+rw_|2|RW_Datos_Fichero!57@RW_Datos_Drive!65@
+tab|1|tabla1!19@
+usu|1|usuario!73@
+-- END TREE
+-- START TREE 2
+25
+__i|6|__init__!10&42@__init__!11&34@__init__!12&58@__init__!13&50@__init__!14&26@__init__!15&66@
+asi|2|asignatura!16&35@asignatura!17&51@
+cal|1|calculaPrediccion!11&34@
+car|1|caracteristica!18&11@
+coe|2|coef_corr_pearson!11&34@coef_corr_pearson!10&42@
+cur|1|curso!19&11@
+dat|1|dataframe!16&35@
+dev|2|dev_recom_productos!13&50@dev_recom_productos!11&34@
+ema|1|email!20&75@
+get|9|getCurso!21&10@getEmail!22&74@getIsNullable!21&10@getPassword!22&74@getIsNullable!22&74@getId!21&10@getId!22&74@getCaracteristica!21&10@getNombre!21&10@
+gua|1|guardarDatos!12&58@
+id|2|id!23&11@id!24&75@
+isn|1|isNullable!25&11@
+mat|2|matrizSim!16&35@matriz_sim!10&42@
+med|2|med_pond!10&42@med_pond_ix!10&42@
+mez|1|mezl_dat!13&50@
+nom|2|nombre!26&75@nombre!27&11@
+obt|1|obtener_datos!15&66@
+pas|1|password!28&75@
+pre|1|predicc_usu_asign!13&50@
+rec|1|recuperarDatos!12&58@
+set|9|setCurso!21&10@setCaracteristica!21&10@setNombre!21&10@setEmail!22&74@setId!22&74@setNombre!22&74@setPassword!22&74@setId!21&10@setIsNullable!21&10@
+tab|3|tabla!17&51@tabla!29&43@tabla1!30&59@
+tra|1|transformarDatos!15&66@
+usu|2|usu!17&51@usu!16&35@
+-- END TREE

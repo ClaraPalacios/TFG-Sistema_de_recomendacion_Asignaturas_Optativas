@@ -1,0 +1,13 @@
+INSTUPejecucion.recomend_bas_prod
+C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\recomend_bas_prod.py
+INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&3|6|2|5&&3|7|2|5&&2|8|2|1&&2|9|2|1&&2|10|2|1
+mezl_dat=8
+asignatura=7
+predicc_usu_asign=9
+usu=6
+recomend_bas_prod=1
+ejecucion.recomend_bas_prod=2
+dev_recom_productos=10
+tabla=4
+recomend_bas_prod.__init__=5
+__init__=3

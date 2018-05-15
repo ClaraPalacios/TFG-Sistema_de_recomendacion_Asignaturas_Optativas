@@ -1,0 +1,10 @@
+INSTUPejecucion.RW_Datos_Fichero
+C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\RW_Datos_Fichero.py
+INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&2|6|2|1&&2|7|2|1
+tabla1=4
+recuperarDatos=7
+ejecucion.RW_Datos_Fichero=2
+guardarDatos=6
+RW_Datos_Fichero.__init__=5
+RW_Datos_Fichero=1
+__init__=3

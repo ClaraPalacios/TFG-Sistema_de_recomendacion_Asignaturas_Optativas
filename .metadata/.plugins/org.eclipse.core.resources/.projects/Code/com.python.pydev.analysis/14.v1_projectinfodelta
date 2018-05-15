@@ -1,0 +1,14 @@
+INSTUPejecucion.recomend_bas_usu
+C:\Users\Tobar\Desktop\TFG_SistemasDeRecomendacion_CPR\TFG-Sistema_de_recomendacion_Asignaturas_Optativas\Code\src\ejecucion\recomend_bas_usu.py
+INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&3|6|2|5&&3|7|2|5&&3|8|2|5&&2|9|2|1&&2|10|2|1&&2|11|2|1
+ejecucion.recomend_bas_usu=2
+asignatura=8
+coef_corr_pearson=10
+recomend_bas_usu.__init__=5
+matrizSim=6
+recomend_bas_usu=1
+usu=7
+dev_recom_productos=11
+dataframe=4
+__init__=3
+calculaPrediccion=9

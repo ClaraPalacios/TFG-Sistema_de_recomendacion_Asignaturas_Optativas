@@ -1,6 +1,7 @@
-from ejecucion import Rec_Bas_Prod
-from ejecucion import obtencionDatos
-from ejecucion import recomend_bas_prod
-from ejecucion import RW_Datos_Drive
-from ejecucion import RW_Datos_Fichero
-from ejecucion import Rec_Bas_Usu
+import sys,os
+sys.path.append(os.getcwd()+"/src")
+
+from proyecto.gui import VentanaInicio
+from proyecto.gui import VentanaMostrarDatos
+from proyecto.ejecucion import RW_Datos_Drive
+from proyecto.ejecucion.Rec_Bas_Prod import Rec_Bas_Prod
