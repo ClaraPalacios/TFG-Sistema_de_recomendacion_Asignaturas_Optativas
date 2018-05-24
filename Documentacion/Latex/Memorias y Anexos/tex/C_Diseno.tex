@@ -165,7 +165,7 @@ El primer botón de la pestaña superior permite acceder al rellenado de los dat
 La interacción que se le permite al usuario en dicha pestaña será la siguiente. 
 \begin{itemize}
 \item \textbf{Selección del curso}: Selección del curso para rellenar los datos. 
-\item \textbf{Ponderación de asignatura}: Se permite ponderar en un Spiner tanto con el ratón, como con el teclado.
+\item \textbf{Ponderación de asignatura}: Se permite ponderar en un Slider tanto con el ratón, como con el teclado.
 \item \textbf{Guardar}: Guardar los datos insertados  manualmente  por el usuario. 
 \item \textbf{Modificación}: Se permitirá al usuario modificar las calificaciones en caso de haber insertado incorrectamente la ponderación. 
 
@@ -181,7 +181,6 @@ La interacción que se le permite-tras habilitarse-será la siguiente:
 \subsection{Muestra de otros datos}
 La tercera pestaña hacer referencia  a la muestra de datos al usuario. Para ello, en un principio, no se le añadirá funcionalidad auxiliar al usuario.
 
-
 \section{Posible diseño de Clases} 
 El paquete Core,  en el que se encontrará toda la estructura de los sistemas de recomendación, se subdivide en dos paquetes diferentes: I\_O (de entrada y salida de datos) y Filtros (para el desarrollo de los sistemas de recomendación). La siguiente imagen corresponde con dicho esquema. 
  ~\ref{fig:C.3.5}
@@ -191,3 +190,71 @@ El paquete Core,  en el que se encontrará toda la estructura de los sistemas de
 \caption{Diagrama de Clases del Core}
 \label{fig:C.3.5}
 \end{figure}
+El paquete GUI, por su parte, contendrá la estructura de la interfaz gráfica, para permitir la interacción del usuario con los sistemas de recomendación de forma ágil. La siguiente imagen hace referencia a dicho esquema.  ~\ref{fig:C.3.6}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{Diagrama_Interfaz}
+\caption{Diagrama de Clases del GUI}
+\label{fig:C.3.6}
+\end{figure}
+\subsubsection{Paquete Core}
+El paquete Core almacena dos paquetes en su interior: 
+\begin{itemize}
+\item \textbf{Filtro}: El paquete filtro contienen todo el código necesario para el desarrollo de los diferentes sistemas de recomendación. A su vez, este paquete contiene en su interior: 
+\begin{itemize}
+\item F\_B\_Memoria: Este paquete contendrá en su interior el desarrollo de los sistemas de recomendación con Filtro colaborativo basado en Memoria. 
+\begin{itemize}
+\item Productos: Este paquete contendrá la clase para el desarrollo del  Filtro colaborativo basado en Productos, clase que recibe la tabla de datos, y la matriz de similitud para ejecutar el sistema. 
+\item Usuarios : Este paquete contendrá la clase para el desarrollo del filtro colaborativo basado en Usuarios, clase que recibe la tabla de datos y la matriz de similitud, ambos datos recibidos del paquete Util. 
+\item Util: Este paquete desarrolla la matriz de distancias y la matriz de similitud en dos clases diferentes para  su utilización en los filtros colaborativos basados en memoria.  
+\end{itemize}
+\item F\_B\_Modelos: Este paquete aún no ha sido desarrollado. 
+\end{itemize}
+\item \textbf{I\_O}: Este paquete I\_O desarrollará las entradas y salidas de datos, tanto por fichero, por bases de datos y por GoogleDrive. De esta forma:
+\begin{itemize}
+\item I\_I\_O\_Datos: Implementará la entrada y salida de datos desde Base de Datos. 
+\item I\_O\_Datos\_Binario: Implementa la entrada y salida de los desde-a fichero binario. 
+\item I\_O\_Datos\_GoogleDrive: Clase que implementa la entrada y transformación de los datos anónimos recogidos en Google Drive para el entrenamiento de los sistemas de recomendación y su almacenamiento en Base de Datos. 
+\end{itemize} 
+\end{itemize}
+
+\subsubsection{Paquete GUI}
+El paquete GUI almacena el código para el desarrollo del la interfaz gráfica para la interacción con el usuario. Este paquete contiene en su interior: 
+\begin{itemize}
+\item \textbf{Autenticación}: Este paquete contiene en su interior la clase de inicio sesión, para introducir el usuario y la contraseña para ejecutar la aplicación. A su vez, dicho paquete contiene: 
+\begin{itemize}
+\item VentanaPrincipal: El paquete VentanaPrincipal contiene la clase para mostrar el esqueleto de lo que será la ventana que se muestre tras iniciar sesión. A su vez, dicho paquete contendrá en su interior dos paquetes e para el desarrollo de  las pestañas y las opciones de la interfaz. 
+\begin{itemize}
+\item Panel\_De\_Pestañas : Este paquete contiene las clases para desarrollar la interfaz gráfica con la que interactuará el usuario. 
+\begin{itemize}
+\item Asignaturas: Este paquete contiene las clases para almacenar los nombres de las asignaturas, así como los cursos para realizar las ponderaciones. Este paquete hace referencia a la primera pestaña.   
+\item Estadisticas: El paquete Estadística contiene los datos para el desarrollo de las estadísticas de la aplicación. 
+\item Modelos: Este paquete implementa las clases para mostrar el Top 10 de los sistemas de recomendación para las asignaturas de cuarto curso y la muestra de los resultados. 
+\end{itemize}
+
+\item Menu\_Opciones: Este paquete contiene la implementación del cerrado de la página. 
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\section{Diseño Procedimental}
+Los diferentes pasos para el correcto funcionamiento de la aplicación son los siguientes: 
+\subsection{Recogida de datos}
+En este apartado no se ha realizado una programación propiament dicha. Se ha utilizado typeform para la creación del cuestionario anónimo. con el siguiente enlace: \url{https://clarapalacios.typeform.com/to/RQRRfY}
+La portada del cuestionario es la siguiente. 
+~\ref{fig:D.1.1}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{cuestionario_anonimo_inicio}
+\caption{Imagen inicial del cuestionario}
+\label{fig:D.1.1}
+\end{figure}
+Tras la recopilación de datos, éstos se almacenarán en Drive, en un documento Excel. 
+\subsection{Almacenamiento y recuperación de los datos}
+La recuperación de los datos en Python desde GoogleDrive se permite gracias a la librería oauth2client y se almacena bien en un fichero binario, bien en la base de datos. 
+
+\subsection{Inicio sesión}
+Un usuario cualquiera, se registra en la aplicación-en caso de ser su primer acceso-o inicia sesión, accediendo a las ponderaciones rellenadas del grado.  
+\subsection{Cálculo del sistema de recomendación}
+Tras el rellenado de los datos, en la segunda pestaña, se le permite al usuario seleccionar el sistema de recomendación deseado, calculándose los valores de las asignaturas no cursadas y mostrándose dicho cálculo por pantalla. Los sistemas de recomendación no ejecutados por el usuario permanecerán desactivados. 
+\subsection{Muestra de Gráficos Auxiliares}
+La tercera pestaña mostrará gráficos y datos de interés para el usuario con respecto a las asignaturas cursadas y ponderadas por otros usuarios. 
