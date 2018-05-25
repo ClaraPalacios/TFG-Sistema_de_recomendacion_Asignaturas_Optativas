@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
-encoding//src/proyecto/gui/VentanaInicio.py=latin1
+encoding//src/main_consola.py=iso-8859-15
+encoding//src/proyecto/dicc/Nombres_Asignaturas.py=iso-8859-15
+encoding//src/proyecto/gui/Autenticacion/VentanaAutenticacion.py=latin1
+encoding//src/proyecto/gui/VentanaPrincipal/PanelDePestannas/Modelos/Modelos.py=iso-8859-15
+encoding//src/proyecto/gui/VentanaPrincipal/VentanaPrincipal.py=latin1
