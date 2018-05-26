@@ -1,4 +1,4 @@
-
+from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 from PyQt5 import QtCore
@@ -7,6 +7,7 @@ class SegundoCurso(QtWidgets.QFrame):
     
     def __init__(self, parent = None):
         super(SegundoCurso, self).__init__(parent)
+        self.dicc = Dicc()
         self.semestres_segundo()
         
     def semestres_segundo(self):
@@ -14,18 +15,20 @@ class SegundoCurso(QtWidgets.QFrame):
 
         #         Button : Entrar y salir
         self.segundo_semestre1_vert = QtWidgets.QVBoxLayout()
-        self.segundo_semestre1 = QtWidgets.QLabel("segundo_sem1", self)
+        self.segundo_semestre1 = QtWidgets.QLabel(self.dicc.segundo_sem1, self)
         self.segundo_semestre1.setToolTip('Pulsa para entrar')
-        self.segundo_semestre1.setStyleSheet('color: black; ')
+        self.segundo_semestre1.setStyleSheet('color: blue; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.segundo_semestre1.setFont(fontTex)
-        
-        self.label_s_p_asig1 = QtWidgets.QLabel("s_p_asig1", self)
+        self.segundo_semestre1.setAlignment( QtCore.Qt.AlignHCenter)
+
+        self.label_s_p_asig1 = QtWidgets.QLabel(self.dicc.segundo_semestre1p_p_asig1, self)
         self.label_s_p_asig1.setToolTip('Pulsa para entrar')
         self.label_s_p_asig1.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_s_p_asig1.setFont(fontTex)  
-         
+        self.label_s_p_asig1.setWordWrap(True) 
+
         self.slider_s_p_asig1 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_p_asig1.setMinimum(1)
         self.slider_s_p_asig1.setMaximum(5)
@@ -46,11 +49,13 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre1p_p_asig1.addWidget(self.slider_s_p_asig1)
         self.segundo_semestre1p_p_asig1.addWidget(self.label_value_s_p_asig1)
 
-        self.label_s_p_asig2 = QtWidgets.QLabel("s_p_asig2", self)
+        self.label_s_p_asig2 = QtWidgets.QLabel(self.dicc.segundo_semestre1p_p_asig2, self)
         self.label_s_p_asig2.setToolTip('Pulsa para entrar')
         self.label_s_p_asig2.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
-        self.label_s_p_asig2.setFont(fontTex)  
+        self.label_s_p_asig2.setFont(fontTex)
+        self.label_s_p_asig2.setWordWrap(True) 
+  
          
         self.slider_s_p_asig2 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_p_asig2.setMinimum(1)
@@ -72,11 +77,12 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre1p_p_asig2.addWidget(self.slider_s_p_asig2)
         self.segundo_semestre1p_p_asig2.addWidget(self.label_value_s_p_asig2)
         
-        self.label_s_p_asig3 = QtWidgets.QLabel("s_p_asig3", self)
+        self.label_s_p_asig3 = QtWidgets.QLabel(self.dicc.segundo_semestre1p_p_asig3, self)
         self.label_s_p_asig3.setToolTip('Pulsa para entrar')
         self.label_s_p_asig3.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
-        self.label_s_p_asig3.setFont(fontTex)  
+        self.label_s_p_asig3.setFont(fontTex) 
+        self.label_s_p_asig3.setWordWrap(True) 
          
         self.slider_s_p_asig3 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_p_asig3.setMinimum(1)
@@ -98,11 +104,12 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre1p_p_asig3.addWidget(self.slider_s_p_asig3)
         self.segundo_semestre1p_p_asig3.addWidget(self.label_value_s_p_asig3)
 
-        self.label_s_p_asig4 = QtWidgets.QLabel("s_p_asig4", self)
+        self.label_s_p_asig4 = QtWidgets.QLabel(self.dicc.segundo_semestre1p_p_asig4, self)
         self.label_s_p_asig4.setToolTip('Pulsa para entrar')
         self.label_s_p_asig4.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
-        self.label_s_p_asig4.setFont(fontTex)  
+        self.label_s_p_asig4.setFont(fontTex) 
+        self.label_s_p_asig4.setWordWrap(True) 
          
         self.slider_s_p_asig4 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_p_asig4.setMinimum(1)
@@ -124,11 +131,12 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre1p_p_asig4.addWidget(self.slider_s_p_asig4)
         self.segundo_semestre1p_p_asig4.addWidget(self.label_value_s_p_asig4)
         
-        self.label_s_p_asig5 = QtWidgets.QLabel("s_p_asig5", self)
+        self.label_s_p_asig5 = QtWidgets.QLabel(self.dicc.segundo_semestre1p_p_asig5, self)
         self.label_s_p_asig5.setToolTip('Pulsa para entrar')
         self.label_s_p_asig5.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_s_p_asig5.setFont(fontTex)  
+        self.label_s_p_asig5.setWordWrap(True)
          
         self.slider_s_p_asig5 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_p_asig5.setMinimum(1)
@@ -166,17 +174,20 @@ class SegundoCurso(QtWidgets.QFrame):
 
         #         Button : Entrar y salir
         self.segundo_semestre2_vert = QtWidgets.QVBoxLayout()
-        self.segundo_semestre2 = QtWidgets.QLabel("segundo_sem2", self)
+        self.segundo_semestre2 = QtWidgets.QLabel(self.dicc.segundo_sem2, self)
         self.segundo_semestre2.setToolTip('Pulsa para entrar')
-        self.segundo_semestre2.setStyleSheet('color: black; ')
+        self.segundo_semestre2.setStyleSheet('color: blue; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.segundo_semestre2.setFont(fontTex)
+        self.segundo_semestre2.setAlignment( QtCore.Qt.AlignHCenter)
+
         
-        self.label_s_asig1 = QtWidgets.QLabel("s_s_asig1", self)
+        self.label_s_asig1 = QtWidgets.QLabel(self.dicc.segundo_semestre2_s_asig1, self)
         self.label_s_asig1.setToolTip('Pulsa para entrar')
         self.label_s_asig1.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_s_asig1.setFont(fontTex)  
+        self.label_s_asig1.setWordWrap(True)
          
         self.slider_s_s_asig1 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_s_asig1.setMinimum(1)
@@ -198,11 +209,12 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre2_s_asig1.addWidget(self.slider_s_s_asig1)
         self.segundo_semestre2_s_asig1.addWidget(self.label_value_s_s_asig1)
 
-        self.label_s_asig2 = QtWidgets.QLabel("s_s_asig2", self)
+        self.label_s_asig2 = QtWidgets.QLabel(self.dicc.segundo_semestre2_s_asig2, self)
         self.label_s_asig2.setToolTip('Pulsa para entrar')
         self.label_s_asig2.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_s_asig2.setFont(fontTex)  
+        self.label_s_asig2.setWordWrap(True)
          
         self.slider_s_s_asig2 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_s_asig2.setMinimum(1)
@@ -224,11 +236,12 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre2_s_asig2.addWidget(self.slider_s_s_asig2)
         self.segundo_semestre2_s_asig2.addWidget(self.label_value_s_s_asig2)
         
-        self.label_s_asig3 = QtWidgets.QLabel("s_s_asig3", self)
+        self.label_s_asig3 = QtWidgets.QLabel(self.dicc.segundo_semestre2_s_asig3, self)
         self.label_s_asig3.setToolTip('Pulsa para entrar')
         self.label_s_asig3.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_s_asig3.setFont(fontTex)  
+        self.label_s_asig3.setWordWrap(True)
          
         self.slider_s_s_asig3 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_s_asig3.setMinimum(1)
@@ -250,11 +263,12 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre2_s_asig3.addWidget(self.slider_s_s_asig3)
         self.segundo_semestre2_s_asig3.addWidget(self.label_value_s_s_asig3)
         
-        self.label_s_asig4 = QtWidgets.QLabel("s_s_asig4", self)
+        self.label_s_asig4 = QtWidgets.QLabel(self.dicc.segundo_semestre2_s_asig4, self)
         self.label_s_asig4.setToolTip('Pulsa para entrar')
         self.label_s_asig4.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_s_asig4.setFont(fontTex)  
+        self.label_s_asig4.setWordWrap(True)
          
         self.slider_s_s_asig4 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_s_asig4.setMinimum(1)
@@ -276,11 +290,12 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre2_s_asig4.addWidget(self.slider_s_s_asig4)
         self.segundo_semestre2_s_asig4.addWidget(self.label_value_s_s_asig4)
         
-        self.label_s_asig5 = QtWidgets.QLabel("s_s_asig5", self)
+        self.label_s_asig5 = QtWidgets.QLabel(self.dicc.segundo_semestre2_s_asig5, self)
         self.label_s_asig5.setToolTip('Pulsa para entrar')
         self.label_s_asig5.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_s_asig5.setFont(fontTex)  
+        self.label_s_asig5.setWordWrap(True)
          
         self.slider_s_s_asig5 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
         self.slider_s_s_asig5.setMinimum(1)
@@ -317,12 +332,12 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestre2_vert.addStretch(2)        
 
         self.segundo_semestres1_groupBox = QtWidgets.QGroupBox()
-        self.segundo_semestres1_groupBox.setTitle("Semestre1") 
+        self.segundo_semestres1_groupBox.setTitle(self.dicc.semestre1) 
         self.segundo_semestres1_groupBox.setLayout(self.segundo_semestre1_vert)
         
                 
         self.segundo_semestres2_groupBox = QtWidgets.QGroupBox()
-        self.segundo_semestres2_groupBox.setTitle("Semestre2") 
+        self.segundo_semestres2_groupBox.setTitle(self.dicc.semestre2) 
         self.segundo_semestres2_groupBox.setLayout(self.segundo_semestre2_vert)
 
 

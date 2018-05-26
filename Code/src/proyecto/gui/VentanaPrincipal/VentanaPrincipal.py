@@ -1,4 +1,5 @@
 # -*- coding: latin1 -*-
+from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 import os
@@ -9,14 +10,14 @@ class ValoracionesAsignaturas(QtWidgets.QMainWindow):
 
     def __init__(self,idioma_path, parent=None):
         super(ValoracionesAsignaturas, self).__init__(parent)
-
-        self.setWindowTitle("TFG CLARA")
-        self.resize(1100, 700)
+        self.dicc = Dicc()
+        self.setWindowTitle(self.dicc.vn_proyecto)
+        self.resize(1350, 700)
 
         #Show/hide frame 0=hide 1=show
         self.show_semestres=1;
         
-        self.cerrar_all = QtWidgets.QAction("salir", self)
+        self.cerrar_all = QtWidgets.QAction(self.dicc.vn_salir, self)
         self.cerrar_all.setShortcut("ini_o_salir")
         self.cerrar_all.setStatusTip("ini_p_salir")
         self.cerrar_all.triggered.connect(self.cerrar)       
@@ -25,7 +26,7 @@ class ValoracionesAsignaturas(QtWidgets.QMainWindow):
         ##Barratareas de arriba
         main_menu = self.menuBar()
         #menu1 barra de tareas
-        self.file_menu = main_menu.addMenu("Opciones") 
+        self.file_menu = main_menu.addMenu(self.dicc.vn_opciones) 
         self.file_menu.addAction(self.cerrar_all)
         
         self.menuPrincipal()
@@ -62,7 +63,7 @@ class ValoracionesAsignaturas(QtWidgets.QMainWindow):
         self.close()
 
         self.main = ValoracionesAsignaturas(os.getcwd())
-        self.main.setWindowTitle("TFG CLARA2")
+        self.main.setWindowTitle(self.dicc.vn_proyecto)
 
         self.main.show()
 

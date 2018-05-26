@@ -1,0 +1,1 @@
+from proyecto.dicc import Dicc

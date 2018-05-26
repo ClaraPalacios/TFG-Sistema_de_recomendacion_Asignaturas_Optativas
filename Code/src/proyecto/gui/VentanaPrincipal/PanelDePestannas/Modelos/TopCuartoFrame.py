@@ -1,3 +1,4 @@
+from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 from PyQt5 import QtCore
@@ -8,6 +9,7 @@ class TopCuartoFrame(QtWidgets.QFrame):
     
     def __init__(self, parent = None):
         super(TopCuartoFrame, self).__init__(parent)
+        self.dicc = Dicc()
         self.semestres_top_cuarto()
         
     def semestres_top_cuarto(self):
@@ -15,11 +17,12 @@ class TopCuartoFrame(QtWidgets.QFrame):
 
         #         Button : Entrar y salir
         self.top_cuarto_semestre1_vert = QtWidgets.QVBoxLayout()
-        self.top_cuarto_semestre1 = QtWidgets.QLabel("top_cuarto_sem1", self)
+        self.top_cuarto_semestre1 = QtWidgets.QLabel(self.dicc.top_asignaturas1, self)
         self.top_cuarto_semestre1.setToolTip('Pulsa para entrar')
-        self.top_cuarto_semestre1.setStyleSheet('color: black; ')
+        self.top_cuarto_semestre1.setStyleSheet('color: blue; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.top_cuarto_semestre1.setFont(fontTex)
+        self.top_cuarto_semestre1.setAlignment( QtCore.Qt.AlignHCenter)
         
         self.label_top_c_p_asig1 = QtWidgets.QLabel("c_p_asig1", self)
         self.label_top_c_p_asig1.setToolTip('Pulsa para entrar')
@@ -127,11 +130,12 @@ class TopCuartoFrame(QtWidgets.QFrame):
 
         #         Button : Entrar y salir
         self.top_cuarto_semestre2_vert = QtWidgets.QVBoxLayout()
-        self.top_cuarto_semestre2 = QtWidgets.QLabel("top_cuarto_sem2", self)
+        self.top_cuarto_semestre2 = QtWidgets.QLabel(self.dicc.top_asignaturas2, self)
         self.top_cuarto_semestre2.setToolTip('Pulsa para entrar')
-        self.top_cuarto_semestre2.setStyleSheet('color: black; ')
+        self.top_cuarto_semestre2.setStyleSheet('color: blue; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.top_cuarto_semestre2.setFont(fontTex)
+        self.top_cuarto_semestre2.setAlignment( QtCore.Qt.AlignHCenter)
         
         self.label_top_c_asig1 = QtWidgets.QLabel("c_s_asig1", self)
         self.label_top_c_asig1.setToolTip('Pulsa para entrar')
@@ -235,12 +239,13 @@ class TopCuartoFrame(QtWidgets.QFrame):
 
         self.graph_layout = QtWidgets.QVBoxLayout() 
         
-        self.label_graficas = QtWidgets.QLabel("graficas", self)
+        self.label_graficas = QtWidgets.QLabel(self.dicc.graficas, self)
         self.label_graficas.setToolTip('Pulsa para entrar')
-        self.label_graficas.setStyleSheet('color: black; ')
+        self.label_graficas.setStyleSheet('color: blue; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_graficas.setFont(fontTex) 
-        
+        self.label_graficas.setAlignment( QtCore.Qt.AlignHCenter)
+
         self.graph_layout.addStretch(2)
         self.graph_layout.addWidget(self.label_graficas)
 
@@ -266,16 +271,16 @@ class TopCuartoFrame(QtWidgets.QFrame):
 
 
         self.top_cuarto_semestres1_groupBox = QtWidgets.QGroupBox()
-        self.top_cuarto_semestres1_groupBox.setTitle("Semestre1") 
+        self.top_cuarto_semestres1_groupBox.setTitle(self.dicc.top_1_5) 
         self.top_cuarto_semestres1_groupBox.setLayout(self.top_cuarto_semestre1_vert)
         
                 
         self.top_cuarto_semestres2_groupBox = QtWidgets.QGroupBox()
-        self.top_cuarto_semestres2_groupBox.setTitle("Semestre2") 
+        self.top_cuarto_semestres2_groupBox.setTitle(self.dicc.top_5_10) 
         self.top_cuarto_semestres2_groupBox.setLayout(self.top_cuarto_semestre2_vert)
         
         self.top_cuarto_graficas_groupBox = QtWidgets.QGroupBox()
-        self.top_cuarto_graficas_groupBox.setTitle("Graficas") 
+        self.top_cuarto_graficas_groupBox.setTitle(self.dicc.graficas) 
         self.top_cuarto_graficas_groupBox.setLayout(self.graph_layout)
 
         self.top_cuarto_group_layout = QtWidgets.QHBoxLayout()
@@ -289,7 +294,7 @@ class TopCuartoFrame(QtWidgets.QFrame):
 
         
         self.pestana2_groupBox = QtWidgets.QGroupBox()
-        self.pestana2_groupBox.setTitle("Predicciones") 
+        self.pestana2_groupBox.setTitle(self.dicc.predicciones) 
         self.pestana2_groupBox.setLayout(self.top_cuarto_group_layout) 
 
         self.top_cuarto_semestres_layout = QtWidgets.QHBoxLayout()

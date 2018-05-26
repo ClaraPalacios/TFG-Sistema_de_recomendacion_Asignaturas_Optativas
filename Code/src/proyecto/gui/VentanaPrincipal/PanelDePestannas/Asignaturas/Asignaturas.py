@@ -2,21 +2,22 @@
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 import pickle
-
+from proyecto.dicc.Dicc import Dicc;
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Asignaturas.PrimeroCurso import PrimeroCurso
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Asignaturas.SegundoCurso import SegundoCurso
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Asignaturas.TerceroCurso import TerceroCurso
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Asignaturas.CuartoCurso import CuartoCurso
-
+from proyecto.dicc.Dicc import Dicc
 class Asignaturas(QtWidgets.QWidget):
     def __init__(self, parent = None):
         super(Asignaturas, self).__init__(parent)
+        self.dicc = Dicc()
         self.tab1UI()
         
     def tab1UI(self):
         
         #         Button : Entrar y salir
-        self.primero = QtWidgets.QPushButton("primero", self)
+        self.primero = QtWidgets.QPushButton(self.dicc.curso_primero, self)
         self.primero.setToolTip('Pulsa para entrar')
         self.primero.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -24,7 +25,7 @@ class Asignaturas(QtWidgets.QWidget):
         self.primero.clicked.connect(lambda: self.hideShow_frame(1))
 
         #         Button : Entrar y salir
-        self.segundo = QtWidgets.QPushButton("segundo", self)
+        self.segundo = QtWidgets.QPushButton(self.dicc.curso_segundo, self)
         self.segundo.setToolTip('Pulsa para entrar')
         self.segundo.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -33,7 +34,7 @@ class Asignaturas(QtWidgets.QWidget):
 
         
         #         Button : Entrar y salir
-        self.tercero = QtWidgets.QPushButton("tercero", self)
+        self.tercero = QtWidgets.QPushButton(self.dicc.curso_tercero, self)
         self.tercero.setToolTip('Pulsa para entrar')
         self.tercero.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -41,21 +42,21 @@ class Asignaturas(QtWidgets.QWidget):
         self.tercero.clicked.connect(lambda: self.hideShow_frame(3))
 
         #         Button : Entrar y salir
-        self.cuarto = QtWidgets.QPushButton("cuarto", self)
+        self.cuarto = QtWidgets.QPushButton(self.dicc.curso_cuarto, self)
         self.cuarto.setToolTip('Pulsa para entrar')
         self.cuarto.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.cuarto.setFont(fontTex)
         self.cuarto.clicked.connect(lambda: self.hideShow_frame(4))  
         
-        self.save = QtWidgets.QPushButton("Guardar", self)
+        self.save = QtWidgets.QPushButton(self.dicc.guardar, self)
         self.save.setToolTip('Pulsa para entrar')
         self.save.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.save.setFont(fontTex)
         self.save.clicked.connect(self.save_valoraciones)  
 
-        self.load = QtWidgets.QPushButton("Cargar", self)
+        self.load = QtWidgets.QPushButton(self.dicc.cargar, self)
         self.load.setToolTip('Pulsa para entrar')
         self.load.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -74,11 +75,11 @@ class Asignaturas(QtWidgets.QWidget):
         self.save_asignaturas.addWidget(self.load)
         
         self.save_asignaturas_groupBox = QtWidgets.QGroupBox()
-        self.save_asignaturas_groupBox.setTitle("controles") 
+        self.save_asignaturas_groupBox.setTitle(self.dicc.controles) 
         self.save_asignaturas_groupBox.setLayout(self.save_asignaturas)
         
         self.pestana1_botones_groupBox = QtWidgets.QGroupBox()
-        self.pestana1_botones_groupBox.setTitle("Cursos") 
+        self.pestana1_botones_groupBox.setTitle(self.dicc.cursos) 
         self.pestana1_botones_groupBox.setLayout(self.asignaturas_layout) 
         
         self.primero_semestres_frame=PrimeroCurso();

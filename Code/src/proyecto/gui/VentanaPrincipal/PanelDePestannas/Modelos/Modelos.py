@@ -10,6 +10,7 @@ from proyecto.core.Filtros.F_B_Memoria.util.Distancias import Distancias
 from proyecto.core.Filtros.F_B_Memoria.Usuarios.Filtro_Basado_Usuarios import Filtro_Basado_Usuarios
 from proyecto.core.Filtros.F_B_Memoria.Productos.Filtro_Basado_Productos import Filtro_Basado_Productos
 from proyecto.dicc.Nombres_Asignaturas import Nombres_Asignaturas
+from proyecto.dicc.Dicc import Dicc
 import operator
 import itertools
 
@@ -19,7 +20,8 @@ class Modelos(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super(Modelos, self).__init__(parent)
         
-        IO_DATOS = I_O_Datos_Binario('archivoDatos.bin')     
+        IO_DATOS = I_O_Datos_Binario('archivoDatos.bin')   
+        self.dicc = Dicc()  
         self.tabla = IO_DATOS.obtener_datos()
         self.tabla = IO_DATOS.transfor_datos(self.tabla)
         self.nombres_Asignaturas=Nombres_Asignaturas()
@@ -28,7 +30,7 @@ class Modelos(QtWidgets.QWidget):
     def tab2UI(self):
         
         #         Button : Entrar y salir
-        self.filtro1 = QtWidgets.QPushButton(" filtro1  ", self)
+        self.filtro1 = QtWidgets.QPushButton(self.dicc.filtro_usuarios, self)
         self.filtro1.setToolTip('Pulsa para entrar')
         self.filtro1.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -37,7 +39,7 @@ class Modelos(QtWidgets.QWidget):
 
         
         #         Button : Entrar y salir
-        self.filtro2 = QtWidgets.QPushButton(" filtro2  ", self)
+        self.filtro2 = QtWidgets.QPushButton(self.dicc.filtro_productos, self)
         self.filtro2.setToolTip('Pulsa para entrar')
         self.filtro2.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -46,7 +48,7 @@ class Modelos(QtWidgets.QWidget):
         self.filtro2.setEnabled(False)
         
         #         Button : Entrar y salir
-        self.filtro3 = QtWidgets.QPushButton(" filtro3  ", self)
+        self.filtro3 = QtWidgets.QPushButton(self.dicc.filtro_modelos, self)
         self.filtro3.setToolTip('Pulsa para entrar')
         self.filtro3.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -60,11 +62,11 @@ class Modelos(QtWidgets.QWidget):
         self.modelos_layout.addWidget(self.filtro3)
         
         self.pestana2_botones_groupBox = QtWidgets.QGroupBox()
-        self.pestana2_botones_groupBox.setTitle("Modelos") 
+        self.pestana2_botones_groupBox.setTitle(self.dicc.op_modelos) 
         self.pestana2_botones_groupBox.setLayout(self.modelos_layout) 
         
         #         Button : Entrar y salir
-        self.calcular_filtro1 = QtWidgets.QPushButton("Calcular f1  ", self)
+        self.calcular_filtro1 = QtWidgets.QPushButton(self.dicc.f_u_calcular, self)
         self.calcular_filtro1.setToolTip('Pulsa para entrar')
         self.calcular_filtro1.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -72,7 +74,7 @@ class Modelos(QtWidgets.QWidget):
         self.calcular_filtro1.clicked.connect(self.ejecutar_modelo1)  
         
         #         Button : Entrar y salir
-        self.calcular_filtro2 = QtWidgets.QPushButton("Calcular f2", self)
+        self.calcular_filtro2 = QtWidgets.QPushButton(self.dicc.f_p_calcular, self)
         self.calcular_filtro2.setToolTip('Pulsa para entrar')
         self.calcular_filtro2.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -80,7 +82,7 @@ class Modelos(QtWidgets.QWidget):
         self.calcular_filtro2.clicked.connect(self.ejecutar_modelo2)  
 
         #         Button : Entrar y salir
-        self.calcular_filtro3 = QtWidgets.QPushButton("Calcular f3  ", self)
+        self.calcular_filtro3 = QtWidgets.QPushButton(self.dicc.f_m_calcular, self)
         self.calcular_filtro3.setToolTip('Pulsa para entrar')
         self.calcular_filtro3.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -93,7 +95,7 @@ class Modelos(QtWidgets.QWidget):
         self.ejecucion_modelos_layout.addWidget(self.calcular_filtro3)
         
         self.pestana2_botones_ejecucion_groupBox = QtWidgets.QGroupBox()
-        self.pestana2_botones_ejecucion_groupBox.setTitle("Ejecución") 
+        self.pestana2_botones_ejecucion_groupBox.setTitle(self.dicc.ejecucion) 
         self.pestana2_botones_ejecucion_groupBox.setLayout(self.ejecucion_modelos_layout) 
         
         self.top_cuarto_semestres_frame = TopCuartoFrame();       
@@ -285,4 +287,4 @@ class Modelos(QtWidgets.QWidget):
         if n == 9:
             self.top_cuarto_semestres_frame.label_top_c_asig5.setText(i)
             self.top_cuarto_semestres_frame.label_top_c_asig5.setToolTip("Asignatura número: "+str(n+1) )
-            self.top_cuarto_semestres_frame.label_value_top_c_s_asig5.setText(str(round(j, 0)) + " ")
+            self.top_cuarto_semestres_frame.label_value_top_c_s_asig5.setText(str(round(j, 0)) + "  ")
