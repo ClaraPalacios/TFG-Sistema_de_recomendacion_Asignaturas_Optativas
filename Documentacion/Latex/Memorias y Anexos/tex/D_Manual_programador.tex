@@ -1,1 +1,68 @@
 \apendice{Documentación técnica de programación}
+En este apéndice, incluiremos las bases de programación y desarrollo del proyecto necesarias para un buen funcionamiento del Sistema de Recomendación. 
+
+\section{Recogida de datos}
+La recogida de datos se desarrolla utilizando un cuestionario anónimo en web, utilizando la página Typeform, de forma que se deben introducir de forma obligatoria las calificaciones de los tres primeros cursos. En este proyecto, hasta la fecha, 56 alumnos y ex-alumnos han rellenado dicho cuestionario. 
+\subsection{Creación del cuestionario}
+El cuestionario se ha creado utilizando la página gratuita de Typeform, modificando el aspecto del cuestionario y añadiendo las asignaturas y sus restricciones. 
+Se procedió al  guardado de los ficheros en un documento Excel en Google Drive, denominado "DatosTFG\_SistemasRecomendacion". 
+
+\subsection{Obtención de los datos}
+Para obtener los datos almacenados en Drive, se ha necesitado activar el API GoogleDrive, para poder acceder a los datos sin necesidad de descargar continuamente el fichero. Para ello: 
+\begin{itemize}
+ 
+\item Acceder a \url{https://console.developers.google.com/apis/library}
+\item Crear un nuevo proyecto\ref{fig:D.1.1}. Se debe tener en cuenta que hay un número máximo de proyectos creados de forma gratuita.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{crear_proyecto_api}
+\caption{Crear proyecto nuevo}
+\label{fig:D.1.1}
+\end{figure}  
+\item Introducir el nombre del proyecto creado y pulsar Crear.\ref{fig:D.1.2} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{nombre_proyecto_api}
+\caption{Dar nombre al proyecto}
+\label{fig:D.1.2}
+\end{figure}  
+\item Acceder a \url{https://console.developers.google.com/}
+\item Buscar GoogleDrive Api, y activar dicha api.\ref{fig:D.1.3} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{activar_google_drive}
+\caption{Activar Google Drive}
+\label{fig:D.1.3}
+\end{figure}  
+\item Activar credenciales para el proyecto creado\ref{fig:D.1.3} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{credenciales_proyecto_api}
+\caption{Obtener Credenciales}
+\label{fig:D.1.3}
+\end{figure}  
+\item Activar las credenciales para acceder al documento en Google Drive. \ref{fig:D.1.4} De esta forma, un cliente puede acceder a dichos datos. (El administrador en este caso). Pulsar "Qué credenciales necesito"
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{credenciales_seleccionar_api}
+\caption{Activar Credenciales}
+\label{fig:D.1.4}
+\end{figure}  
+\item Introducir el rol que se le dará, así como el nombre del servicio. \ref{fig:D.1.5}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{nombre_rol_api}
+\caption{Introducir nombre y rol}
+\label{fig:D.1.5}
+\end{figure}
+\item Tras pulsar continuar, se descargará un fichero json, y mostrará un mensaje por pantalla. 
+\item Abrir el fichero json y copiar el correo electrónico obtenido, compartiéndolo en el documento existente en google drive. 
+\end{itemize}
+Una vez pudiendo acceder a dichos datos, se debe acceder desde el código utilizando la librería ServiceAccountCredentials. Se debe tener en cuenta que el fichero json debe de encontrarse en el mismo directorio que el código que desee acceder al mismo. 
+
+
+\section{Tratamiento de los datos}
+Los datos recibidos desde la API contienen columnas no necesarias para el proyecto, tales como el Token y la fecha de rellenado. Por otra parte, al recibir los datos, en caso de no haberse cursado, el valor será un string vacío, por lo que habrá que modificar ese string por un NaN (de la librería numpy), para diferenciar de las calificaciones marcadas con cero por los usuarios.   Los datos devueltos por esta función de tratamiento se almacenan en un dataframe
+
+\section{Sistemas de recomendación}
+El desarrollo de los sistemas de recomendación se simplifica reutilizando las funciones de cálculo de matriz de similitud y de matriz de distancias, realizándolas de forma genérica para evitar la duplicidad del código. 

@@ -239,7 +239,7 @@ El paquete GUI almacena el código para el desarrollo del la interfaz gráfica p
 \section{Diseño Procedimental}
 Los diferentes pasos para el correcto funcionamiento de la aplicación son los siguientes: 
 \subsection{Recogida de datos}
-En este apartado no se ha realizado una programación propiament dicha. Se ha utilizado typeform para la creación del cuestionario anónimo. con el siguiente enlace: \url{https://clarapalacios.typeform.com/to/RQRRfY}
+En este apartado no se ha realizado una programación propiamente dicha. Se ha utilizado typeform para la creación del cuestionario anónimo. con el siguiente enlace: \url{https://clarapalacios.typeform.com/to/RQRRfY}
 La portada del cuestionario es la siguiente. 
 ~\ref{fig:D.1.1}
 \begin{figure}[h]
@@ -248,12 +248,18 @@ La portada del cuestionario es la siguiente.
 \caption{Imagen inicial del cuestionario}
 \label{fig:D.1.1}
 \end{figure}
+Por otra parte, el usuario final de la aplicación en un principio no tiene por qué rellenar dicho cuestionario, ya que ha sido creado con el único fin de recopilar datos. 
 Tras la recopilación de datos, éstos se almacenarán en Drive, en un documento Excel. 
 \subsection{Almacenamiento y recuperación de los datos}
 La recuperación de los datos en Python desde GoogleDrive se permite gracias a la librería oauth2client y se almacena bien en un fichero binario, bien en la base de datos. 
+Este procedimiento no es visto por el usuario final, al igual que la recogida de datos, de forma que una vez iniciada sesión, los datos ya se habrán cargado en la primera pestaña. 
 
 \subsection{Inicio sesión}
-Un usuario cualquiera, se registra en la aplicación-en caso de ser su primer acceso-o inicia sesión, accediendo a las ponderaciones rellenadas del grado.  
+Un usuario cualquiera, se registra en la aplicación-en caso de ser su primer acceso-o inicia sesión, accediendo a las ponderaciones rellenadas del grado.  Tras pulsar aceptar, accede a la pestaña principal de rellenado y modificación de datos.
+
+\subsection{Rellenado de datos}
+En caso de haberse registrado, la pestaña principal con el rellenado de asignaturas por curso permanecerá con una ponderación media en todas las asignaturas (3), pudiéndose modificar por el usuario tanto por teclado como con el ratón.
+ 
 \subsection{Cálculo del sistema de recomendación}
 Tras el rellenado de los datos, en la segunda pestaña, se le permite al usuario seleccionar el sistema de recomendación deseado, calculándose los valores de las asignaturas no cursadas y mostrándose dicho cálculo por pantalla. Los sistemas de recomendación no ejecutados por el usuario permanecerán desactivados. 
 \subsection{Muestra de Gráficos Auxiliares}
