@@ -54,7 +54,7 @@ En el modo administrador, además, será necesario el acceso a la API de GoogleD
 Tras la ejecución del proyecto, se abrirá una pestaña en la que el usuario debe introducir su correo y contraseña. 
 \subsection{Primera ventana}
 
-\subsection{Segunda ventana}
+\subsection{Primera pestaña}
 Tras iniciar sesión, aparecerá la siguiente pestaña: \ref{fig:E.2.1}
 \begin{figure}[h]
 \centering
@@ -77,10 +77,80 @@ En caso de haberse registrado por primera vez, en el área central de la pantall
 \caption{Parte central pestaña rellenado de datos}
 \label{fig:E.2.3}
 \end{figure}
-Se pueden modificar tanto con el ratón, arrastrando  slider o bien con el teclado con las flechas izquierda y derecha. En la siguiente imagen se puede observar la diferencia entre utilizar el ratón y el teclado. \ref{fig:E.2.4}
+Se pueden modificar las ponderaciones de las asignaturas bien con el ratón, arrastrando  slider, o bien con el teclado con las flechas izquierda y derecha. En la siguiente imagen se puede observar la diferencia entre utilizar el ratón y el teclado. \ref{fig:E.2.4}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.90\textwidth]{INTERFAZ_Rellenado_Datos_Raton_V1-0}
 \caption{Img Izq: Selección con ratón. Img Der: Selección con teclado}
 \label{fig:E.2.4}
 \end{figure}
+
+En los botones de control, se permite \textbf{guardar} y \textbf{cargar} los datos. Al pulsar el botón guardar, se guardarán los datos introducidos de los cursos en un fichero binario, mientras que si se pulsa cargar, dichos datos se cargarán de forma automática. \ref{fig:E.2.5}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_Guarda_Carga}
+\caption{Carga y guardado de datos}
+\label{fig:E.2.5}
+\end{figure}
+
+\subsection{Segunda pestaña}
+La segunda pestaña, con las recomendaciones obtenidas, tienen el siguiente aspecto \ref{fig:E.2.6}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_Recomendacion_V1-0}
+\caption{Recomendación por defecto}
+\label{fig:E.2.6}
+\end{figure}
+La funcionalidad de dicha pestaña se puede subdividir en: 
+\subsubsection{Selección y carga del sistema de recomendación}
+El área izquierda se utiliza para seleccionar el sistema de recomendación, siendo por defecto el F.C basado en memoria basado en Usuarios, estando deshabilitados los demás filtros colaborativos. \ref{fig:E.2.7} Como se puede observar, únicamente el primer filtro se encuentra habilitado, mientras que los dos sucesivos (basado en productos y  Filtro Colaborativo basado en modelo) se encuentran deshabilitados. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_seleccion_V1-0}
+\caption{Muestra de los botones deshabilitados}
+\label{fig:E.2.7}
+\end{figure}
+En cambio, si pulsamos el botón "Cargar F.C Productos" se habilita automáticamente la muestra de datos del Filtro Colaborativo basado en Productos. Esto lo podemos observar en la siguiente imagen, \ref{fig:E.2.8} en donde se ha pulsado el botón para el ejemplo. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_seleccion2_V1-0}
+\caption{Muestra de los botones habilitados tras pulsar cargar}
+\label{fig:E.2.8}
+\end{figure}
+\\
+Por otro lado, el área central indica las calificaciones redondeadas de las asignaturas recomendadas, con valores del 1-5, ordenadas de forma descendente.\ref{fig:E.2.9} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_Recomendacion_Asignaturas_V1-0}
+\caption{Muestra de los resultados de un filtro colaborativo}
+\label{fig:E.2.9}
+\end{figure}
+Para poder observar los valores reales que nos ha ofrecido el sistema de recomendación, deberíamos observar la gráfica de la derecha, en donde las calificaciones no están redondeadas. Para diferenciarlas, basta con colocar el ratón sobre una asignatura para observar el número de la asignatura, y poder verlo en la gráfica. \ref{fig:E.2.10} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_Rellenado_Valores_V1-0}
+\caption{Muestra del orden de la asignatura en la gráfica}
+\label{fig:E.2.10}
+\end{figure}
+Así, podemos observar que, "Control por Computador", es la asignatura 1, por lo que en la gráfica, será la primera barra, con una ponderación ligeramente superior al 4. De esta forma, se puede observar que no todas las asignaturas tienen una calificación de 4, por lo que la gráfica de barras resulta útil para ver las diferencias entre las asignaturas. \ref{fig:E.2.11} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_Grafica_V1-0}
+\caption{Muestra de la gráfica de asignaturas recomendadas}
+\label{fig:E.2.11}
+\end{figure}
+\\Por otra parte, también tenemos un gráfico que indica las preferencias en los diferentes áreas del usuario, para indicar qué campos son de mayor interés para el mismo, de forma que el usuario pueda conocer el campo por el que se podría decantar en un futuro. \ref{fig:E.2.12} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_Areas_V1-0}
+\caption{Muestra de la gráfica de campos preferentes}
+\label{fig:E.2.12}
+\end{figure}
+\\
+Se debe tener en cuenta que dos sistemas de recomendación pueden ofrecer dos resultados diferentes para una misma asignatura, por lo que dichos resultados son meramente informativos. 
+\subsection{Tercera pestaña}
+
+
+
+
+
