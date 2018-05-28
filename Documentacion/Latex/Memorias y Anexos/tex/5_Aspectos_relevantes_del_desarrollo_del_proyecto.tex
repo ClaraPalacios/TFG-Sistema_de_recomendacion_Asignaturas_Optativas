@@ -1,2 +1,19 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
-\cite{bortolot2005}
+En este apéndice, incluiremos los puntos más relevantes del proyecto y las decisiones tomadas. 
+\section{En Cloud}
+La base de datos se encuentra localizada en Cloud en PythonAnyywhere, de forma gratuita. A pesar de haber subido únicamente la base de datos, se permitía incluir el código, y devolver un json con el resultado de la ejecución de los sistemas de recomendación para poder ser utilizado desde cualquier lenguaje. Sin embargo, dada la carga de peticiones realizada y la limitación por ser una cuenta gratuita, hemos considerado la opción de ejecutar el código en local, de forma que no se pueda sobrecargar el servidor. 
+
+\section{Novedoso}
+Este trabajo es novedoso, ya que es la primera vez que se realiza un sistema de recomendación para un Trabajo Final de Grado, por lo que consideramos esta idea como interesante, tanto como proyecto como su aplicación para los alumnos.  En un futuro se podría incluir un mayor número de sistemas de recomendación, así como cálculos de diferencias entre ellos. 
+
+\section{LOPD}
+Se cumplen de forma estricta las normativas de la LOPD, de forma que al servidor no se suben datos de carácter personal de los usuarios. Por otra parte, las contraseñas de los usuarios se encriptan, para prevenir el robo de las mismas por acceso no autorizado al servidor. 
+\\En la misma línea, se ha realizado una aplicación de escritorio, ya que a los usuarios no suele gustar publicar sus datos en páginas web. Para prevenir el almacenamiento de los datos en el equipo, por si cualquier usuario decidiese eliminarlos y/o modificarlos,los datos del usuario se suben a servidor para no acceder a los ficheros directamente. 
+
+
+\section{Datos de entrenamiento}
+Los datos de entrenamiento para los sistemas de recomendación se han obtenido de un cuestionario realizado a los antiguos alumnos del grado de Ingeniería Informática, siendo distribuidos por los propios alumnos, profesores y el equipo de la Asociación de Ingenieros Informáticos quienes lo distribuyeron entre los alumnos de promociones anteriores. En este aspecto, me gustaría agradecer a la directiva de la Asociación de Ingenieros Informáticos, y en especial a  Javier López Martínez  por haber hecho posible dicha publicación. 
+
+
+
+

@@ -66,3 +66,10 @@ Los datos recibidos desde la API contienen columnas no necesarias para el proyec
 
 \section{Sistemas de recomendación}
 El desarrollo de los sistemas de recomendación se simplifica reutilizando las funciones de cálculo de matriz de similitud y de matriz de distancias, realizándolas de forma genérica para evitar la duplicidad del código. 
+\subsection{Basado en usuarios y productos}
+Se recibe la matriz de similitud y el diccionario de las asignaturas de 4 para calcular la predicción de las asignaturas y devolvérselas. 
+\subsection{Util}
+El paquete util implementa tanto el coeficiente de pearson como la matriz de similitud. 
+\subsubsection{Coeficiente de Pearson}
+Par el cálculo del coeficiente de pearson se recibe el dataframe junto con las variables a y b, que en uno de los filtros colaborativos son usuarios mientras que en el otro son items. De esta forma, el código puede ser reutilizado para ambos sistemas de recomendación. 
+En la misma línea, el cálculo de la matriz de similitud
