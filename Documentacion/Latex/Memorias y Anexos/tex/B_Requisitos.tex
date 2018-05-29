@@ -18,7 +18,7 @@ Este apéndice se subdivide en los diferentes requisitos necesarios para nuestro
 
 \item RF-2. Desarrollo de los sistemas de recomendación\\ 
 \begin{itemize}
-\item RF-2.1. Recogida de datos de Drive. 
+\item RF-2.1. Recogida de datos de Drive, Fichero Biario y/o Base de Datos. 
 \item RF-2.2. Tratamiento de los datos. 
 \item RF-2.3. Desarrollo del sistema de recomendación. 
 \item RF-2.4. Devolución de las calificaciones. \item Guardado de los datos. 
@@ -33,6 +33,7 @@ Este apéndice se subdivide en los diferentes requisitos necesarios para nuestro
 \item RF-3.5.Muestra de gráficos auxiliares para mayor información al usuario. 
 \item RF-3.6.Acceso a los datos generales en modo administrador. 
 \end{itemize}
+
 \end{itemize}
 
 \section{Especificación de Requisitos}
@@ -102,7 +103,7 @@ La primera tabla corresponde al desarrollo del cuestionario anónimo y la recogi
 \textbf{Versión} & 1.0  \\ 
 \textbf{Requisitos Funcionales}  & \begin{tabular}[c]{@{}l@{}}RF-1\\ RF-1.1\\ RF-1.2\\ RF-1.3\\\end{tabular}                                                                                                                  \\ 
 \textbf{Descripción de Requisitos} & \begin{tabular}[r]{@{}l@{}}Se obtendrán los datos de forma anónima  para el entrenamiento\\ de los sistemas de recomendación\\\end{tabular}                                                                                                                    \\
-\textbf{Precondiciones}     & No tiene \\
+\textbf{Precondiciones}     &Conexión a Internet. \\
 \textbf{Postcondiciones}         &  Se almacenarán los datos en una API de Google \\
 \textbf{Autor}         & Clara Palacios Rodrigo \\
 \textbf{Importancia}        &  Importante \\ \bottomrule
@@ -143,8 +144,8 @@ La tercera tabla corresponde con  el desarrollo de la interfaz gráfica, así co
 \textbf{Versión} & 1.0  \\ 
 \textbf{Requisitos Funcionales}  & \begin{tabular}[c]{@{}l@{}}RF-3\\ RF-3.1\\ RF-3.2\\ RF-3.3\\RF-3.4\\RF-3.5\\RF-3.6\end{tabular}                                                                                                                  \\ 
 \textbf{Descripción de Requisitos} & \begin{tabular}[c]{@{}l@{}}Se recogerán los datos al usuario y se mostrarán gráficos y resultados\\obtenidos del sistema de recomendación escogido.\\\end{tabular}                                                                                                                     \\
-\textbf{Precondiciones}     & \begin{tabular}[c]{@{}l@{}}Disponer de una interfaz gráfica.\\Haber solicitado los datos al usuario.\end{tabular}                                                                                                                     \\
-\textbf{Postcondiciones}         &  Ninguna \\
+\textbf{Precondiciones}     & \begin{tabular}[c]{@{}l@{}}Disponer de una interfaz gráfica.\\Haber solicitado los datos al usuario\\Tener al usuario registrado en la BD.\end{tabular}                                                                                                                     \\
+\textbf{Postcondiciones}         &  Devolver correctamente las calificaciones. \\
 \textbf{Autor}         & Clara Palacios Rodrigo \\
 \textbf{Importancia}        & Muy Importante \\ \bottomrule
 \end{tabular}
@@ -152,5 +153,43 @@ La tercera tabla corresponde con  el desarrollo de la interfaz gráfica, así co
 \end{table}
 
 
-\section{Requisitos Funcionales}
-Esta sección consistirá en el desarrollo de los requisitos funcionales de forma detallada explicando 
+\section{Requisitos necesarios}
+Esta sección consistirá en el desarrollo de los requisitos funcionales de forma detallada explicando sus pasos a seguir, así como qué es necesario para cada requisito. 
+\subsection{RF-1}
+La recogida de datos se ha realizado modo online. Se ha distribuido entre los alumnos del cuarto curso y antiguos alumnos de la carrera. 
+\subsubsection{RF-1.1}
+Creación de un cuestionario anónimo. Para este requisito funcional se ha requerido: 
+\begin{itemize}
+\item Conexión  y acceso a Internet. 
+\item Registro en la página de Typeform. 
+\item Conocimiento de las asignaturas existentes en el Grado de Ingeniería Informática. 
+\item Creación de un cuestionario anónimo de ponderaciones. 
+\item Selección del modo de guardado de los datos recabados. 
+\end{itemize}
+
+\subsubsection{RF-1.2}
+Para la distribución del cuestionario anónimo entre los diferentes alumnos, se ha solicitado ayuda a: 
+\begin{itemize}
+\item Tutor José Ignacio Santos Martín. 
+\item Javier López Martínez para la distribución mediante un correo en la Asociación de Ingenieros Informáticos. 
+\item Delegado del cuarto curso. 
+\end{itemize}
+
+\subsubsection{RF-1.3}
+Para la recogida y el almacenamiento de datos, se ha utilizado el API de Google Drive, en donde se almacenan los datos con un refresco de 3 minutos en una tabla de Excel. Para ello, se debe disponer de: 
+\begin{itemize}
+\item Conexión a Internet para el acceso a los datos. 
+\item Disponer de una cuenta Gmail. 
+\item Tener habilitado el API de Google Drive. 
+\end{itemize}
+
+\subsection{RF-2}
+Para el desarrollo de los sistemas  de recomendación se debe haber obtenido los datos del cuestionario anónimo de forma previa. 
+\subsubsection{RF-2.1}
+Para el acceso a los datos, bien  desde fichero binario almacenado en local, bien desde la API de GoogleDrive, bien desde Base de Datos en Cloud, se requiere: 
+\begin{itemize}
+\item Acceso a los datos en Drive, haciendo uso del API GoogleDrive y el fichero json obtenido de forma previa. 
+\item En caso de 
+\item Conocimiento de la implementación de los sistemas de recomendación. 
+
+\end{itemize}
