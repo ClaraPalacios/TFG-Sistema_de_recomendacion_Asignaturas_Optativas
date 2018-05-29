@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main_consola.py=iso-8859-15
 encoding//src/proyecto/core/I_O/I_O_Datos_API_Rest.py=iso-8859-15
+encoding//src/proyecto/core/I_O/I_O_Datos_Binario.py=iso-8859-15
 encoding//src/proyecto/dicc/Dicc.py=iso-8859-15
 encoding//src/proyecto/dicc/Nombres_Asignaturas.py=iso-8859-15
 encoding//src/proyecto/gui/Autenticacion/VentanaAutenticacion.py=latin1

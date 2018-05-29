@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore")
+
 import numpy as np
 class Distancias:
     def coef_corr_pearson(self,dataframe,a,b,rows=True):

@@ -481,6 +481,36 @@ class CuartoCurso(QtWidgets.QFrame):
         self.cuarto_semestre2_s_asig5.addWidget(self.label_value_c_s_asig5)
         
         
+        
+        
+        self.label_c_asig6 = QtWidgets.QLabel(self.dicc.cuarto_semestre2_s_asig6, self)
+        self.label_c_asig6.setToolTip('Pulsa para entrar')
+        self.label_c_asig6.setStyleSheet('color: black; ')
+        fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
+        self.label_c_asig6.setFont(fontTex)  
+        self.label_c_asig6.setWordWrap(True)
+         
+        self.slider_c_s_asig6 = QtWidgets.QSlider(QtCore.Qt.Horizontal)
+        self.slider_c_s_asig6.setMinimum(1)
+        self.slider_c_s_asig6.setMaximum(5)
+        self.slider_c_s_asig6.setValue(3)
+        self.slider_c_s_asig6.setTickPosition(QtWidgets.QSlider.TicksBelow)
+        self.slider_c_s_asig6.setTickInterval(1) 
+        self.slider_c_s_asig6.valueChanged.connect(self.valuechange_slider)
+
+
+        self.label_value_c_s_asig6 = QtWidgets.QLabel(str(self.slider_c_s_asig5.value()), self)
+        self.label_value_c_s_asig6.setToolTip('Pulsa para entrar')
+        self.label_value_c_s_asig6.setStyleSheet('color: black; ')
+        fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
+        self.label_value_c_s_asig6.setFont(fontTex)  
+                            
+        self.cuarto_semestre2_s_asig6 = QtWidgets.QHBoxLayout()
+        self.cuarto_semestre2_s_asig6.addWidget(self.label_c_asig6)
+        self.cuarto_semestre2_s_asig6.addWidget(self.slider_c_s_asig6)
+        self.cuarto_semestre2_s_asig6.addWidget(self.label_value_c_s_asig6)
+        
+        
         self.cuarto_semestre2_vert.addWidget(self.cuarto_semestre2)
         self.cuarto_semestre2_vert.addStretch(1.3)        
         self.cuarto_semestre2_vert.addLayout(self.cuarto_semestre2_s_asig1)
@@ -492,6 +522,8 @@ class CuartoCurso(QtWidgets.QFrame):
         self.cuarto_semestre2_vert.addLayout(self.cuarto_semestre2_s_asig4)
         self.cuarto_semestre2_vert.addStretch(1)        
         self.cuarto_semestre2_vert.addLayout(self.cuarto_semestre2_s_asig5)
+        self.cuarto_semestre2_vert.addStretch(1)        
+        self.cuarto_semestre2_vert.addLayout(self.cuarto_semestre2_s_asig6)
         self.cuarto_semestre2_vert.addStretch(2)        
 
 
@@ -553,7 +585,8 @@ class CuartoCurso(QtWidgets.QFrame):
             self.label_c_asig2.text():self.slider_c_s_asig2.value(),
             self.label_c_asig3.text():self.slider_c_s_asig3.value(),
             self.label_c_asig4.text():self.slider_c_s_asig4.value(),
-            self.label_c_asig5.text():self.slider_c_s_asig5.value()       
+            self.label_c_asig5.text():self.slider_c_s_asig5.value(),       
+            self.label_c_asig6.text():self.slider_c_s_asig6.value()       
         }
         return valoraciones    
     
@@ -563,6 +596,7 @@ class CuartoCurso(QtWidgets.QFrame):
         self.slider_c_s_asig3.setValue(diccionario[self.label_c_asig3.text()])
         self.slider_c_s_asig4.setValue(diccionario[self.label_c_asig4.text()])
         self.slider_c_s_asig5.setValue(diccionario[self.label_c_asig5.text()])
+        self.slider_c_s_asig6.setValue(diccionario[self.label_c_asig6.text()])
              
     def valuechange_slider(self):
 
@@ -583,3 +617,4 @@ class CuartoCurso(QtWidgets.QFrame):
         self.label_value_c_s_asig3.setText(str(self.slider_c_s_asig3.value()))
         self.label_value_c_s_asig4.setText(str(self.slider_c_s_asig4.value()))
         self.label_value_c_s_asig5.setText(str(self.slider_c_s_asig5.value()))
+        self.label_value_c_s_asig6.setText(str(self.slider_c_s_asig6.value()))

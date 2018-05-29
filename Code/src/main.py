@@ -16,3 +16,5 @@ if __name__ == '__main__':
     main = ValoracionesAsignaturas(os.getcwd())
     main.show()
     sys.exit(app.exec_())
+    
+    

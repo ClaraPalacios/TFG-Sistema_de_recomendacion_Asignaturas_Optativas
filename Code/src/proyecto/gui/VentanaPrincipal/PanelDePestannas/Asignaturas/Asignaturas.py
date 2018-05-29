@@ -7,7 +7,6 @@ from proyecto.gui.VentanaPrincipal.PanelDePestannas.Asignaturas.PrimeroCurso imp
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Asignaturas.SegundoCurso import SegundoCurso
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Asignaturas.TerceroCurso import TerceroCurso
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Asignaturas.CuartoCurso import CuartoCurso
-from proyecto.dicc.Dicc import Dicc
 class Asignaturas(QtWidgets.QWidget):
     def __init__(self, parent = None):
         super(Asignaturas, self).__init__(parent)
@@ -140,6 +139,7 @@ class Asignaturas(QtWidgets.QWidget):
                 self.cuarto_semestres_frame.set_values_primer_sem(b)
                 self.cuarto_semestres_frame.set_values_segundo_sem(b)
                 print(b)
+                
         except:
             pass
 

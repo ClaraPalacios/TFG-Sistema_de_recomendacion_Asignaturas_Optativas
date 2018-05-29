@@ -110,7 +110,8 @@ class Dicc():
         self.cuarto_semestre2_s_asig3 = 'Métodos Formales'
         self.cuarto_semestre2_s_asig4 = 'Nuevas Tecnologías y Empresa'
         self.cuarto_semestre2_s_asig5 = 'Minería de Datos'
-        
+        self.cuarto_semestre2_s_asig5 = 'Minería de Datos'
+        self.cuarto_semestre2_s_asig6 = 'Desarrollo Avanzado de Sistemas Software'        
         
         #top Asignaturas
         self.top_1_5 = "Top 1-5"

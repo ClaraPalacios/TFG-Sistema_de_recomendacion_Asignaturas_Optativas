@@ -3,9 +3,8 @@
 
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
-import sys
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Modelos.TopCuartoFrame import TopCuartoFrame
-#from proyecto.core.I_O.I_O_Datos_Binario import I_O_Datos_Binario
+# from proyecto.core.I_O.I_O_Datos_Binario import I_O_Datos_Binario
 from proyecto.core.I_O.I_O_Datos_API_Rest import I_O_Datos_API_Rest
 from proyecto.core.Filtros.F_B_Memoria.util.Distancias import Distancias
 from proyecto.core.Filtros.F_B_Memoria.Usuarios.Filtro_Basado_Usuarios import Filtro_Basado_Usuarios
@@ -16,18 +15,20 @@ import operator
 import itertools
 import pickle
 import pandas as pd
-
-
 class Modelos(QtWidgets.QWidget):
 
     def __init__(self, parent=None):
         super(Modelos, self).__init__(parent)
-        
-       # IO_DATOS = I_O_Datos_Binario('archivoDatos.bin')   
-        IO_DATOS=I_O_Datos_API_Rest('http://claratfg2.pythonanywhere.com/Valoraciones_Get_All')
         self.dicc = Dicc()  
-        self.tabla = IO_DATOS.obtener_datos()
-        self.tabla = IO_DATOS.transfor_datos(self.tabla)
+
+#         IO_DATOS = I_O_Datos_Binario('archivoDatos.bin')   
+#         self.tabla = IO_DATOS.obtener_datos()
+#         self.tabla = IO_DATOS.transfor_datos(self.tabla)
+#         
+        IO_DATOS=I_O_Datos_API_Rest('http://claratfg2.pythonanywhere.com/Valoraciones_Get_All')
+        self.tabla=IO_DATOS.obtener_datos()
+        self.tabla=IO_DATOS.transfor_datos(self.tabla)
+        
         self.nombres_Asignaturas=Nombres_Asignaturas()
         self.tab2UI()
         
@@ -114,54 +115,62 @@ class Modelos(QtWidgets.QWidget):
         self.ejecutar_modelo1()
          
     def ejecutar_modelo1(self):
-        
-        print("Filtro_Basado_Usuarios")
-        
-        distancias = Distancias()
-        self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
-        
-        filtro_Basado_Usuarios = Filtro_Basado_Usuarios(self.tabla, distancias.coef_corr_pearson)
-        
-        usuario = self.tabla.shape[0]-1
-        predic = dict(filtro_Basado_Usuarios.calcula_Prediccion_Cuarto(usuario))
-        predic = sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
-        self.predict_model1 = predic
-        self.actualiza_datos_Modelo_1()
-        
-        self.filtro1.setEnabled(True)
-        
-        predic= list(itertools.islice(predic, 10))
-        
-        self.top_cuarto_semestres_frame._static_ax.cla()
-        self.top_cuarto_semestres_frame.pinta_primera_grafica([ seq[0] for seq in predic ], [ seq[1] for seq in predic ])
-        
-        porcentajes=self.carazterizacion_calculo(predic)
-        self.top_cuarto_semestres_frame._static_ax2.cla()
-        self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
-
-        print("------------------------------------------------------------------------------------")
+        try:
+            print("Filtro_Basado_Usuarios")
+            self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
     
+            distancias = Distancias()
+            filtro_Basado_Usuarios = Filtro_Basado_Usuarios(self.tabla, distancias.coef_corr_pearson)
+            
+            usuario = self.tabla.shape[0]-1
+            predic = dict(filtro_Basado_Usuarios.calcula_Prediccion_Cuarto(usuario))
+            predic = sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
+            self.predict_model1 = predic
+            self.actualiza_datos_Modelo_1()
+            
+            self.filtro1.setEnabled(True)
+            
+            predic= list(itertools.islice(predic, 10))
+            
+            self.top_cuarto_semestres_frame._static_ax.cla()
+            self.top_cuarto_semestres_frame.pinta_primera_grafica([ seq[0] for seq in predic ], [ seq[1] for seq in predic ])
+            
+            porcentajes=self.carazterizacion_calculo(predic)
+            self.top_cuarto_semestres_frame._static_ax2.cla()
+            self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
+            
+            self.tabla=self.tabla.drop(self.tabla.index[[self.tabla.shape[0]-1]])
+    
+            print("------------------------------------------------------------------------------------")
+        except:
+            pass
     def ejecutar_modelo2(self):
-        
-        print("Filtro_Basado_Productos")
-        distancias = Distancias()
-        filtro_Basado_Productos = Filtro_Basado_Productos(self.tabla, distancias.coef_corr_pearson)
-        usuario = 2
-        predic = dict(filtro_Basado_Productos.calcula_Prediccion_Cuarto(usuario))
-        predic = sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
-        print("------------------------------------------------------------------------------------")
-        self.predict_model2 = predic
-        self.actualiza_datos_Modelo_2()
-        self.filtro2.setEnabled(True)
-        
-        predic= list(itertools.islice(predic, 10))
-        
-        self.top_cuarto_semestres_frame._static_ax.cla()
-        self.top_cuarto_semestres_frame.pinta_primera_grafica([ seq[0] for seq in predic ], [ seq[1] for seq in predic ])
-        
-        porcentajes=self.carazterizacion_calculo(predic)
-        self.top_cuarto_semestres_frame._static_ax2.cla()
-        self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
+        try:
+            print("Filtro_Basado_Productos")
+            self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
+            distancias = Distancias()
+            filtro_Basado_Productos = Filtro_Basado_Productos(self.tabla, distancias.coef_corr_pearson)
+            
+            usuario = self.tabla.shape[0]-1
+            predic = dict(filtro_Basado_Productos.calcula_Prediccion_Cuarto(usuario))
+            predic = sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
+            print("------------------------------------------------------------------------------------")
+            self.predict_model2 = predic
+            self.actualiza_datos_Modelo_2()
+            self.filtro2.setEnabled(True)
+            
+            predic= list(itertools.islice(predic, 10))
+            
+            self.top_cuarto_semestres_frame._static_ax.cla()
+            self.top_cuarto_semestres_frame.pinta_primera_grafica([ seq[0] for seq in predic ], [ seq[1] for seq in predic ])
+            
+            porcentajes=self.carazterizacion_calculo(predic)
+            self.top_cuarto_semestres_frame._static_ax2.cla()
+            self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
+            
+            self.tabla=self.tabla.drop(self.tabla.index[[self.tabla.shape[0]-1]])
+        except:
+            pass
     def ejecutar_modelo3(self):
         
         
@@ -173,8 +182,7 @@ class Modelos(QtWidgets.QWidget):
             with open('valoraciones.pickle', 'rb') as handle:
                 return pickle.load(handle)
         except:
-            pass  
-    
+            pass            
     def actualiza_datos_Modelo_1(self):
         n = 0
         for k in self.predict_model1:
