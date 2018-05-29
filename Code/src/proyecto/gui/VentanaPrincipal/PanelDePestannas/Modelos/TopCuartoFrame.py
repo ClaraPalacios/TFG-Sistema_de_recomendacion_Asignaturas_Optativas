@@ -108,12 +108,11 @@ class TopCuartoFrame(QtWidgets.QFrame):
         self.label_value_top_c_p_asig5.setStyleSheet('color: green; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_value_top_c_p_asig5.setFont(fontTex)  
-        self.label_value_top_c_p_asig5.setWordWrap(True) 
 
         self.top_cuarto_semestre1p_p_asig5 = QtWidgets.QHBoxLayout()
         self.top_cuarto_semestre1p_p_asig5.addWidget(self.label_top_c_p_asig5)
         self.top_cuarto_semestre1p_p_asig5.addWidget(self.label_value_top_c_p_asig5)
-        
+
         self.top_cuarto_semestre1_vert.addWidget(self.top_cuarto_semestre1)
         self.top_cuarto_semestre1_vert.addStretch(1.3)  
         self.top_cuarto_semestre1_vert.addLayout(self.top_cuarto_semestre1p_p_asig1)

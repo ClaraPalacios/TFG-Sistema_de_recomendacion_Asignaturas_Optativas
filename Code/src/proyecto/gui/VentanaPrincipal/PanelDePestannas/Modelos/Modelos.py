@@ -5,7 +5,8 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 import sys
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Modelos.TopCuartoFrame import TopCuartoFrame
-from proyecto.core.I_O.I_O_Datos_Binario import I_O_Datos_Binario
+#from proyecto.core.I_O.I_O_Datos_Binario import I_O_Datos_Binario
+from proyecto.core.I_O.I_O_Datos_API_Rest import I_O_Datos_API_Rest
 from proyecto.core.Filtros.F_B_Memoria.util.Distancias import Distancias
 from proyecto.core.Filtros.F_B_Memoria.Usuarios.Filtro_Basado_Usuarios import Filtro_Basado_Usuarios
 from proyecto.core.Filtros.F_B_Memoria.Productos.Filtro_Basado_Productos import Filtro_Basado_Productos
@@ -13,6 +14,8 @@ from proyecto.dicc.Nombres_Asignaturas import Nombres_Asignaturas
 from proyecto.dicc.Dicc import Dicc
 import operator
 import itertools
+import pickle
+import pandas as pd
 
 
 class Modelos(QtWidgets.QWidget):
@@ -20,7 +23,8 @@ class Modelos(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super(Modelos, self).__init__(parent)
         
-        IO_DATOS = I_O_Datos_Binario('archivoDatos.bin')   
+       # IO_DATOS = I_O_Datos_Binario('archivoDatos.bin')   
+        IO_DATOS=I_O_Datos_API_Rest('http://claratfg2.pythonanywhere.com/Valoraciones_Get_All')
         self.dicc = Dicc()  
         self.tabla = IO_DATOS.obtener_datos()
         self.tabla = IO_DATOS.transfor_datos(self.tabla)
@@ -114,8 +118,11 @@ class Modelos(QtWidgets.QWidget):
         print("Filtro_Basado_Usuarios")
         
         distancias = Distancias()
+        self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
+        
         filtro_Basado_Usuarios = Filtro_Basado_Usuarios(self.tabla, distancias.coef_corr_pearson)
-        usuario = 2
+        
+        usuario = self.tabla.shape[0]-1
         predic = dict(filtro_Basado_Usuarios.calcula_Prediccion_Cuarto(usuario))
         predic = sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
         self.predict_model1 = predic
@@ -161,6 +168,12 @@ class Modelos(QtWidgets.QWidget):
         self.filtro3.setEnabled(True)
 
         pass
+    def load_valoraciones(self):
+        try:
+            with open('valoraciones.pickle', 'rb') as handle:
+                return pickle.load(handle)
+        except:
+            pass  
     
     def actualiza_datos_Modelo_1(self):
         n = 0
