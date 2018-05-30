@@ -8,7 +8,6 @@ from proyecto.core.Filtros.F_B_Memoria.Productos.Filtro_Basado_Productos import 
 import operator
 import pprint
 if __name__ == '__main__':
-    print("Filtro_Basado_Usuarios")
     IO_DATOS=I_O_Datos_Binario('archivoDatos.bin')     
     tabla=IO_DATOS.obtener_datos()
     tabla=IO_DATOS.transfor_datos(tabla)
@@ -26,12 +25,9 @@ if __name__ == '__main__':
     print("Filtro_Basado_Productos")
     distancias=Distancias()
     Filtro_Basado_Productos=Filtro_Basado_Productos(tabla,distancias.coef_corr_pearson)
-    print("pasa1")
     usuario=20
     predic=dict(Filtro_Basado_Productos.calcula_Prediccion_Cuarto(usuario))
-    print("pas2")
     predic = sorted(predic.items(), key=operator.itemgetter(1),reverse=True)
     pprint.pprint(predic)
-    print("pas3")
 
 

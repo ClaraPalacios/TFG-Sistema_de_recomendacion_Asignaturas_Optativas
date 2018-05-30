@@ -8,17 +8,26 @@ De forma previa a la utilización de la aplicación, se deberá tener instalado 
 \begin{itemize}
 \item Windows
 \end{itemize} 
-\item \textbf{distribución}
+\item \textbf{Distribución}
 \begin{itemize}
 \item Anaconda en su última versión estable 5.6, con la versión de Python 3.6. Dicha descarga se puede realizar a través del siguiente enlace: \url{https://www.anaconda.com/download/}
 \end{itemize}
-\item \textbf{Librerías auxiliares}
+\item \textbf{Librerías  y Paquetes auxiliares}
 \begin{itemize}
 \item Matplotlib en la versión 2.0 o superior. En caso de no disponer de dicha librería actualizada, se puede actualizar con el siguiente comando: "conda update --all".
+\item flask con el comando "pip install flask"
+\item flask\_marshmallow con el comando "pip install flask\_marshmallow"
+\item flasgger con el comando "pip install flasgger"
+\item SQLAlchemy con el comando "pip install SQLAlchemy" y el comando "pip install flask\_sqlalchemy"
 \end{itemize}
 \item \textbf{Proyecto}
 \begin{itemize}
 \item Descargar o clonar el proyecto TFG-Sistema\_de\_recomendacion\_Asignaturas\_Optativas a través del siguiente enlace: \url{https://github.com/ClaraPalacios/TFG-Sistema_de_recomendacion_Asignaturas_Optativas/issues}
+\end{itemize}
+\item \textbf{Otros}
+\begin{itemize}
+\item PyQt5
+\item PyDev en su versión 3.0-3.5
 \end{itemize}
 \end{itemize}
 
@@ -29,13 +38,17 @@ En el modo administrador, además, será necesario el acceso a la API de GoogleD
 \begin{itemize}
 \item Windows
 \end{itemize} 
-\item \textbf{distribución}
+\item \textbf{Distribución}
 \begin{itemize}
 \item Anaconda en su última versión estable 5.6, con la versión de Python 3.6. Dicha descarga se puede realizar a través del siguiente enlace: \url{https://www.anaconda.com/download/}
 \end{itemize}
-\item \textbf{Librerías auxiliares}
+\item \textbf{Librerías y Paquetes auxiliares}
 \begin{itemize}
 \item Matplotlib en la versión 2.0 o superior.  En caso de no disponer de dicha librería actualizada, se puede actualizar con el siguiente comando: "conda update --all".
+\item flask con el comando "pip install flask"
+\item flask\_marshmallow con el comando "pip install flask\_marshmallow"
+\item flasgger con el comando "pip install flasgger"
+\item SQLAlchemy con el comando "pip install SQLAlchemy" y el comando "pip install flask\_sqlalchemy"
 \end{itemize}
 \item \textbf{Datos Auxiliares}
 \begin{itemize}
@@ -44,6 +57,11 @@ En el modo administrador, además, será necesario el acceso a la API de GoogleD
 \item \textbf{Proyecto}
 \begin{itemize}
 \item Descargar o clonar el proyecto TFG-Sistema\_de\_recomendacion\_Asignaturas\_Optativas a través del siguiente enlace: \url{https://github.com/ClaraPalacios/TFG-Sistema_de_recomendacion_Asignaturas_Optativas/issues}
+\end{itemize}
+\item \textbf{Otros}
+\begin{itemize}
+\item PyQt5
+\item PyDev en su versión 3.0-3.5
 \end{itemize}
 \end{itemize}
 
@@ -54,7 +72,10 @@ En el modo administrador, además, será necesario el acceso a la API de GoogleD
 Tras la ejecución del proyecto, se abrirá una pestaña en la que el usuario debe introducir su correo y contraseña. 
 \subsection{Primera ventana}
 
+
+
 \subsection{Primera pestaña}
+\subsubsection{Version1.0}
 Tras iniciar sesión, aparecerá la siguiente pestaña: \ref{fig:E.2.1}
 \begin{figure}[h]
 \centering
@@ -93,6 +114,24 @@ En los botones de control, se permite \textbf{guardar} y \textbf{cargar} los dat
 \label{fig:E.2.5}
 \end{figure}
 
+
+\subsubsection{Version1.1}
+La versión que será entregada de forma definitiva, y que será entregada al tribunal varía levemente en la interfaz gráfica. Al igual que en la Versión 1.0, aparece dicha ventana tras iniciar sesión. La ventana para la ponderación de las asignaturas tiene el siguiente aspecto: \ref{fig:E.2.5.1}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_1_1_Principal}
+\caption{Pestaña principal versión 1.1}
+\label{fig:E.2.5.1}
+\end{figure}
+\\Ahí radica la diferencia, en la posibilidad de no aplicar una asignatura determinada. Este cambio se debe a que hay alumnos que han convalidado ciertas asignaturas y no las han cursado en el Grado de Ingeniería Informática.\ref{fig:E.2.5.2}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_1_1_Diferencia}
+\caption{Diferencia respecto a la  versión 1.0}
+\label{fig:E.2.5.2}
+\end{figure} 
+Exceptuando dicho cambio, el resto de las funcionalidades permanecen invariables. 
+
 \subsection{Segunda pestaña}
 La segunda pestaña, con las recomendaciones obtenidas, tienen el siguiente aspecto \ref{fig:E.2.6}
 \begin{figure}[h]
@@ -103,7 +142,7 @@ La segunda pestaña, con las recomendaciones obtenidas, tienen el siguiente aspe
 \end{figure}
 La funcionalidad de dicha pestaña se puede subdividir en: 
 \subsubsection{Selección y carga del sistema de recomendación}
-El área izquierda se utiliza para seleccionar el sistema de recomendación, siendo por defecto el F.C basado en memoria basado en Usuarios, estando deshabilitados los demás filtros colaborativos. \ref{fig:E.2.7} Como se puede observar, únicamente el primer filtro se encuentra habilitado, mientras que los dos sucesivos (basado en productos y  Filtro Colaborativo basado en modelo) se encuentran deshabilitados. 
+El área izquierda se utiliza para seleccionar el sistema de recomendación, siendo por defecto el F.C basado en memoria basado en Usuarios, estando deshabilitados los demás filtros colaborativos. \ref{fig:E.2.7} \\Como se puede observar, únicamente el primer filtro se encuentra habilitado, mientras que los dos sucesivos (basado en productos y  Filtro Colaborativo basado en modelo) se encuentran deshabilitados. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.90\textwidth]{INTERFAZ_seleccion_V1-0}
@@ -132,7 +171,7 @@ Para poder observar los valores reales que nos ha ofrecido el sistema de recomen
 \caption{Muestra del orden de la asignatura en la gráfica}
 \label{fig:E.2.10}
 \end{figure}
-Así, podemos observar que, "Control por Computador", es la asignatura 1, por lo que en la gráfica, será la primera barra, con una ponderación ligeramente superior al 4. De esta forma, se puede observar que no todas las asignaturas tienen una calificación de 4, por lo que la gráfica de barras resulta útil para ver las diferencias entre las asignaturas. \ref{fig:E.2.11} 
+Así, podemos ver que, "Control por Computador", es la asignatura 1, por lo que en la gráfica, será la primera barra, con una ponderación ligeramente superior al 4. De esta forma, se puede observar que no todas las asignaturas tienen una calificación de 4, por lo que la gráfica de barras resulta útil para ver las diferencias entre las asignaturas. \ref{fig:E.2.11} 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.90\textwidth]{INTERFAZ_Grafica_V1-0}
@@ -148,7 +187,10 @@ Así, podemos observar que, "Control por Computador", es la asignatura 1, por lo
 \end{figure}
 \\
 Se debe tener en cuenta que dos sistemas de recomendación pueden ofrecer dos resultados diferentes para una misma asignatura, por lo que dichos resultados son meramente informativos. 
+
 \subsection{Tercera pestaña}
+
+
 
 
 
