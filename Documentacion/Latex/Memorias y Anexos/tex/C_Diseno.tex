@@ -161,21 +161,23 @@ En la pestaña de inicio, se permite a un usuario:
 
 
 \subsection{Rellenado de Datos}
-El primer botón de la pestaña superior permite acceder al rellenado de los datos para obtener las calificaciones de las asignaturas no cursadas. En caso de no haberse rellenado el mínimo necesario de las asignaturas, el resto de los botones, en la pestaña de selección del sistema de recomendación, exceptuando "Salir" permanecerán desactivados. 
+El primer botón de la pestaña superior permite acceder al rellenado de los datos para obtener las calificaciones de las asignaturas no cursadas. En caso de no haberse rellenado el mínimo necesario de las asignaturas, el resto de los botones, en la pestaña de selección del sistema de recomendación, exceptuando "Salir" permanecerán desactivados.  A partir de la versión 1.1, la versión entregable al tribunal, se permite no aplicar unas determinadas asignaturas para no ser utilizadas en los sistemas de recomendación. 
 La interacción que se le permite al usuario en dicha pestaña será la siguiente. 
 \begin{itemize}
 \item \textbf{Selección del curso}: Selección del curso para rellenar los datos. 
 \item \textbf{Ponderación de asignatura}: Se permite ponderar en un Slider tanto con el ratón, como con el teclado.
 \item \textbf{Guardar}: Guardar los datos insertados  manualmente  por el usuario. 
 \item \textbf{Modificación}: Se permitirá al usuario modificar las calificaciones en caso de haber insertado incorrectamente la ponderación. 
-
+\item \textbf{Anulación}: Se permitirá al usuario no aplicar una determinada asignatura que haya convalidado para no ser calculada en el sistema de recomendación. 
 \end{itemize}
 
 \subsection{Selección del sistema de Recomendación}
 La selección del sistema de recomendación se realiza en la segunda pestaña de la aplicación. En dicha pestaña, habrá botones que  estarán deshabilitados hasta que el usuario complete el rellenado mínimo de los datos. 
 La interacción que se le permite-tras habilitarse-será la siguiente: 
 \begin{itemize}
-\item Seleccionar el sistema de recomendación. 
+\item Seleccionar el cálculo de un determinado sistema de recomendación. 
+\item Mostrar los datos de dicho cálculo. 
+\item Ver el orden de la asignatura en la gráfica, colocando el ratón sobre la asignatura. 
 \end{itemize}
 
 \subsection{Muestra de otros datos}
@@ -229,7 +231,7 @@ El paquete GUI almacena el código para el desarrollo del la interfaz gráfica p
 \begin{itemize}
 \item Asignaturas: Este paquete contiene las clases para almacenar los nombres de las asignaturas, así como los cursos para realizar las ponderaciones. Este paquete hace referencia a la primera pestaña.   
 \item Estadisticas: El paquete Estadística contiene los datos para el desarrollo de las estadísticas de la aplicación. 
-\item Modelos: Este paquete implementa las clases para mostrar el Top 10 de los sistemas de recomendación para las asignaturas de cuarto curso y la muestra de los resultados. 
+\item Modelos: Este paquete implementa las clases y métodos para mostrar el Top 10 de los sistemas de recomendación para las asignaturas de cuarto curso y la muestra de los resultados. 
 \end{itemize}
 
 \item Menu\_Opciones: Este paquete contiene la implementación del cerrado de la página. 
@@ -258,7 +260,7 @@ Este procedimiento no es visto por el usuario final, al igual que la recogida de
 Un usuario cualquiera, se registra en la aplicación-en caso de ser su primer acceso-o inicia sesión, accediendo a las ponderaciones rellenadas del grado.  Tras pulsar aceptar, accede a la pestaña principal de rellenado y modificación de datos.
 
 \subsection{Rellenado de datos}
-En caso de haberse registrado, la pestaña principal con el rellenado de asignaturas por curso permanecerá con una ponderación media en todas las asignaturas (3), pudiéndose modificar por el usuario tanto por teclado como con el ratón.
+En caso de haberse registrado, la pestaña principal con el rellenado de asignaturas por curso permanecerá con una ponderación media en todas las asignaturas (3), pudiéndose modificar por el usuario tanto por teclado como con el ratón. Por otro lado, se permite deshabilitar una asignatura para no ser contabilizada por el sistema de recomendación. 
  
 \subsection{Cálculo del sistema de recomendación}
 Tras el rellenado de los datos, en la segunda pestaña, se le permite al usuario seleccionar el sistema de recomendación deseado, calculándose los valores de las asignaturas no cursadas y mostrándose dicho cálculo por pantalla. Los sistemas de recomendación no ejecutados por el usuario permanecerán desactivados. 
