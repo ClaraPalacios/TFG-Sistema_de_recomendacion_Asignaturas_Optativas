@@ -118,7 +118,7 @@ class Modelos(QtWidgets.QWidget):
         try:
             print("Filtro_Basado_Usuarios")
             self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
-    
+            
             distancias = Distancias()
             filtro_Basado_Usuarios = Filtro_Basado_Usuarios(self.tabla, distancias.coef_corr_pearson)
             

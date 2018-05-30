@@ -12,7 +12,7 @@ class ValoracionesAsignaturas(QtWidgets.QMainWindow):
         super(ValoracionesAsignaturas, self).__init__(parent)
         self.dicc = Dicc()
         self.setWindowTitle(self.dicc.vn_proyecto)
-        self.resize(1350, 700)
+        self.resize(1450, 700)
 
         #Show/hide frame 0=hide 1=show
         self.show_semestres=1;
@@ -45,13 +45,20 @@ class ValoracionesAsignaturas(QtWidgets.QMainWindow):
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
+        self.centerOnScreen()
+
     def menuPrincipal(self):
 
         self.panel_de_pestannas = Panel_de_pestannas(self)
 
         
-    
-
+    def centerOnScreen (self):
+        '''centerOnScreen()
+        Centers the window on the screen.
+        '''
+        resolution = QtWidgets.QDesktopWidget().screenGeometry()
+        self.move((resolution.width() / 2) - (self.frameSize().width() / 2),
+                  (resolution.height() / 2) - (self.frameSize().height() / 2)) 
         
         
 
