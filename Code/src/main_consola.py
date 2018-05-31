@@ -11,7 +11,7 @@ if __name__ == '__main__':
     IO_DATOS=I_O_Datos_Binario('archivoDatos.bin')     
     tabla=IO_DATOS.obtener_datos()
     tabla=IO_DATOS.transfor_datos(tabla)
-    pprint.pprint(tabla)
+    #pprint.pprint(tabla)
     #IO_DATOS.guardarDatos(DATOS)
     
 #     distancias=Distancias()

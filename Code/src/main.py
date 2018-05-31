@@ -12,7 +12,7 @@ if __name__ == '__main__':
 #     sys.exit(app.exec_())
 
     app = QtWidgets.QApplication(sys.argv)
-    #print(os.getcwd())
+    print(os.getcwd())
     main = ValoracionesAsignaturas(os.getcwd())
     main.show()
     sys.exit(app.exec_())

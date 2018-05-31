@@ -98,7 +98,8 @@ class Asignaturas(QtWidgets.QWidget):
         self.pestanna1_layout = QtWidgets.QHBoxLayout()
  
         
-        self.pestanna1_layout.addLayout(self.controles)   
+        self.pestanna1_layout.addLayout(self.controles) 
+          
         self.pestanna1_layout.addWidget(self.primero_semestres_frame.primero_semestres_frame)   
         self.pestanna1_layout.addWidget(self.segundo_semestres_frame.segundo_semestres_frame)   
         self.pestanna1_layout.addWidget(self.tercero_semestres_frame.tercero_semestres_frame)   

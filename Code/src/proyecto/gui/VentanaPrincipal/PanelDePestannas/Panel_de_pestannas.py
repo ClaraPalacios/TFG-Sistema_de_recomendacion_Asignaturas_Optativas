@@ -24,4 +24,4 @@ class Panel_de_pestannas(QtWidgets.QTabWidget):
         self.tab2.setLayout(self.pest2.pestanna2)
         
         self.pest3= Estadisticas()
-        self.tab3.setLayout(self.pest3.pestanna3)
+        self.tab3.setLayout(self.pest3.pestanna3_layout)
