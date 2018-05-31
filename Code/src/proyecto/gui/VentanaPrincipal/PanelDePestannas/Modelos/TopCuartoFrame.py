@@ -248,9 +248,6 @@ class TopCuartoFrame(QtWidgets.QFrame):
         self.graph_layout.addStretch(2)
         self.graph_layout.addWidget(self.label_graficas)
 
-        self.data = {'apples': 30, 'oranges': 25, 'lemons': 15, 'limes': 30}
-        self.names = list(self.data.keys())
-        self.values = list(self.data.values()) 
         
         self.static_canvas = FigureCanvas(Figure(figsize=(4, 3),dpi=100))
         self._static_ax = self.static_canvas.figure.subplots(  sharey=True)
