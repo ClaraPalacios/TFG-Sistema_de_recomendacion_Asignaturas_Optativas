@@ -116,12 +116,22 @@ La interfaz de inicio de sesión de la primera versión ~\ref{fig:C.3.1}  permit
 \end{figure}
 
 \subsection{Rellenado de cuestionario}
+\subsubsection{Versión 1.0}
 Tras iniciar sesión, se mostrará la siguiente pestaña ~\ref{fig:C.3.2} en la que el usuario debe ponderar las asignaturas cursadas, siendo las del primer curso obligatorias para la ejecución del sistema de recomendación. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.90\textwidth]{INTERFAZ_Rellenado_Datos}
 \caption{Interfaz de rellenado de cuestionario}
 \label{fig:C.3.2}
+\end{figure}
+
+\subsubsection{Versión 1.1}
+En la versión actualizada, se permite al usuario seleccionar las asignaturas como "omitida" para indicar que no se ha cursado dicha asignatura por convalidación. Esto se puede observar en la siguiente imagen: ~\ref{fig:C.3.3.1}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_1_1_Principal}
+\caption{Interfaz de rellenado de cuestionario final}
+\label{fig:C.3.3.1}
 \end{figure}
 
 \subsection{Muestra de resultados}
@@ -134,6 +144,7 @@ Tras el rellenado de datos, se habilitan los botones de la selección del sistem
 \end{figure}
 
 \subsection{Otros datos}
+\subsubsection{Versión 1.0}
 Se le mostrará unos datos auxiliares al usuario, en forma de gráficas, para mejorar su comprensión. Esto corresponde a la tercera pestaña de la aplicación. ~\ref{fig:C.3.4}
 \begin{figure}[h]
 \centering
@@ -141,6 +152,14 @@ Se le mostrará unos datos auxiliares al usuario, en forma de gráficas, para me
 \caption{Interfaz de datos adicionales}
 \label{fig:C.3.4}
 \end{figure}
+\subsubsection{Versión 1.1}
+La versión entregable de la tercera pestaña muestra datos de interés para el usuario. Correspondería con la siguiente imagen:~\ref{fig:C.3.4.1}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{INTERFAZ_Estadistica}
+\caption{Interfaz de datos adicionales}
+\label{fig:C.3.4.1}
+\end{figure} 
 
 \section{Posibles acciones del Usuario}
 A continuación se detallarán las posibles acciones que se le permite realizar a un usuario: 
@@ -175,13 +194,18 @@ La interacción que se le permite al usuario en dicha pestaña será la siguient
 La selección del sistema de recomendación se realiza en la segunda pestaña de la aplicación. En dicha pestaña, habrá botones que  estarán deshabilitados hasta que el usuario complete el rellenado mínimo de los datos. 
 La interacción que se le permite-tras habilitarse-será la siguiente: 
 \begin{itemize}
-\item Seleccionar el cálculo de un determinado sistema de recomendación. 
-\item Mostrar los datos de dicho cálculo. 
-\item Ver el orden de la asignatura en la gráfica, colocando el ratón sobre la asignatura. 
+\item \textbf{Selección del sistema de recomendación}:Seleccionar el cálculo de un determinado sistema de recomendación. 
+\item \textbf{Visualización del orden de asignaturas}: Ver el orden de la asignatura en la gráfica, colocando el ratón sobre la asignatura. 
 \end{itemize}
 
 \subsection{Muestra de otros datos}
 La tercera pestaña hacer referencia  a la muestra de datos al usuario. Para ello, en un principio, no se le añadirá funcionalidad auxiliar al usuario.
+Al usuario se le permite: 
+\begin{itemize}
+\item \textbf{Calcular}: Seleccionar el cálculo deseado (Media, Mediana, Máximo y Mínimo)
+\item\textbf{Selección del curso}: Seleccionar el curso para ver los valores de las asignaturas. 
+\item \textbf{Cerrar}: Cerrar la pestaña. 
+\end{itemize}
 
 \section{Posible diseño de Clases} 
 El paquete Core,  en el que se encontrará toda la estructura de los sistemas de recomendación, se subdivide en dos paquetes diferentes: I\_O (de entrada y salida de datos) y Filtros (para el desarrollo de los sistemas de recomendación). La siguiente imagen corresponde con dicho esquema. 
@@ -269,5 +293,17 @@ La tercera pestaña mostrará gráficos y datos de interés para el usuario con 
 
 
 \section{Diagrama de Clases Final}
+Este proyecto cuenta con dos partes: 
+\subsection{Autenticación}
+La autenticación consta de un paquete src con una única clase, utilizada para almacenar y recuperar los datos de la base de datos (tanto los datos de las asignaturas como del usuario. 
+Al haber problemas con las inserciones de asignaturas con espacios y tildes, se han tenido que traducir dichas asignaturas para poder almacenarlas en la BD. ~\ref{fig:C.4.1}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{Diagrama_Autenticacion}
+\caption{Diagrama de Clases de la Autenticación}
+\label{fig:C.4.1}
+\end{figure}
 
-\section{Diseño de Interfaz Final}
+\subsection{Sistema de recomendación de Asignaturas Optativas}
+En el sistema de recomendación, al igual que en la primera versión, los paquetes se subdividen en GUI y Core. 
+
