@@ -68,7 +68,9 @@ class ValoracionesAsignaturas(QtWidgets.QMainWindow):
         
         """   
         self.close()
+
         self.main = ValoracionesAsignaturas(os.getcwd())
         self.main.setWindowTitle(self.dicc.vn_proyecto)
+
         self.main.show()
 

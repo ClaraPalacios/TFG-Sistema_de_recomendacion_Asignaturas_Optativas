@@ -9,12 +9,14 @@ from proyecto.core.I_O.I_O_Datos_API_Rest import I_O_Datos_API_Rest
 from proyecto.core.Filtros.F_B_Memoria.util.Distancias import Distancias
 from proyecto.core.Filtros.F_B_Memoria.Usuarios.Filtro_Basado_Usuarios import Filtro_Basado_Usuarios
 from proyecto.core.Filtros.F_B_Memoria.Productos.Filtro_Basado_Productos import Filtro_Basado_Productos
+from proyecto.core.Filtros.F_B_Modelos.Filtro_Modelos import Filtro_Modelos
 from proyecto.dicc.Nombres_Asignaturas import Nombres_Asignaturas
 from proyecto.dicc.Dicc import Dicc
 import operator
 import itertools
 import pickle
 import pandas as pd
+import numpy as np
 class Modelos(QtWidgets.QWidget):
 
     def __init__(self, parent=None):
@@ -92,7 +94,7 @@ class Modelos(QtWidgets.QWidget):
         self.calcular_filtro3.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.calcular_filtro3.setFont(fontTex)
-#         ·self.calcular_filtro3.clicked.connect(self.ejecutar_modelo3)  
+        self.calcular_filtro3.clicked.connect(self.ejecutar_modelo3)  
         
         self.ejecucion_modelos_layout = QtWidgets.QVBoxLayout()
         self.ejecucion_modelos_layout.addWidget(self.calcular_filtro1)
@@ -116,7 +118,6 @@ class Modelos(QtWidgets.QWidget):
          
     def ejecutar_modelo1(self):
         try:
-            print("Filtro_Basado_Usuarios")
             self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
             
             distancias = Distancias()
@@ -141,12 +142,10 @@ class Modelos(QtWidgets.QWidget):
             
             self.tabla=self.tabla.drop(self.tabla.index[[self.tabla.shape[0]-1]])
     
-            print("------------------------------------------------------------------------------------")
         except:
             pass
     def ejecutar_modelo2(self):
         try:
-            print("Filtro_Basado_Productos")
             self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
             distancias = Distancias()
             filtro_Basado_Productos = Filtro_Basado_Productos(self.tabla, distancias.coef_corr_pearson)
@@ -154,7 +153,6 @@ class Modelos(QtWidgets.QWidget):
             usuario = self.tabla.shape[0]-1
             predic = dict(filtro_Basado_Productos.calcula_Prediccion_Cuarto(usuario))
             predic = sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
-            print("------------------------------------------------------------------------------------")
             self.predict_model2 = predic
             self.actualiza_datos_Modelo_2()
             self.filtro2.setEnabled(True)
@@ -172,11 +170,30 @@ class Modelos(QtWidgets.QWidget):
         except:
             pass
     def ejecutar_modelo3(self):
-        
-        
-        self.filtro3.setEnabled(True)
+        try:
+            tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
+            tabla=tabla.replace(np.nan,"")
+            tabla=tabla.replace(0,"")
 
-        pass
+            
+            filtro_Modelos=Filtro_Modelos(tabla) 
+            predic = filtro_Modelos.recomendaciones_cuarto
+            self.predict_model3 = predic
+
+            self.actualiza_datos_Modelo_3()
+            self.filtro3.setEnabled(True)
+            predic=sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
+            predic= list(itertools.islice(predic, 10))
+           
+            self.top_cuarto_semestres_frame._static_ax.cla()
+            self.top_cuarto_semestres_frame.pinta_primera_grafica([ seq[0] for seq in predic ], [ seq[1] for seq in predic ])
+            
+            porcentajes=self.carazterizacion_calculo(predic)
+            self.top_cuarto_semestres_frame._static_ax2.cla()
+            self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
+        except:
+            pass
+        
     def load_valoraciones(self):
         try:
             with open('valoraciones.pickle', 'rb') as handle:
@@ -249,16 +266,20 @@ class Modelos(QtWidgets.QWidget):
             sorted_x[i]=round((j*100)/total,0)
         return sorted_x
     def actualiza_datos_Modelo_3(self):
-        pass
-#         n = 0
-#         if self.predict_model3 != None:
-#             for k in self.predict_model3:
-#                 i, j = k
-#                 if n > 9:
-#                     break
-#                 self.actualiza_labels(n, i, j)
-#                 n += 1
-
+        n = 0
+        for k in self.predict_model3:
+            i, j = k
+            if n > 9:
+                break
+            self.actualiza_labels(n, i, j)
+            n += 1
+        predic= list(itertools.islice(self.predict_model3, 10))
+        self.top_cuarto_semestres_frame._static_ax.cla()
+        self.top_cuarto_semestres_frame.pinta_primera_grafica([ seq[0] for seq in predic ], [ seq[1] for seq in predic ]) 
+        
+        porcentajes=self.carazterizacion_calculo(predic)
+        self.top_cuarto_semestres_frame._static_ax2.cla()
+        self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
     def actualiza_labels(self, n, i, j):
 
         if n == 0:
