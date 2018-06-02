@@ -68,8 +68,39 @@ Los datos recibidos desde la API contienen columnas no necesarias para el proyec
 El desarrollo de los sistemas de recomendación se simplifica reutilizando las funciones de cálculo de matriz de similitud y de matriz de distancias, realizándolas de forma genérica para evitar la duplicidad del código. 
 \subsection{Basado en usuarios y productos}
 Se recibe la matriz de similitud y el diccionario de las asignaturas de 4 para calcular la predicción de las asignaturas y devolvérselas. 
+
 \subsection{Util}
-El paquete util implementa tanto el coeficiente de pearson como la matriz de similitud. 
-\subsubsection{Coeficiente de Pearson}
+El paquete util implementa tanto el coeficiente de Pearson como la matriz de similitud. 
+\subsubsection{Distancias}
 Par el cálculo del coeficiente de pearson se recibe el dataframe junto con las variables a y b, que en uno de los filtros colaborativos son usuarios mientras que en el otro son items. De esta forma, el código puede ser reutilizado para ambos sistemas de recomendación. 
-En la misma línea, el cálculo de la matriz de similitud
+\subsubsection{Matriz\_Similitud}
+En la misma línea, el cálculo de la matriz de similitud se realiza de forma genérica para poder acceder tanto por el filtro colaborativo basado en usuarios como por el filtro colaborativo basado en productos. Esta clase recibe el dataframe de los datos con los que se trabajará, calcula la matriz de similitud con todos los elementos y devuelve una matriz de similitud elemento-elemento. 
+
+\section{I\_O\_Datos}
+El paquete I\_O\_Datos implementa la recuperación de datos tanto de drive, de un fichero binario o de la base de datos. De esta forma:
+\subsection{Binario}
+Para la lectura de datos en binario, se obtiene todo el dataframe eliminándose las columnas innecesarias,  y devolviéndose un dataframe con el que se pueda trabajar. 
+
+\subsection{GoogleDrive}
+El funcionamiento de esta opción se ha realizado en la primera sección de forma que no se entrará en detalles
+
+\subsection{API\_Rest}
+En esta clase, se obtienen-a través de un json- y se almacenan los datos de Cloud reemplazando tildes y espacios en blanco de los nombres de las asignaturas. Por otra parte, se deben eliminar las columnas no necesarias. 
+Finalmente, la clase devuelve un dataframe para poder trabajar con él. 
+
+\section{Diccionario}
+El diccionario utilizado sirve tanto para los elementos de la interfaz gráfica (secciones, botones...) como el almacenamiento y subdivisión de las asignaturas por semestres, así como la caracterización de las asignaturas. 
+
+\section{Interfaz gráfica}
+La interfaz gráfica se ha desarrollado utilizando PyQt5. Para su estructura, se ha subdividido el código en paquetes, de forma haya un paquete por cada pestaña y un panel de pestañas y la ventana principal. 
+\subsection{Asignaturas}
+Este paquete contienen las asignaturas de cada curso para la primera pestaña, junto con los layout y checkbox para modificar sus ponderaciones. Por otra parte, la clase ``Asignatura'' Implementa los métodos de guardado de los datos y carga de los mismos. 
+
+\subsection{Modelos}
+Este paquete implementa las clases para la muestra de los resultados de las asignaturas, así como las gráficas relacionadas con dichos resultados. Esto está implementado en la clase TopCuartoFrame, clase encargada de pintar los resultados. \\Para su obtención, desde la clase Modelos del mismo paquete se implementan las funciones para ejecutar los filtros colaborativos y establecer las asignaturas del curso que vayan a aparecer en la pestaña. 
+
+\subsection{Estadísticas}
+Corresponde con la tercera pestaña de gráficos auxiliares para el usuario. Este paquete contiene los cuatro cursos para mostrar sus nombres en el área de las leyendas y su media, mediana, máximo y mínimo en las gráficas. Estos cálculos se realizan en el paquete estadística, así como el establecimiento de las barras verticales correspondientes a las asignaturas.
+
+
+\section{Base de Datos} 
