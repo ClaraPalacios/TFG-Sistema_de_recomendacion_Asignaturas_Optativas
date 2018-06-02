@@ -126,7 +126,7 @@ Tras iniciar sesión, se mostrará la siguiente pestaña ~\ref{fig:C.3.2} en la 
 \end{figure}
 
 \subsubsection{Versión 1.1}
-En la versión actualizada, se permite al usuario seleccionar las asignaturas como "omitida" para indicar que no se ha cursado dicha asignatura por convalidación. Esto se puede observar en la siguiente imagen: ~\ref{fig:C.3.3.1}
+En la versión actualizada, se permite al usuario seleccionar las asignaturas como ``omitida'' para indicar que no se ha cursado dicha asignatura por convalidación. Esto se puede observar en la siguiente imagen: ~\ref{fig:C.3.3.1}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.90\textwidth]{INTERFAZ_1_1_Principal}
@@ -160,7 +160,7 @@ La versión entregable de la tercera pestaña muestra datos de interés para el 
 \caption{Interfaz de datos adicionales}
 \label{fig:C.3.4.1}
 \end{figure} 
-
+En ella se permitirá observar las medias, medianas, máximos y mínimos de las calificaciones generales de los usuarios. De esta forma, al usuario se le informa de la opinión general del resto de estudiantes con respecto a dicha asignatura. 
 \section{Posibles acciones del Usuario}
 A continuación se detallarán las posibles acciones que se le permite realizar a un usuario: 
 \subsection{Pestaña de Inicio}
@@ -303,7 +303,20 @@ Al haber problemas con las inserciones de asignaturas con espacios y tildes, se 
 \caption{Diagrama de Clases de la Autenticación}
 \label{fig:C.4.1}
 \end{figure}
+Hay que tener en cuenta que no se debe confundir dicho paquete con el incluido en GUI, el cual 
 
 \subsection{Sistema de recomendación de Asignaturas Optativas}
-En el sistema de recomendación, al igual que en la primera versión, los paquetes se subdividen en GUI y Core. 
-
+En el sistema de recomendación, al igual que en la primera versión, los paquetes se subdividen en GUI,  Core y Dicc. Actualmente, dichos paquetes se encuentran incluidos en un paquete Proyecto, de forma que todos los paquetes se encuentren centralizado  en una única carpeta. Los paquetes GUI y Core permanecen invariables según lo que se ha realizado en la primera versión, mientras que se ha modificado el paquete del diccionario. 
+\subsubsection{Dicc}
+El paquete Dicc contiene el diccionario de traducción para la interfaz gráfica, de forma que no haya que introducir las cadenas de texto en el código, y se evite la repetición de las mismas. Este paquete contiene en su interior: 
+\begin{itemize}
+\item Dicc: Diccionario para la traducción de los botones, cabeceras y áreas de la interfaz gráfica. Esto permite, en caso de introducir un nuevo lenguaje, no necesitar reescribir el cógido, sino introducir un nuevo diccionario de las variables. 
+\item NombreAsignaturas: Esta clase contiene los getter y setter de las asignaturas de la carrera, así como el establecimiento de los diccionarios de los semestres y la caracterización de las asignaturas para obtener el campo sobre el que se desarrollan. 
+\end{itemize}
+La estructura de clases de dicho paquete es la siguiente: ~\ref{fig:C.4.2}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{Diagrama_Dicc}
+\caption{Diagrama de Clases del Diccionario}
+\label{fig:C.4.2}
+\end{figure}
