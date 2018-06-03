@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: iso-8859-15 -*-
-
+# -*- coding: latin1 -*-
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Modelos.TopCuartoFrame import TopCuartoFrame
@@ -35,7 +33,10 @@ class Modelos(QtWidgets.QWidget):
         self.tab2UI()
         
     def tab2UI(self):
-        
+        """
+        Métood que implementa los botones de los filtros colaborativos y llama a su funcionalidad
+        tras ser pulsados.
+        """
         #         Button : Entrar y salir
         self.filtro1 = QtWidgets.QPushButton(self.dicc.filtro_usuarios, self)
         self.filtro1.setToolTip('Pulsa para entrar')
@@ -117,6 +118,10 @@ class Modelos(QtWidgets.QWidget):
         self.ejecutar_modelo1()
          
     def ejecutar_modelo1(self):
+        """
+        Método que ejecuta el filtro colaborativo basado en Usuarios, actualizándose
+        los datos, y pintándose las estadísticas. 
+        """
         try:
             self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
             
@@ -145,6 +150,10 @@ class Modelos(QtWidgets.QWidget):
         except:
             pass
     def ejecutar_modelo2(self):
+        """
+        Método que ejecuta el filtro colaborativo basado en productos, actualizándose los datos 
+        y pintando las estadísticas. 
+        """
         try:
             self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
             distancias = Distancias()
@@ -170,6 +179,11 @@ class Modelos(QtWidgets.QWidget):
         except:
             pass
     def ejecutar_modelo3(self):
+        """
+        Método que ejecuta el filtro colaborativo basado en modelo, actualiza
+        los datos y pinta las estadísticas. 
+        
+        """
         try:
             tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
             tabla=tabla.replace(np.nan,"")
@@ -195,12 +209,19 @@ class Modelos(QtWidgets.QWidget):
             pass
         
     def load_valoraciones(self):
+        """
+        Método que obtiene las valoraciones del fichero binario. 
+        """
         try:
             with open('valoraciones.pickle', 'rb') as handle:
                 return pickle.load(handle)
         except:
             pass            
     def actualiza_datos_Modelo_1(self):
+        """
+        Método que actualiza los datos de las asignaturas en el filtro colaborativo
+        basado en usuarios. 
+        """
         n = 0
         for k in self.predict_model1:
             i, j = k
@@ -220,6 +241,10 @@ class Modelos(QtWidgets.QWidget):
 
         
     def actualiza_datos_Modelo_2(self):
+        """
+        Método que actualiza las asignaturas del top 10 con el filtro colaborativo
+        basado en productos. 
+        """
         n = 0
         for k in self.predict_model2:
             i, j = k
@@ -240,7 +265,9 @@ class Modelos(QtWidgets.QWidget):
         
         
     def carazterizacion_calculo(self,predic): 
-        
+        """
+        Método que obtiene la caracterización de las asignaturas del top 10 
+        """
         dic={"Matematicas":0,
              "Derecho":0,
              "Programar":0,
@@ -266,6 +293,9 @@ class Modelos(QtWidgets.QWidget):
             sorted_x[i]=round((j*100)/total,0)
         return sorted_x
     def actualiza_datos_Modelo_3(self):
+        """
+        Método que actualiza las asignaturas del top 10 en el filtro colaborativo basado en modelos. 
+        """
         n = 0
         for k in self.predict_model3:
             i, j = k
@@ -281,7 +311,9 @@ class Modelos(QtWidgets.QWidget):
         self.top_cuarto_semestres_frame._static_ax2.cla()
         self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
     def actualiza_labels(self, n, i, j):
-
+        """
+        Método que actualiza el nombre de las asignaturas asignaturas así como el orden de las mismas.
+        """
         if n == 0:
             self.top_cuarto_semestres_frame.label_top_c_p_asig1.setText(i)
             self.top_cuarto_semestres_frame.label_top_c_p_asig1.setToolTip("Asignatura número: "+str(n+1) )

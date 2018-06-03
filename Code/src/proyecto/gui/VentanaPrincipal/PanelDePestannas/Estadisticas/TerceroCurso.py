@@ -1,3 +1,4 @@
+# -*- coding: latin1 -*-
 from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -10,6 +11,10 @@ class TerceroCurso(QtWidgets.QFrame):
         self.semestres_tercero()
         
     def semestres_tercero(self):
+        """
+        Método que establece en la interfaz gráfica las asignaturas del tercer curso
+        introduciendo las asignaturas en la leyenda
+        """
         self.tercero_frame = QtWidgets.QFrame()
 
         

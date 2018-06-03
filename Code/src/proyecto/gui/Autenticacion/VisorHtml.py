@@ -4,8 +4,7 @@ class VisorHtml(QtWidgets.QDialog):
 
     def __init__(self,path,parent=None):
         """
-        Metodo para inicializar y mostrar el visor HTML en la aplicacion
-        para la ayuda interactiva.
+        Metodo para inicializar y mostrar el visor HTML en la aplicacion.
         """
         self.path = path
         QtWidgets.QDialog.__init__(self,parent=None)

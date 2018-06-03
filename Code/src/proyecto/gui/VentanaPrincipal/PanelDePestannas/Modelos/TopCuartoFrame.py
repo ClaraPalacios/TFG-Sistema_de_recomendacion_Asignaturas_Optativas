@@ -1,3 +1,4 @@
+# -*- coding: latin1 -*-
 from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -13,6 +14,11 @@ class TopCuartoFrame(QtWidgets.QFrame):
         self.semestres_top_cuarto()
         
     def semestres_top_cuarto(self):
+        """
+        Método que pinta el top pinta las asignaturas del top 10 de las asignaturas
+        del cuarto curso, así como los valores de las mismas. 
+        """
+        
         self.top_cuarto_semestres_frame = QtWidgets.QFrame()
 
         #         Button : Entrar y salir
@@ -300,10 +306,15 @@ class TopCuartoFrame(QtWidgets.QFrame):
         self.top_cuarto_semestres_frame.setLayout(self.top_cuarto_semestres_layout)
         
     def pinta_primera_grafica(self,names,values):
-
+        """
+        Método que pinta la gráfica de barras del top 10
+        """
         self._static_ax.bar([i+1 for i in range(len(values))], values)
         
     def pinta_segunda_grafica(self,names,values):
+        """
+        Método que pinta la gráfica de las caracterizaciones de las asignaturas del top 10
+        """
         explode = (0.1, 0.1, 0.1, 0.1) 
         self._static_ax2.set_aspect('1')
         self._static_ax2.pie(values, labels=names,explode=explode, autopct='%1.1f%%', shadow=True, startangle=90)

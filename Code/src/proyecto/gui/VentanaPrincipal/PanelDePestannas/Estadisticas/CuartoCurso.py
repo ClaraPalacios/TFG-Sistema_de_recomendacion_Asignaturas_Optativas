@@ -1,3 +1,4 @@
+# -*- coding: latin1 -*-
 from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -10,11 +11,11 @@ class CuartoCurso(QtWidgets.QFrame):
         self.semestres_cuarto()
         
     def semestres_cuarto(self):
+        """
+        Método que establece en la interfaz gráfica las asignaturas del cuarto curso
+        introduciendo las asignaturas en la leyenda
+        """
         self.cuarto_frame = QtWidgets.QFrame()
-
-
-
-        
         self.label_c_p_asig1 = QtWidgets.QLabel("A1: "+self.dicc.cuarto_semestre1p_p_asig1, self)
         self.label_c_p_asig1.setToolTip('Pulsa para entrar')
         self.label_c_p_asig1.setStyleSheet('color: black; ')

@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: latin1 -*-
 from proyecto.dicc.Dicc import Dicc
 from proyecto.dicc.Nombres_Asignaturas import Nombres_Asignaturas
 from PyQt5 import QtWidgets
@@ -37,9 +36,11 @@ class Estadisticas(QtWidgets.QWidget):
         self.tab3UI()
         
     def tab3UI(self):
-
-        
-        
+        """
+        Método que establece la interfaz gráfica añadiendo los botones de los
+        cursos, así como los máximos, minimos, medias y medianas. Por otro 
+        lado, pinta por defecto las medias del primer curso
+        """       
         #         Button : Entrar y salir
         self.primero = QtWidgets.QPushButton(self.dicc.curso_primero, self)
         self.primero.setToolTip('Pulsa para entrar')
@@ -183,7 +184,7 @@ class Estadisticas(QtWidgets.QWidget):
         
     def hideShow_frame(self,i):
         """
-        
+        Método que muestra  y oculta los frames según el valor que se haya pulsado. 
         """   
         value=self.dictMedias if self.media_or_mediana==0 else self.dictMedian if self.media_or_mediana==1 else self.dictMax if self.media_or_mediana==2 else self.dictMin
         if i==1: 
@@ -213,25 +214,43 @@ class Estadisticas(QtWidgets.QWidget):
             self.tercero_frame.tercero_frame.hide()
             self.cuarto_frame.cuarto_frame.show()
 
-    def pinta_medias_primero(self,dictMedias):        
+    def pinta_medias_primero(self,dictMedias): 
+        """
+        método que pinta las meias del primer curso. 
+        """       
         self.get_values_curso(dictMedias,self.nombresAsigs.get_asignaturas_primero())
 
                                    
-    def pinta_medias_segundo(self,dictMedias):        
+    def pinta_medias_segundo(self,dictMedias):   
+        """
+        Método que pinta las medias del segundo curso. 
+        """     
         self.get_values_curso(dictMedias,self.nombresAsigs.get_asignaturas_segundo())
             
-    def pinta_medias_tercero(self,dictMedias):        
+    def pinta_medias_tercero(self,dictMedias):   
+        """
+        Método que pinta las medias del tercer curso
+        """  
         self.get_values_curso(dictMedias,self.nombresAsigs.get_asignaturas_tercero())
 
-    def pinta_medias_cuarto(self,dictMedias):        
+    def pinta_medias_cuarto(self,dictMedias):     
+        """
+        Método que pinta las medias del cuarto curso
+        """
         self.get_values_curso(dictMedias,self.nombresAsigs.get_asignaturas_cuarto())
 
     
     def pinta_asig_valor(self,asig,valor):
+        """
+        Método que pinta en la gráfica la barra de una asignatura determinada con su valor. 
+        """
         for i,j in zip(asig,valor):
             self._static_ax.bar(i,j)
             
     def get_values_curso(self,dictMedias,curso):
+        """
+        Método que pinta las barras de las asignaturas del cuarto curso
+        """
         vals=[]
         labels=[]            
         ii=1
@@ -246,6 +265,9 @@ class Estadisticas(QtWidgets.QWidget):
         
         
     def media_or_mediana_frame(self,i):
+        """
+        Método que calcula la media o la mediana. 
+        """
         self.media_or_mediana=i
         value=self.dicc.grafica_medias if self.media_or_mediana==0 else self.dicc.grafica_medianas if self.media_or_mediana==1 else self.dicc.grafica_maximos if self.media_or_mediana==2 else self.dicc.grafica_minimos
         self.graph_groupBox.setTitle(value) 

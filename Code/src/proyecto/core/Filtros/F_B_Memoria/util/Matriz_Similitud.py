@@ -1,9 +1,11 @@
+# -*- coding: latin1 -*-
 class Matriz_Similitud:
     def __init__(self,similarity):
         self._similarity=similarity
     def similarity_matrix_for_items(self,tabla, rows= False):
-
-
+        """
+        Método que calcula la matriz de similitud tanto para el filtro colaborativo basado en usuarios como del filtro colaborativo basado en productos. 
+        """
         matrizSim={}
 
         if rows==True:

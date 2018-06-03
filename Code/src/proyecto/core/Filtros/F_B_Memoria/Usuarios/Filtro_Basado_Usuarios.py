@@ -1,3 +1,4 @@
+# -*- coding: latin1 -*-
 import pandas as pd
 import numpy as np
 from proyecto.core.Filtros.F_B_Memoria.IFiltro_Memoria import IFiltro_Memoria
@@ -12,6 +13,9 @@ class Filtro_Basado_Usuarios(IFiltro_Memoria):
         self.asinaturas_cuarto=Nombres_Asignaturas().get_asignaturas_cuarto()
         
     def calculaPrediccion(self,asign,usuario):
+        """
+        Método que calcula la predicción del filtro basado en usuarios de los usuarios que han evaluado la asignatura. 
+        """
         # Encontrar los k usuarios que evaluaron 'asign'
         #Nacho guardamos las keys de los usuarios
         kUsuarios=self._tabla[self._tabla[asign]>0].index #np.where(dataframe[asign] > 0)[0]
@@ -38,6 +42,9 @@ class Filtro_Basado_Usuarios(IFiltro_Memoria):
         #Devolvemos el rating estimado
         return rating_user_u_item_i
     def calcula_Prediccion_Cuarto(self,usuario):
+        """
+        Método que calcula la predicción de las asignaturas de cuarto. 
+        """
         for i in self.asinaturas_cuarto:
             yield (i,self.calculaPrediccion(i,usuario))
             

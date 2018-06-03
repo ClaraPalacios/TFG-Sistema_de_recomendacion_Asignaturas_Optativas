@@ -9,7 +9,7 @@ import requests
 # from proyecto.gui.Window import Window
 class Registrar(QtWidgets.QMainWindow):
 
-    def __init__(self,idioma_path, parent=None):
+    def __init__(self, idioma_path, parent=None):
         super(Registrar, self).__init__(parent)
         self.dicc = Dicc()
         self.resize(800, 300)
@@ -20,9 +20,9 @@ class Registrar(QtWidgets.QMainWindow):
         self.cerrar_all.setStatusTip("ini_p_salir")
         self.cerrar_all.triggered.connect(self.cerrar)       
         
-        ##Barratareas de arriba
+        # #Barratareas de arriba
         main_menu = self.menuBar()
-        #menu1 barra de tareas
+        # menu1 barra de tareas
         self.file_menu = main_menu.addMenu(self.dicc.vn_opciones) 
         self.file_menu.addAction(self.cerrar_all)
         
@@ -37,7 +37,11 @@ class Registrar(QtWidgets.QMainWindow):
         self.setCentralWidget(central_widget)
 
     def inicioSesion(self):
-        
+        """
+        Método que crea la interfaz gráfica para el inicio de sesión, de los
+        layout, y botones para el correo y contraseña, así como el botón de 
+        entrar y salir
+        """
 #         usuario: texbox
         self.user_M = QtWidgets.QLabel(self.dicc.usuario, self)
         self.user_M.setAlignment(QtCore.Qt.AlignLeft)
@@ -81,7 +85,7 @@ class Registrar(QtWidgets.QMainWindow):
         self.emailTexArea.setFont(fontTex)        
 
         
-        #layouthorizontal for user label and data.        
+        # layouthorizontal for user label and data.        
         self.User_layout = QtWidgets.QHBoxLayout()
         self.User_layout.addStretch(1)  
         self.User_layout.addWidget(self.user_M)    
@@ -89,7 +93,7 @@ class Registrar(QtWidgets.QMainWindow):
         self.User_layout.addStretch(1) 
         self.User_layout.setAlignment(QtCore.Qt.AlignLeft)
         
-        #layouthorizontal for user label and data.
+        # layouthorizontal for user label and data.
         self.Password_layout = QtWidgets.QHBoxLayout()
         self.Password_layout.addStretch(1)  
         self.Password_layout.addWidget(self.password_M) 
@@ -98,7 +102,7 @@ class Registrar(QtWidgets.QMainWindow):
         self.Password_layout.setAlignment(QtCore.Qt.AlignLeft)
         
        
-        #layouthorizontal for email label and data.
+        # layouthorizontal for email label and data.
         self.email_layout = QtWidgets.QHBoxLayout()
         self.email_layout.addStretch(1)  
         self.email_layout.addWidget(self.email_M)  
@@ -124,7 +128,7 @@ class Registrar(QtWidgets.QMainWindow):
         self.entrar_B.clicked.connect(self.registro)
 
 
-        #layout for buttons
+        # layout for buttons
         self.Butons_layout = QtWidgets.QHBoxLayout()
         self.Butons_layout.addStretch(1) 
         self.Butons_layout.addWidget(self.entrar_B)   
@@ -143,7 +147,7 @@ class Registrar(QtWidgets.QMainWindow):
         self.Loggin_layout.setAlignment(QtCore.Qt.AlignLeft)
 
         
-    def clickables(self,widget):
+    def clickables(self, widget):
         """
         Metodo que habilita a la pantalla de inicio a dar funcionalidad
         a los labels que nos indican abrir o cargar proyectos.
@@ -168,18 +172,21 @@ class Registrar(QtWidgets.QMainWindow):
     
     
     def registro(self):
-        usuario=self.User_TexArea.text()
-        email=self.emailTexArea.text()
-        password= self.passwordTexArea.text()
-        rol="Usuario"
-        ##/User_Add   Añadir un usuario
-        r = requests.post("http://claratfg2.pythonanywhere.com/User_Add",json={
+        """
+        Método que solicita los datos al usuario para registrarse y los valida  en la BD
+        """
+        usuario = self.User_TexArea.text()
+        email = self.emailTexArea.text()
+        password = self.passwordTexArea.text()
+        rol = "Usuario"
+        # #/User_Add   Añadir un usuario
+        r = requests.post("http://claratfg2.pythonanywhere.com/User_Add", json={
           "email": email,
           "password": password,
           "rol": rol,
           "username": usuario
         })
-        if r.json()==True:            
+        if r.json() == True:            
             self.showdialog(self.dicc.creado_exito)
             self.close()
 
@@ -191,7 +198,11 @@ class Registrar(QtWidgets.QMainWindow):
   
         self.close()
 
-    def showdialog(self,i):
+    def showdialog(self, i):
+        """
+        Método que muestra una ventana emergente par aindicar si el 
+        registro ha sido exitoso o fallido
+        """
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Information)
         

@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: iso-8859-15 -*-
-
+# -*- coding: latin1 -*-
 import requests
 import pandas as pd
 import numpy as np
@@ -26,6 +24,9 @@ class I_O_Datos_API_Rest:
     
     #formato binario
     def obtener_datos(self):
+        """
+        Método que obtiene el dataframe del json de la base de datos. Renombra las columnas por las asignaturas ya que en la base de datos se almacenan sin tildes ni espacios. 
+        """
         try:
             r = requests.get(self._nombreArchivo)
             dataframeTabla = pd.DataFrame(data=r.json()["data"])
@@ -42,6 +43,11 @@ class I_O_Datos_API_Rest:
         pass
         
     def transfor_datos(self,tabla):
+        """
+        método que elimina las columnas no necesarias del dataframe, y transforma la cadena "nan" por Nan de la librería numpy. 
+        Devuelve el dataframe ordenado. 
+        """
+        
         #almacenar en un diccionario de diccionarios cuya clave sea el usuario, y como valor un conjunto de  diccionarios
         #(clave=nombre asignatura, valor=ponderacion). No introducimos el Token ni la fecha en la que se realizó el cuestionario. 
         asignaturas= list(tabla.columns)

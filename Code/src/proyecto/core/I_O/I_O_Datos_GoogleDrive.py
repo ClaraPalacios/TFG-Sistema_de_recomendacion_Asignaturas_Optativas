@@ -1,3 +1,4 @@
+# -*- coding: latin1 -*-
 import gspread
 import pandas as pd
 import numpy as np
@@ -10,6 +11,9 @@ class I_O_Datos_GoogleDrive(I_I_O_Datos):
         self._GDriveName=GDriveName
         
     def obtener_datos(self):
+        """
+        Método que obtiene los datos de GoogleDrive y los almacena en un dataframe
+        """
         # use creds to create a client to interact with the Google Drive API
         #scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
         scope = self._scope
@@ -28,6 +32,9 @@ class I_O_Datos_GoogleDrive(I_I_O_Datos):
         return tabla
     
     def transfor_datos(self,tabla):
+        """
+        Métodoo que transforma el dataframe, eliminando las columnas innecesarias. Devuelve un dataframe cuyas columnas son las asignaturas y las filas los usuarios. 
+        """
         #almacenar en un diccionario de diccionarios cuya clave sea el usuario, y como valor un conjunto de  diccionarios
         #(clave=nombre asignatura, valor=ponderacion). No introducimos el Token ni la fecha en la que se realizó el cuestionario. 
         asignaturas= list(tabla.columns)

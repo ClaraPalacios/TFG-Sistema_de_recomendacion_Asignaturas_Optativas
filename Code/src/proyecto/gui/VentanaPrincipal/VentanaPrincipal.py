@@ -56,14 +56,16 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
         self.centerOnScreen()
 
     def menuPrincipal(self):
-
+        """
+        establecer el panel de pestañas de la clase Pane de Pestañas
+        """
         self.panel_de_pestannas = Panel_de_pestannas(self)
 
         
     def centerOnScreen (self):
-        '''centerOnScreen()
+        """centerOnScreen()
         Centers the window on the screen.
-        '''
+        """
         resolution = QtWidgets.QDesktopWidget().screenGeometry()
         self.move((resolution.width() / 2) - (self.frameSize().width() / 2),
                   (resolution.height() / 2) - (self.frameSize().height() / 2)) 
@@ -73,16 +75,15 @@ class VentanaPrincipal(QtWidgets.QMainWindow):
 
     def cerrar(self):
         """
-        
+        Método para cerrar la ventana.
         """   
         self.close()
 
         
     def ayuda_fun(self):
         """
-        
+        Método para ejecutar la ayuda al pulsar el botón de ayuda.
         """   
         main = VisorHtml("file:///"+self.path + "/proyecto/gui/VentanaPrincipal/ayuda.html")
         main.exec_()
 
-        print("Hello ClaraWorld   ",str)

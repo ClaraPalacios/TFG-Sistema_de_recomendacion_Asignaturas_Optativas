@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: iso-8859-15 -*-
-
-
+# -*- coding: latin1 -*-
 class Nombres_Asignaturas:
 
     def __init__(self):
@@ -103,40 +100,79 @@ class Nombres_Asignaturas:
             }
         
     def get_caracterizacion(self):
+        """
+        Método que obtiene la caracterización de las asignaturas
+        """
         return self.caracterizacion
     
     def get_asignaturas_cuarto(self):
+        """
+        Método que devuelve las asignaturas del cuarto curso, 1 semestre
+        """
         return self._asignaturas_cuarto_sem1 + self._asignaturas_cuarto_sem2
 
     def get_asignaturas_cuarto_sem1(self):
+        """
+        Método que obtiene las asignaturas del cuarto curso, 1 semestre
+        """
         return self._asignaturas_cuarto_sem1
 
     def get_asignaturas_cuarto_sem2(self):
+        """
+        Método que obtiene las asignaturas del cuarto curso, 2 semestre
+        """        
         return self._asignaturas_cuarto_sem2
     
     def get_asignaturas_tercero(self):
+        """
+        Método que devuelve las asignaturas del tercer curso
+        """
         return self._asignaturas_tercero_sem1 + self._asignaturas_tercero_sem2
 
     def get_asignaturas_tercero__sem1(self):
+        """
+        Método que devuelve las asignaturas del tercer curso, 1 semestre
+        """        
         return self._asignaturas_tercero_sem1
 
     def get_asignaturas_tercero__sem2(self):
+        """
+        Método que devuelve las asignaturas del tercer curso, 2 semestre
+        """
         return self._asignaturas_tercero_sem2
     
     def get_asignaturas_segundo(self):
+        """
+        Método que devuelve las asignaturas del segundo curso
+        """
         return self._asignaturas_segundo_sem1 + self._asignaturas_segundo_sem2
 
     def get_asignaturas_segundo_sem1(self):
+        """
+        Método que devuelve las asignaturas del segundo curso, 1 semestre
+        """
         return self._asignaturas_segundo_sem1
 
     def get_asignaturas_segundo_sem2(self):
+        """
+        Método que devuelve las asignaturas del segundo curso, 2 semestre
+        """
         return self._asignaturas_segundo_sem2
     
     def get_asignaturas_primero(self):  
+        """
+        Método que devuelve las asignaturas del primer curso
+        """
         return self._asignaturas_primero_sem1 + self._asignaturas_primero_sem2
 
     def get_asignaturas_primero_sem1(self):
+        """
+        Método que devuelve las asignaturas del primer curso, 1 semestre
+        """
         return self._asignaturas_primero_sem1
 
     def get_asignaturas_primero_sem2(self):
+        """
+        Método que devuelve las asignaturas del primer curso, 2 semestre
+        """
         return self._asignaturas_primero_sem2

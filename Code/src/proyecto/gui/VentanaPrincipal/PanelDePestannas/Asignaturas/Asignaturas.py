@@ -1,4 +1,4 @@
-
+# -*- coding: latin1 -*-
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 import pickle
@@ -14,7 +14,11 @@ class Asignaturas(QtWidgets.QWidget):
         self.tab1UI()
         
     def tab1UI(self):
-        
+        """
+        Método que muestra las asignaturas de los cursos e implementa la 
+        funcionalidad de ocultarlas en caso de pulsar "Omitir". Almacena
+        los valores en los dataframes correspondientes. 
+        """
         #         Button : Entrar y salir
         self.primero = QtWidgets.QPushButton(self.dicc.curso_primero, self)
         self.primero.setToolTip('Pulsa para entrar')
@@ -108,7 +112,10 @@ class Asignaturas(QtWidgets.QWidget):
         
         
     def save_valoraciones(self):
-        
+        """
+        Método que almacena los valores de las asignaturas en los diccionarios
+        correspondientes.
+        """
 
         d= self.primero_semestres_frame.values_segundo_sem()
         d.update(self.primero_semestres_frame.values_primer_sem())
@@ -125,6 +132,9 @@ class Asignaturas(QtWidgets.QWidget):
             pickle.dump(d, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     def load_valoraciones(self):
+        """
+        Método que carga las asignaturas almacenadas del usuario. 
+        """
         try:
             with open('valoraciones.pickle', 'rb') as handle:
                 b = pickle.load(handle)
@@ -139,14 +149,13 @@ class Asignaturas(QtWidgets.QWidget):
                 
                 self.cuarto_semestres_frame.set_values_primer_sem(b)
                 self.cuarto_semestres_frame.set_values_segundo_sem(b)
-                print(b)
                 
         except:
             pass
 
     def hideShow_frame(self,i):
         """
-        
+        Método que permite ocultar las asignaturas.
         """   
         if i==1:            
             self.primero_semestres_frame.primero_semestres_frame.show()

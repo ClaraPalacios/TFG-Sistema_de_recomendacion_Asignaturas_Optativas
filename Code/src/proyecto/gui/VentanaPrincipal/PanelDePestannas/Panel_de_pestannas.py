@@ -1,3 +1,4 @@
+
 from PyQt5 import QtWidgets
 from proyecto.dicc.Dicc import Dicc
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Estadisticas.Estadisticas import Estadisticas

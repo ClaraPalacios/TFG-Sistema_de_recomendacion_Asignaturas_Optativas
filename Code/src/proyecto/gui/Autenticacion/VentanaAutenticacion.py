@@ -46,7 +46,9 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
     def inicioSesion(self):
-        
+        """
+        Método que crea la ventana de inicio sesión así como los botones de aceptar, registrarse o salir. 
+        """
 #         usuario: texbox
         self.user_M = QtWidgets.QLabel(self.dicc.email, self)
         self.user_M.setAlignment(QtCore.Qt.AlignLeft)
@@ -172,14 +174,22 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
         return filters.clicked    
     
     def cerrar(self):
-
+        """
+        Método que cierra la ventana. 
+        """
         self.close()
 
     def registrarse(self):
+        """
+        Método que llama a la clase registrase al pulsar el botón
+        """
         self.registrar = Registrar(os.getcwd())
         self.registrar.show()
         
     def autenticarse(self):
+        """
+        Método que autentifica al usuario al iniciar sesión. 
+        """
         email=self.User_TexArea.text()
         password=self.passwordTexArea.text()
         r = requests.post("http://claratfg2.pythonanywhere.com/User_Validate_Credentials",json={
@@ -187,16 +197,17 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
           "password": password
         })
         if r.json()==True:   
-            print(os.getcwd())
             self.main = VentanaPrincipal(self.idioma_path,email)
             self.main.show()
             self.close()
 
 
         else:
-            print("false")
             self.showdialog(self.dicc.pass_email )
     def showdialog(self,i):
+        """
+        Método que muestra una ventana emergente si se ha realizado el inicio sesión de forma exitosa
+        """
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Information)
         
@@ -208,7 +219,7 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
 
     def ayuda_fun(self):
         """
-        
+        Método que llama a la clase Visor para mostrar la ayuda al usuario. 
         """   
         main = VisorHtml("file:///"+self.idioma_path + "/proyecto/gui/Autenticacion/ayuda.html")
         main.exec_()

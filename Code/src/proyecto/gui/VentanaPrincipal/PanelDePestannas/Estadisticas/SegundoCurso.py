@@ -1,3 +1,4 @@
+# -*- coding: latin1 -*-
 from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -10,6 +11,10 @@ class SegundoCurso(QtWidgets.QFrame):
         self.semestres_segundo()
         
     def semestres_segundo(self):
+        """
+        Método que establece en la interfaz gráfica las asignaturas del segundo curso
+        introduciendo las asignaturas en la leyenda
+        """
         self.segundo_frame = QtWidgets.QFrame()
 
         self.label_s_p_asig1 = QtWidgets.QLabel("A1: "+self.dicc.segundo_semestre1p_p_asig1, self)

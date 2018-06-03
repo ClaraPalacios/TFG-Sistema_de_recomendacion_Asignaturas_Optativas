@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: iso-8859-15 -*-
-
+# -*- coding: latin1 -*-
 class Dicc():
     """ 
     Clase que contiene los string necesarios para inicializar los datos..

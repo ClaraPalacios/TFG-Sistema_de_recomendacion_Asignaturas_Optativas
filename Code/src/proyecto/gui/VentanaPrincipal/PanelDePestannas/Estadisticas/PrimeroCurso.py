@@ -12,6 +12,10 @@ class PrimeroCurso(QtWidgets.QFrame):
         self.semestres_primero()
         
     def semestres_primero(self):
+        """
+        Método que establece en la interfaz gráfica las asignaturas del primer curso
+        introduciendo las asignaturas en la leyenda
+        """
         self.primero_frame = QtWidgets.QFrame()
 
         #         Button : Entrar y salir

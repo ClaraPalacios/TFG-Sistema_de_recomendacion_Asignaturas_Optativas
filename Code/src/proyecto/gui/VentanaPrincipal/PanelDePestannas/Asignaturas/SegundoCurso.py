@@ -1,3 +1,4 @@
+# -*- coding: latin1 -*-
 from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -11,6 +12,11 @@ class SegundoCurso(QtWidgets.QFrame):
         self.semestres_segundo()
         
     def semestres_segundo(self):
+        """
+        Método que establece en la interfaz las asignaturas del segundo curso, 
+        así como su color y la fuente de la letra. Establece el máximo y mínimo del
+        slider. 
+        """
         self.segundo_semestres_frame = QtWidgets.QFrame()
 
         #         Button : Entrar y salir
@@ -400,6 +406,10 @@ class SegundoCurso(QtWidgets.QFrame):
         self.segundo_semestres_frame.setLayout(self.segundo_semestres_layout)
         
     def values_primer_sem(self):
+        """
+        Método que almacena los valores del slider en caso de que las asignaturas
+        no estén marcadas como no aplica. En caso contrario, almacena un 0. 
+        """
         valasig1= self.slider_s_p_asig1.value() if self.label_value_s_p_asig1.text() != self.dicc.no  else 0
         valasig2= self.slider_s_p_asig2.value() if self.label_value_s_p_asig2.text() != self.dicc.no  else 0
         valasig3= self.slider_s_p_asig3.value() if self.label_value_s_p_asig3.text() != self.dicc.no  else 0
@@ -415,6 +425,10 @@ class SegundoCurso(QtWidgets.QFrame):
         return valoraciones
        
     def set_values_primer_sem(self,diccionario):
+            """
+            Método que establece el valor de las asignaturas en el slider en caso de que 
+            en el diccionario estén con valor distinto a 0 
+            """
             if diccionario[self.label_s_p_asig1.text()]==0:
                 self.slider_s_p_asig1.setValue(1)
                 self.slider_s_p_asig1.setEnabled(False)
@@ -461,6 +475,9 @@ class SegundoCurso(QtWidgets.QFrame):
                 self.slider_s_p_asig5.setValue(diccionario[self.label_s_p_asig5.text()])                
 
     def values_segundo_sem(self):
+        """
+        método que almacena el valor del slider en caso de que la asingatura no esté marcada como omitida. 
+        """
         valasig1= self.slider_s_s_asig1.value() if self.label_value_s_s_asig1.text() != self.dicc.no  else 0
         valasig2= self.slider_s_s_asig2.value() if self.label_value_s_s_asig2.text() != self.dicc.no  else 0
         valasig3= self.slider_s_s_asig3.value() if self.label_value_s_s_asig3.text() != self.dicc.no  else 0
@@ -479,6 +496,11 @@ class SegundoCurso(QtWidgets.QFrame):
     
     
     def set_values_segundo_sem(self,diccionario):
+            """
+            Método que establece en el slider el valor del diccionario en caso 
+            de que la calificación sea mayor de cero. En caso contrario, asigna 
+            un valor de 1  y lo marca como Omitido. 
+            """
             if diccionario[self.label_s_asig1.text()]==0:
                 self.slider_s_s_asig1.setValue(1)
                 self.slider_s_s_asig1.setEnabled(False)
@@ -525,6 +547,9 @@ class SegundoCurso(QtWidgets.QFrame):
                 self.slider_s_s_asig5.setValue(diccionario[self.label_s_asig5.text()])     
    
     def valuechange_slider(self):
+        """
+        Método que modifica el valor de la asignatura por el que se haya marcado con el slider.
+        """
         if self.check_box_s_p_asig1.isChecked()!=True:
             self.label_value_s_p_asig1.setText(str(self.slider_s_p_asig1.value()))            
         if self.check_box_s_p_asig2.isChecked()!=True:
@@ -548,6 +573,9 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_value_s_s_asig5.setText(str(self.slider_s_s_asig5.value()))
         
     def valuechange_checkBox1(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_p_asig1.setEnabled(False)
             self.label_s_p_asig1.setStyleSheet('color: grey; ')
@@ -558,6 +586,9 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_value_s_p_asig1.setText(str(self.slider_s_p_asig1.value()))
             
     def valuechange_checkBox2(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_p_asig2.setEnabled(False)
             self.label_s_p_asig2.setStyleSheet('color: grey; ')
@@ -568,6 +599,9 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_value_s_p_asig2.setText(str(self.slider_s_p_asig2.value()))
              
     def valuechange_checkBox3(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_p_asig3.setEnabled(False)
             self.label_s_p_asig3.setStyleSheet('color: grey; ')
@@ -577,7 +611,10 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_s_p_asig3.setStyleSheet('color: black; ')
             self.label_value_s_p_asig3.setText(str(self.slider_s_p_asig3.value()))
     
-    def valuechange_checkBox4(self,state):    
+    def valuechange_checkBox4(self,state): 
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """   
         if state == QtCore.Qt.Checked:
             self.slider_s_p_asig4.setEnabled(False)
             self.label_s_p_asig4.setStyleSheet('color: grey; ')
@@ -588,6 +625,9 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_value_s_p_asig4.setText(str(self.slider_s_p_asig4.value()))
     
     def valuechange_checkBox5(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_p_asig5.setEnabled(False)
             self.label_s_p_asig5.setStyleSheet('color: grey; ')
@@ -598,6 +638,9 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_value_s_p_asig5.setText(str(self.slider_s_p_asig5.value()))
             
     def valuechange_checkBox2_5(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_s_asig5.setEnabled(False)
             self.label_s_asig5.setStyleSheet('color: grey; ')
@@ -608,6 +651,9 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_value_s_s_asig5.setText(str(self.slider_s_s_asig5.value()))    
     
     def valuechange_checkBox2_4(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_s_asig4.setEnabled(False)
             self.label_s_asig4.setStyleSheet('color: grey; ')
@@ -619,6 +665,9 @@ class SegundoCurso(QtWidgets.QFrame):
      
                
     def valuechange_checkBox2_3(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_s_asig3.setEnabled(False)
             self.label_s_asig3.setStyleSheet('color: grey; ')
@@ -629,6 +678,9 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_value_s_s_asig3.setText(str(self.slider_s_s_asig3.value()))
          
     def valuechange_checkBox2_2(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_s_asig2.setEnabled(False)
             self.label_s_asig2.setStyleSheet('color: grey; ')
@@ -639,6 +691,9 @@ class SegundoCurso(QtWidgets.QFrame):
             self.label_value_s_s_asig2.setText(str(self.slider_s_s_asig2.value()))
               
     def valuechange_checkBox2_1(self,state):
+        """
+        Método que modifica el color y añade un texto en caso de pulsar "Omitir" de la asignatura
+        """
         if state == QtCore.Qt.Checked:
             self.slider_s_s_asig1.setEnabled(False)
             self.label_s_asig1.setStyleSheet('color: grey; ')

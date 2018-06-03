@@ -1,9 +1,13 @@
+# -*- coding: latin1 -*-
 import warnings
 warnings.filterwarnings("ignore")
 
 import numpy as np
 class Distancias:
     def coef_corr_pearson(self,dataframe,a,b,rows=True):
+        """
+        Método que calcula el coeficiente de Pearson tanto para el filtro colaborativo basado en usuarios como el filtro colaborativo basado en modelos. 
+        """
         dataframe
         if rows:
             common_ratings= dataframe.ix[[a,b]].dropna(axis=1).as_matrix()

@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: iso-8859-15 -*-
-
+# -*- coding: latin1 -*-
 import pickle
 import pandas as pd
 import numpy as np
@@ -11,17 +9,26 @@ class I_O_Datos_Binario(I_I_O_Datos):
         super().__init__(nombreArchivo)
     #formato binario
     def obtener_datos(self):
+        """
+        Método que lee el fichero binario y obtiene el dataframe de él. 
+        """
         archivo = open(self._nombreArchivo, "rb")
         tablaDatos = pickle.load(archivo)
         archivo.close()
         return tablaDatos
     
     def guardarDatos(self, tabla1):
+        """
+        Método que guarda el dataframe en un fichero binario. 
+        """
         archivo = open(self._nombreArchivo, "wb")
         pickle.dump(tabla1, archivo)
         archivo.close()
         
     def transfor_datos(self,tabla):
+        """
+        Método que elimina las columnas innecesarias y almacena los datos en un dataframe.  
+        """
         #almacenar en un diccionario de diccionarios cuya clave sea el usuario, y como valor un conjunto de  diccionarios
         #(clave=nombre asignatura, valor=ponderacion). No introducimos el Token ni la fecha en la que se realizó el cuestionario. 
         asignaturas= list(tabla.columns)
