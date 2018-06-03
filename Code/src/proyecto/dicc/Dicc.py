@@ -31,6 +31,19 @@ class Dicc():
         self.controles = "Controles"
         self.cursos = "Cursos"
         
+        self.registrar= "Registro de Usuario"
+        self.usuario = "Usuario             "
+        self.contraseña = "Contraseña       "
+        self.email = "Email                 "
+        self.registr= " Registrar "
+        self.salir_reg= " Salir "
+        self.val_registro = "El registro del usuario ha sido:"
+        self.val_registro_estado = "Estado del registro"
+        self.creado_exito = "Ha sido creado con exito."
+        self.usuario_existente = "Ha ocurrido un error en el registro.\n Usuario Existente"
+        self.registrarse = "Registrarse  "
+        self.pass_email = "Email o Password incorrecto."
+        
         self.filtro_usuarios = "F.C Usuarios "
         self.filtro_productos = "F.C Productos "
         self.filtro_modelos ="F.C Modelos"
@@ -39,7 +52,21 @@ class Dicc():
         self.f_m_calcular = "Calcular F.C. Modelos "
         self.ejecucion = "Ejecución"
         self.predicciones = "Predicciones"
-
+        self.entrar = " Entrar "
+        self.ayuda = "Ayuda"
+        self.omitir = "Omitir"
+        self.no = "No"
+        self.media = "Media"
+        self.mediana = "Mediana"
+        self.maximos = "Máximos"
+        self.minimos = "Mínimos"
+        self.medida = "Medida"
+        self.grafica_medias = "Gráfica de Medias"
+        self.grafica_medianas = "Gráfica de Medianas"
+        self.grafica_maximos = "Gráfica de Maximos"
+        self.grafica_minimos = "Gráfica de Minimos"
+        self.leyenda = "Leyenda"
+        
         
                 #primer semestre
         self.primero_sem1 = "Primer curso, Semestre 1"

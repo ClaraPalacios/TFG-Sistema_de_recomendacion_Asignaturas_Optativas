@@ -73,7 +73,7 @@ class Estadisticas(QtWidgets.QWidget):
         self.cuarto.setFont(fontTex)
         self.cuarto.clicked.connect(lambda: self.hideShow_frame(4))  
         
-        self.media = QtWidgets.QPushButton("Media", self)
+        self.media = QtWidgets.QPushButton(self.dicc.media, self)
         self.media.setToolTip('Pulsa para entrar')
         self.media.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -81,14 +81,14 @@ class Estadisticas(QtWidgets.QWidget):
         self.media.clicked.connect(lambda: self.media_or_mediana_frame(0))
 
         #         Button : Entrar y salir
-        self.median = QtWidgets.QPushButton("Mediana", self)
+        self.median = QtWidgets.QPushButton(self.dicc.mediana, self)
         self.median.setToolTip('Pulsa para entrar')
         self.median.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.median.setFont(fontTex)
         self.median.clicked.connect(lambda: self.media_or_mediana_frame(1))  
         
-        self.maximos = QtWidgets.QPushButton("Maximos", self)
+        self.maximos = QtWidgets.QPushButton(self.dicc.maximos, self)
         self.maximos.setToolTip('Pulsa para entrar')
         self.maximos.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -96,7 +96,7 @@ class Estadisticas(QtWidgets.QWidget):
         self.maximos.clicked.connect(lambda: self.media_or_mediana_frame(2))
 
         #         Button : Entrar y salir
-        self.minimos = QtWidgets.QPushButton("Minimos", self)
+        self.minimos = QtWidgets.QPushButton(self.dicc.minimos, self)
         self.minimos.setToolTip('Pulsa para entrar')
         self.minimos.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
@@ -117,11 +117,11 @@ class Estadisticas(QtWidgets.QWidget):
 
         
         self.controles_groupBox = QtWidgets.QGroupBox()
-        self.controles_groupBox.setTitle("Cursos") 
+        self.controles_groupBox.setTitle(self.dicc.cursos ) 
         self.controles_groupBox.setLayout(self.pestanna3)
         
         self.medidas_groupBox = QtWidgets.QGroupBox()
-        self.medidas_groupBox.setTitle("Medida") 
+        self.medidas_groupBox.setTitle(self.dicc.medida) 
         self.medidas_groupBox.setLayout(self.pestanna3_types)
         
         self.controles_types = QtWidgets.QVBoxLayout() 
@@ -151,7 +151,7 @@ class Estadisticas(QtWidgets.QWidget):
 
 
         self.graph_groupBox = QtWidgets.QGroupBox()
-        self.graph_groupBox.setTitle("Gráfica de Medias") 
+        self.graph_groupBox.setTitle(self.dicc.grafica_medias) 
         self.graph_groupBox.setLayout(self.graph_layout)
         
 
@@ -163,7 +163,7 @@ class Estadisticas(QtWidgets.QWidget):
         self.leyenda_layout.addWidget(self.cuarto_frame.cuarto_frame) 
         
         self.leyenda_groupBox = QtWidgets.QGroupBox()
-        self.leyenda_groupBox.setTitle("Leyenda") 
+        self.leyenda_groupBox.setTitle(self.dicc.leyenda) 
         self.leyenda_groupBox.setLayout(self.leyenda_layout)
         
         self.estadisticas_layout = QtWidgets.QHBoxLayout()    
@@ -171,7 +171,7 @@ class Estadisticas(QtWidgets.QWidget):
         self.estadisticas_layout.addWidget(self.graph_groupBox)
 
         self.estadisticas_groupBox = QtWidgets.QGroupBox()
-        self.estadisticas_groupBox.setTitle("Estadisticas") 
+        self.estadisticas_groupBox.setTitle(self.dicc.op_estadisticas) 
         self.estadisticas_groupBox.setLayout(self.estadisticas_layout)
                         
         self.pestanna3_layout = QtWidgets.QHBoxLayout()    
@@ -241,11 +241,11 @@ class Estadisticas(QtWidgets.QWidget):
             vals.append(dictMedias[i])
             labels.append('A'+str(ii))
             ii+=1              
-        self._static_ax.cla()
+        self._static_ax.cla()   
         self.pinta_asig_valor(labels, vals)
         
         
     def media_or_mediana_frame(self,i):
         self.media_or_mediana=i
-        value="Gráfica de Medias" if self.media_or_mediana==0 else "Gráfica de Medianas" if self.media_or_mediana==1 else "Gráfica de Maximos" if self.media_or_mediana==2 else "Gráfica de Minimos"
+        value=self.dicc.grafica_medias if self.media_or_mediana==0 else self.dicc.grafica_medianas if self.media_or_mediana==1 else self.dicc.grafica_maximos if self.media_or_mediana==2 else self.dicc.grafica_minimos
         self.graph_groupBox.setTitle(value) 

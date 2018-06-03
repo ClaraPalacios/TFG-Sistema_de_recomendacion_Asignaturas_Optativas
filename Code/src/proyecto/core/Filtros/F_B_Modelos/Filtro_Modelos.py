@@ -10,7 +10,6 @@ class Filtro_Modelos:
     def filtro_cola(self):
         tabla2=self.tabla.T
         Y,R=self.matrices_Y_R(tabla2)
-    
         def cofi_cost_funct(parameters, Y, R, n_users,n_items, n_features, lamb):
             # Si pasamos R como argumento, esto sobra 
             #R = np.zeros_like(Y)
@@ -60,6 +59,7 @@ class Filtro_Modelos:
         parameters = (minimize(cofiCostFunc_minimize,initial_parameters,method="CG",jac=True,
                            options={'maxiter':max_iter, "disp":True})).x
         # Unfold the returned optimized parameters back into X and Theta
+        # Your code ..............
         Theta=parameters[0:n_users*n_features].reshape(n_users,n_features)
         X=parameters[n_users*n_features:].reshape(n_items,n_features)
         predictions = np.dot(X,Theta.T)

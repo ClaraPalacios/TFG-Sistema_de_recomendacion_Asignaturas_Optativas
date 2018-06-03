@@ -40,7 +40,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         self.slider_p_p_asig1.setTickInterval(1)        
         self.slider_p_p_asig1.valueChanged.connect(self.valuechange_slider)
         
-        self.check_box_p_p_asig1 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_p_asig1 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_p_asig1.stateChanged.connect(self.valuechange_checkBox1)
 
         self.label_valuep_p_asig1 = QtWidgets.QLabel(str(self.slider_p_p_asig1.value()), self)
@@ -78,7 +78,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_valuep_p_asig2.setFont(fontTex) 
         
-        self.check_box_p_p_asig2 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_p_asig2 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_p_asig2.stateChanged.connect(self.valuechange_checkBox2)
         
         self.primero_semestre1p_p_asig2 = QtWidgets.QHBoxLayout()
@@ -111,7 +111,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         self.label_valuep_p_asig3.setFont(fontTex)   
                            
                            
-        self.check_box_p_p_asig3 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_p_asig3 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_p_asig3.stateChanged.connect(self.valuechange_checkBox3)
                            
         self.primero_semestre1p_p_asig3 = QtWidgets.QHBoxLayout()
@@ -143,7 +143,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_valuep_p_asig4.setFont(fontTex)   
                             
-        self.check_box_p_p_asig4 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_p_asig4 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_p_asig4.stateChanged.connect(self.valuechange_checkBox4)                            
                             
         self.primero_semestre1p_p_asig4 = QtWidgets.QHBoxLayout()
@@ -175,7 +175,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_valuep_p_asig5.setFont(fontTex)  
                             
-        self.check_box_p_p_asig5 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_p_asig5 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_p_asig5.stateChanged.connect(self.valuechange_checkBox5)                            
                             
         self.primero_semestre1p_p_asig5 = QtWidgets.QHBoxLayout()
@@ -231,7 +231,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_valuep_s_asig1.setFont(fontTex)                    
                     
-        self.check_box_p_s_asig1 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_s_asig1 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_s_asig1.stateChanged.connect(self.valuechange_checkBox2_1)
         
                             
@@ -265,7 +265,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         self.label_valuep_s_asig2.setFont(fontTex) 
                             
                             
-        self.check_box_p_s_asig2 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_s_asig2 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_s_asig2.stateChanged.connect(self.valuechange_checkBox2_2)                            
                             
         self.primero_semestre2_s_asig2 = QtWidgets.QHBoxLayout()
@@ -298,7 +298,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         self.label_valuep_s_asig3.setFont(fontTex) 
                             
                             
-        self.check_box_p_s_asig3 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_s_asig3 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_s_asig3.stateChanged.connect(self.valuechange_checkBox2_3)
         
                                     
@@ -331,7 +331,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_valuep_s_asig4.setFont(fontTex)  
                            
-        self.check_box_p_s_asig4 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_s_asig4 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_s_asig4.stateChanged.connect(self.valuechange_checkBox2_4)
         
                                    
@@ -364,7 +364,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_valuep_s_asig5.setFont(fontTex)  
                         
-        self.check_box_p_s_asig5 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_p_s_asig5 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_p_s_asig5.stateChanged.connect(self.valuechange_checkBox2_5)                        
                             
         self.primero_semestre2_s_asig5 = QtWidgets.QHBoxLayout()
@@ -410,7 +410,7 @@ class PrimeroCurso(QtWidgets.QFrame):
 
         
         self.primero_semestres_groupBox = QtWidgets.QGroupBox()
-        self.primero_semestres_groupBox.setTitle("Valoraciones") 
+        self.primero_semestres_groupBox.setTitle(self.dicc.op_valoraciones) 
         self.primero_semestres_groupBox.setLayout(self.primero_semestres_layoutBox)
         
         self.primero_semestres_layout = QtWidgets.QHBoxLayout()
@@ -421,11 +421,11 @@ class PrimeroCurso(QtWidgets.QFrame):
         self.primero_semestres_frame.setLayout(self.primero_semestres_layout)
         
     def values_primer_sem(self):
-        valasig1= self.slider_p_p_asig1.value() if self.label_valuep_p_asig1.text() != 'NO'  else 0
-        valasig2= self.slider_p_p_asig2.value() if self.label_valuep_p_asig2.text() != 'NO'  else 0
-        valasig3= self.slider_p_p_asig3.value() if self.label_valuep_p_asig3.text() != 'NO'  else 0
-        valasig4= self.slider_p_p_asig4.value() if self.label_valuep_p_asig4.text() != 'NO'  else 0
-        valasig5= self.slider_p_p_asig5.value() if self.label_valuep_p_asig5.text() != 'NO'  else 0
+        valasig1= self.slider_p_p_asig1.value() if self.label_valuep_p_asig1.text() != self.dicc.no  else 0
+        valasig2= self.slider_p_p_asig2.value() if self.label_valuep_p_asig2.text() != self.dicc.no  else 0
+        valasig3= self.slider_p_p_asig3.value() if self.label_valuep_p_asig3.text() != self.dicc.no  else 0
+        valasig4= self.slider_p_p_asig4.value() if self.label_valuep_p_asig4.text() != self.dicc.no  else 0
+        valasig5= self.slider_p_p_asig5.value() if self.label_valuep_p_asig5.text() != self.dicc.no  else 0
         valoraciones={
             self.labelp_p_asig1.text(): valasig1,
             self.labelp_p_asig2.text(): valasig2,
@@ -439,7 +439,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.labelp_p_asig1.text()]==0:
                 self.slider_p_p_asig1.setValue(1)
                 self.slider_p_p_asig1.setEnabled(False)
-                self.label_valuep_p_asig1.setText('NO')
+                self.label_valuep_p_asig1.setText(self.dicc.no)
                 self.check_box_p_p_asig1.setChecked(True)
             else:
                 self.slider_p_p_asig1.setEnabled(True)
@@ -448,7 +448,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.labelp_p_asig2.text()]==0:
                 self.slider_p_p_asig2.setValue(1)
                 self.slider_p_p_asig2.setEnabled(False)
-                self.label_valuep_p_asig2.setText('NO')
+                self.label_valuep_p_asig2.setText(self.dicc.no)
                 self.check_box_p_p_asig2.setChecked(True)
             else:
                 self.slider_p_p_asig2.setEnabled(True)
@@ -457,7 +457,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.labelp_p_asig3.text()]==0:
                 self.slider_p_p_asig3.setValue(1)
                 self.slider_p_p_asig3.setEnabled(False)
-                self.label_valuep_p_asig3.setText('NO')
+                self.label_valuep_p_asig3.setText(self.dicc.no)
                 self.check_box_p_p_asig3.setChecked(True)
             else:
                 self.slider_p_p_asig3.setEnabled(True)
@@ -466,7 +466,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.labelp_p_asig4.text()]==0:
                 self.slider_p_p_asig4.setValue(1)
                 self.slider_p_p_asig4.setEnabled(False)
-                self.label_valuep_p_asig4.setText('NO')
+                self.label_valuep_p_asig4.setText(self.dicc.no)
                 self.check_box_p_p_asig4.setChecked(True)
             else:
                 self.slider_p_p_asig4.setEnabled(True)
@@ -475,7 +475,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.labelp_p_asig5.text()]==0:
                 self.slider_p_p_asig5.setValue(1)
                 self.slider_p_p_asig5.setEnabled(False)
-                self.label_valuep_p_asig5.setText('NO')
+                self.label_valuep_p_asig5.setText(self.dicc.no)
                 self.check_box_p_p_asig5.setChecked(True)
             else:
                 self.slider_p_p_asig5.setEnabled(True)
@@ -484,11 +484,11 @@ class PrimeroCurso(QtWidgets.QFrame):
 
 
     def values_segundo_sem(self):
-        valasig1= self.slider_p_s_asig1.value() if self.label_valuep_s_asig1.text() != 'NO'  else 0
-        valasig2= self.slider_p_s_asig2.value() if self.label_valuep_s_asig2.text() != 'NO'  else 0
-        valasig3= self.slider_p_s_asig3.value() if self.label_valuep_s_asig3.text() != 'NO'  else 0
-        valasig4= self.slider_p_s_asig4.value() if self.label_valuep_s_asig4.text() != 'NO'  else 0
-        valasig5= self.slider_p_s_asig5.value() if self.label_valuep_s_asig5.text() != 'NO'  else 0
+        valasig1= self.slider_p_s_asig1.value() if self.label_valuep_s_asig1.text() != self.dicc.no  else 0
+        valasig2= self.slider_p_s_asig2.value() if self.label_valuep_s_asig2.text() != self.dicc.no  else 0
+        valasig3= self.slider_p_s_asig3.value() if self.label_valuep_s_asig3.text() != self.dicc.no  else 0
+        valasig4= self.slider_p_s_asig4.value() if self.label_valuep_s_asig4.text() != self.dicc.no  else 0
+        valasig5= self.slider_p_s_asig5.value() if self.label_valuep_s_asig5.text() != self.dicc.no  else 0
         
         valoraciones={
             self.label_s_asig1.text():valasig1,
@@ -503,7 +503,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.label_s_asig1.text()]==0:
                 self.slider_p_s_asig1.setValue(1)
                 self.slider_p_s_asig1.setEnabled(False)
-                self.label_valuep_s_asig1.setText('NO')
+                self.label_valuep_s_asig1.setText(self.dicc.no)
                 self.check_box_p_s_asig1.setChecked(True)
             else:
                 self.slider_p_s_asig1.setEnabled(True)
@@ -512,7 +512,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.label_s_asig2.text()]==0:
                 self.slider_p_s_asig2.setValue(1)
                 self.slider_p_s_asig2.setEnabled(False)
-                self.label_valuep_s_asig2.setText('NO')
+                self.label_valuep_s_asig2.setText(self.dicc.no)
                 self.check_box_p_s_asig2.setChecked(True)
             else:
                 self.slider_p_s_asig2.setEnabled(True)
@@ -521,7 +521,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.label_s_asig3.text()]==0:
                 self.slider_p_s_asig3.setValue(1)
                 self.slider_p_s_asig3.setEnabled(False)
-                self.label_valuep_s_asig3.setText('NO')
+                self.label_valuep_s_asig3.setText(self.dicc.no)
                 self.check_box_p_s_asig3.setChecked(True)
             else:
                 self.slider_p_s_asig3.setEnabled(True)
@@ -530,7 +530,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.label_s_asig4.text()]==0:
                 self.slider_p_s_asig4.setValue(1)
                 self.slider_p_s_asig4.setEnabled(False)
-                self.label_valuep_s_asig4.setText('NO')
+                self.label_valuep_s_asig4.setText(self.dicc.no)
                 self.check_box_p_s_asig4.setChecked(True)
             else:
                 self.slider_p_s_asig4.setEnabled(True)
@@ -539,7 +539,7 @@ class PrimeroCurso(QtWidgets.QFrame):
             if diccionario[self.label_s_asig5.text()]==0:
                 self.slider_p_s_asig5.setValue(1)
                 self.slider_p_s_asig5.setEnabled(False)
-                self.label_valuep_s_asig5.setText('NO')
+                self.label_valuep_s_asig5.setText(self.dicc.no)
                 self.check_box_p_s_asig5.setChecked(True)
             else:
                 self.slider_p_s_asig5.setEnabled(True)
@@ -573,7 +573,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_p_asig1.setEnabled(False)
             self.labelp_p_asig1.setStyleSheet('color: grey; ')
-            self.label_valuep_p_asig1.setText('NO')
+            self.label_valuep_p_asig1.setText(self.dicc.no)
         else:
             self.slider_p_p_asig1.setEnabled(True)
             self.labelp_p_asig1.setStyleSheet('color: black; ')
@@ -583,7 +583,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_p_asig2.setEnabled(False)
             self.labelp_p_asig2.setStyleSheet('color: grey; ')
-            self.label_valuep_p_asig2.setText('NO')
+            self.label_valuep_p_asig2.setText(self.dicc.no)
         else:
             self.slider_p_p_asig2.setEnabled(True)
             self.labelp_p_asig2.setStyleSheet('color: black; ')
@@ -593,7 +593,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_p_asig3.setEnabled(False)
             self.labelp_p_asig3.setStyleSheet('color: grey; ')
-            self.label_valuep_p_asig3.setText('NO')
+            self.label_valuep_p_asig3.setText(self.dicc.no)
         else:
             self.slider_p_p_asig3.setEnabled(True)
             self.labelp_p_asig3.setStyleSheet('color: black; ')
@@ -603,7 +603,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_p_asig4.setEnabled(False)
             self.labelp_p_asig4.setStyleSheet('color: grey; ')
-            self.label_valuep_p_asig4.setText('NO')
+            self.label_valuep_p_asig4.setText(self.dicc.no)
         else:
             self.slider_p_p_asig4.setEnabled(True)
             self.labelp_p_asig4.setStyleSheet('color: black; ')
@@ -613,7 +613,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_p_asig5.setEnabled(False)
             self.labelp_p_asig5.setStyleSheet('color: grey; ')
-            self.label_valuep_p_asig5.setText('NO')
+            self.label_valuep_p_asig5.setText(self.dicc.no)
         else:
             self.slider_p_p_asig5.setEnabled(True)
             self.labelp_p_asig5.setStyleSheet('color: black; ')
@@ -623,7 +623,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_s_asig5.setEnabled(False)
             self.label_s_asig5.setStyleSheet('color: grey; ')
-            self.label_valuep_s_asig5.setText('NO')
+            self.label_valuep_s_asig5.setText(self.dicc.no)
         else:
             self.slider_p_s_asig5.setEnabled(True)
             self.label_s_asig5.setStyleSheet('color: black; ')
@@ -633,7 +633,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_s_asig4.setEnabled(False)
             self.label_s_asig4.setStyleSheet('color: grey; ')
-            self.label_valuep_s_asig4.setText('NO')
+            self.label_valuep_s_asig4.setText(self.dicc.no)
         else:
             self.slider_p_s_asig4.setEnabled(True)
             self.label_s_asig4.setStyleSheet('color: black; ')
@@ -644,7 +644,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_s_asig3.setEnabled(False)
             self.label_s_asig3.setStyleSheet('color: grey; ')
-            self.label_valuep_s_asig3.setText('NO')
+            self.label_valuep_s_asig3.setText(self.dicc.no)
         else:
             self.slider_p_s_asig3.setEnabled(True)
             self.label_s_asig3.setStyleSheet('color: black; ')
@@ -654,7 +654,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_s_asig2.setEnabled(False)
             self.label_s_asig2.setStyleSheet('color: grey; ')
-            self.label_valuep_s_asig2.setText('NO')
+            self.label_valuep_s_asig2.setText(self.dicc.no)
         else:
             self.slider_p_s_asig2.setEnabled(True)
             self.label_s_asig2.setStyleSheet('color: black; ')
@@ -664,7 +664,7 @@ class PrimeroCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_p_s_asig1.setEnabled(False)
             self.label_s_asig1.setStyleSheet('color: grey; ')
-            self.label_valuep_s_asig1.setText('NO')
+            self.label_valuep_s_asig1.setText(self.dicc.no)
         else:
             self.slider_p_s_asig1.setEnabled(True)
             self.label_s_asig1.setStyleSheet('color: black; ')

@@ -2,53 +2,44 @@
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 from PyQt5 import QtCore
-import os,requests
-from proyecto.gui.Autenticacion.Registrar import Registrar
-from proyecto.gui.Autenticacion.VisorHtml import VisorHtml
-from proyecto.gui.VentanaPrincipal.VentanaPrincipal import VentanaPrincipal
 from proyecto.dicc.Dicc import Dicc
-class VentanaAutenticacion(QtWidgets.QMainWindow):
+import requests
+
+# from proyecto.gui.VisorHtml import VisorHtml
+# from proyecto.gui.Window import Window
+class Registrar(QtWidgets.QMainWindow):
 
     def __init__(self,idioma_path, parent=None):
-        super(VentanaAutenticacion, self).__init__(parent)
-        self.idioma_path=idioma_path
-        self.resize(800, 300)
+        super(Registrar, self).__init__(parent)
         self.dicc = Dicc()
-        self.setWindowTitle(self.dicc.vn_proyecto)
-      
+        self.resize(800, 300)
+        self.setWindowTitle(self.dicc.registrar)
         
-        self.cerrar_all = QtWidgets.QAction(self.dicc.vn_salir, self)
+        self.cerrar_all = QtWidgets.QAction("salir", self)
         self.cerrar_all.setShortcut("ini_o_salir")
         self.cerrar_all.setStatusTip("ini_p_salir")
         self.cerrar_all.triggered.connect(self.cerrar)       
         
-        self.ayuda = QtWidgets.QAction(self.dicc.ayuda, self)
-        self.ayuda.setShortcut(self.dicc.ayuda)
-        self.ayuda.setStatusTip(self.dicc.ayuda)
-        self.ayuda.triggered.connect(self.ayuda_fun)  
-
         ##Barratareas de arriba
         main_menu = self.menuBar()
         #menu1 barra de tareas
         self.file_menu = main_menu.addMenu(self.dicc.vn_opciones) 
         self.file_menu.addAction(self.cerrar_all)
-        self.ayuda_menu = main_menu.addMenu(self.dicc.ayuda) 
-        self.ayuda_menu.addAction(self.ayuda)
         
         self.inicioSesion()
 
         laout_principal = QtWidgets.QVBoxLayout()
         laout_principal.addLayout(self.Loggin_layout)        
         laout_principal.setAlignment(QtCore.Qt.AlignLeft)
-
         
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
+
     def inicioSesion(self):
         
 #         usuario: texbox
-        self.user_M = QtWidgets.QLabel(self.dicc.email, self)
+        self.user_M = QtWidgets.QLabel(self.dicc.usuario, self)
         self.user_M.setAlignment(QtCore.Qt.AlignLeft)
         self.user_M.setStyleSheet('color: red')
         font = QtGui.QFont("ini_time", 35, QtGui.QFont.Bold, True)
@@ -70,26 +61,30 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
         
         self.passwordTexArea = QtWidgets.QLineEdit(self)
         self.passwordTexArea.setEchoMode(QtWidgets.QLineEdit.Password)
-
         self.passwordTexArea.setAlignment(QtCore.Qt.AlignRight)
         self.passwordTexArea.setStyleSheet('color: black')
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.passwordTexArea.setFont(fontTex)
-
         
-        self.register_b = QtWidgets.QLabel(self.dicc.registrarse, self)
-        self.register_b.setAlignment(QtCore.Qt.AlignCenter)
-        self.clickables(self.register_b).connect(self.registrarse)
-        self.register_b.setStyleSheet('color: blue')
-        font = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
-        self.register_b.setFont(font)
+        #         email: texbox
         
+        self.email_M = QtWidgets.QLabel(self.dicc.email, self)
+        self.email_M.setAlignment(QtCore.Qt.AlignLeft)
+        self.email_M.setStyleSheet('color: red')
+        font = QtGui.QFont("ini_time", 35, QtGui.QFont.Bold, True)
+        self.email_M.setFont(font)
+        
+        self.emailTexArea = QtWidgets.QLineEdit(self)
+        self.emailTexArea.setAlignment(QtCore.Qt.AlignRight)
+        self.emailTexArea.setStyleSheet('color: black')
+        fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
+        self.emailTexArea.setFont(fontTex)        
 
         
         #layouthorizontal for user label and data.        
         self.User_layout = QtWidgets.QHBoxLayout()
         self.User_layout.addStretch(1)  
-        self.User_layout.addWidget(self.user_M)        
+        self.User_layout.addWidget(self.user_M)    
         self.User_layout.addWidget(self.User_TexArea)  
         self.User_layout.addStretch(1) 
         self.User_layout.setAlignment(QtCore.Qt.AlignLeft)
@@ -97,22 +92,22 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
         #layouthorizontal for user label and data.
         self.Password_layout = QtWidgets.QHBoxLayout()
         self.Password_layout.addStretch(1)  
-        self.Password_layout.addWidget(self.password_M)        
+        self.Password_layout.addWidget(self.password_M) 
         self.Password_layout.addWidget(self.passwordTexArea) 
         self.Password_layout.addStretch(1)       
         self.Password_layout.setAlignment(QtCore.Qt.AlignLeft)
         
        
-        #layouthorizontal for user label and data.
-        self.register_layaot = QtWidgets.QHBoxLayout()
-        self.register_layaot.addStretch(1) 
-        self.register_layaot.addWidget(self.register_b)     
-        self.register_layaot.addStretch(1) 
-        self.register_layaot.setAlignment(QtCore.Qt.AlignLeft)
-        
+        #layouthorizontal for email label and data.
+        self.email_layout = QtWidgets.QHBoxLayout()
+        self.email_layout.addStretch(1)  
+        self.email_layout.addWidget(self.email_M)  
+        self.email_layout.addWidget(self.emailTexArea) 
+        self.email_layout.addStretch(1)       
+        self.email_layout.setAlignment(QtCore.Qt.AlignLeft)        
         
         #         Button : Entrar y salir
-        self.entrar_B = QtWidgets.QPushButton(self.dicc.entrar, self)
+        self.entrar_B = QtWidgets.QPushButton(self.dicc.registr, self)
         self.entrar_B.setToolTip('Pulsa para entrar')
         self.entrar_B.setStyleSheet('color: black; ')
         fontTex = QtGui.QFont("ini_time", 35, QtGui.QFont.Bold, True)
@@ -126,7 +121,7 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
         self.salir_B.setFont(fontTex)
         
         self.salir_B.clicked.connect(self.cerrar)
-        self.entrar_B.clicked.connect(self.autenticarse)
+        self.entrar_B.clicked.connect(self.registro)
 
 
         #layout for buttons
@@ -143,7 +138,7 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
         self.Loggin_layout = QtWidgets.QVBoxLayout()
         self.Loggin_layout.addLayout(self.User_layout)        
         self.Loggin_layout.addLayout(self.Password_layout)    
-        self.Loggin_layout.addLayout(self.register_layaot)               
+        self.Loggin_layout.addLayout(self.email_layout)    
         self.Loggin_layout.addLayout(self.Butons_layout)        
         self.Loggin_layout.setAlignment(QtCore.Qt.AlignLeft)
 
@@ -171,31 +166,31 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
         widget.installEventFilter(filters)
         return filters.clicked    
     
-    def cerrar(self):
-
-        self.close()
-
-    def registrarse(self):
-        self.registrar = Registrar(os.getcwd())
-        self.registrar.show()
-        
-    def autenticarse(self):
-        email=self.User_TexArea.text()
-        password=self.passwordTexArea.text()
-        r = requests.post("http://claratfg2.pythonanywhere.com/User_Validate_Credentials",json={
+    
+    def registro(self):
+        usuario=self.User_TexArea.text()
+        email=self.emailTexArea.text()
+        password= self.passwordTexArea.text()
+        rol="Usuario"
+        ##/User_Add   Añadir un usuario
+        r = requests.post("http://claratfg2.pythonanywhere.com/User_Add",json={
           "email": email,
-          "password": password
+          "password": password,
+          "rol": rol,
+          "username": usuario
         })
-        if r.json()==True:   
-            print(os.getcwd())
-            self.main = VentanaPrincipal(self.idioma_path,email)
-            self.main.show()
+        if r.json()==True:            
+            self.showdialog(self.dicc.creado_exito)
             self.close()
 
-
         else:
-            print("false")
-            self.showdialog(self.dicc.pass_email )
+            self.showdialog(self.dicc.usuario_existente)
+
+        
+    def cerrar(self):
+  
+        self.close()
+
     def showdialog(self,i):
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Information)
@@ -204,11 +199,5 @@ class VentanaAutenticacion(QtWidgets.QMainWindow):
         msg.setInformativeText(str(i))
         msg.setWindowTitle(self.dicc.val_registro_estado)
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+         
         msg.exec_()
-
-    def ayuda_fun(self):
-        """
-        
-        """   
-        main = VisorHtml("file:///"+self.idioma_path + "/proyecto/gui/Autenticacion/ayuda.html")
-        main.exec_()

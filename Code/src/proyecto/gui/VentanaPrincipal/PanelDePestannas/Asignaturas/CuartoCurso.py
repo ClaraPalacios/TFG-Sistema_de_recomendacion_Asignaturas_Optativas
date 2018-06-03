@@ -84,7 +84,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 12, QtGui.QFont.Bold, True)
         self.label_value_c_p_asig2.setFont(fontTex) 
         
-        self.check_box_c_p_asig2 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_p_asig2 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_p_asig2.stateChanged.connect(self.valuechange_checkBox2)        
         
         self.cuarto_semestre1p_p_asig2 = QtWidgets.QHBoxLayout()
@@ -146,7 +146,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 12, QtGui.QFont.Bold, True)
         self.label_value_c_p_asig4.setFont(fontTex)   
                      
-        self.check_box_c_p_asig4 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_p_asig4 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_p_asig4.stateChanged.connect(self.valuechange_checkBox4)                      
                             
         self.cuarto_semestre1p_p_asig4 = QtWidgets.QHBoxLayout()
@@ -272,7 +272,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 12, QtGui.QFont.Bold, True)
         self.label_value_c_p_asig8.setFont(fontTex)  
                             
-        self.check_box_c_p_asig8 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_p_asig8 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_p_asig8.stateChanged.connect(self.valuechange_checkBox8)                                      
                                       
         self.cuarto_semestre1p_p_asig8 = QtWidgets.QHBoxLayout()
@@ -303,7 +303,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 12, QtGui.QFont.Bold, True)
         self.label_value_c_p_asig9.setFont(fontTex)  
 
-        self.check_box_c_p_asig9 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_p_asig9 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_p_asig9.stateChanged.connect(self.valuechange_checkBox9)                                      
                                        
         self.cuarto_semestre1p_p_asig9 = QtWidgets.QHBoxLayout()
@@ -334,7 +334,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 12, QtGui.QFont.Bold, True)
         self.label_value_c_p_asig10.setFont(fontTex)  
                             
-        self.check_box_c_p_asig10 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_p_asig10 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_p_asig10.stateChanged.connect(self.valuechange_checkBox10)                                      
                                                   
         self.cuarto_semestre1p_p_asig10 = QtWidgets.QHBoxLayout()
@@ -407,7 +407,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_value_c_s_asig1.setFont(fontTex)                    
                     
-        self.check_box_c_s_asig1 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_s_asig1 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_s_asig1.stateChanged.connect(self.valuechange_checkBox2_1)
                             
         self.cuarto_semestre2_s_asig1 = QtWidgets.QHBoxLayout()
@@ -438,7 +438,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_value_c_s_asig2.setFont(fontTex) 
         
-        self.check_box_c_s_asig2 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_s_asig2 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_s_asig2.stateChanged.connect(self.valuechange_checkBox2_2)                            
                             
         self.cuarto_semestre2_s_asig2 = QtWidgets.QHBoxLayout()
@@ -469,7 +469,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_value_c_s_asig3.setFont(fontTex) 
                             
-        self.check_box_c_s_asig3 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_s_asig3 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_s_asig3.stateChanged.connect(self.valuechange_checkBox2_3)                            
                                                    
         self.cuarto_semestre2_s_asig3 = QtWidgets.QHBoxLayout()
@@ -500,7 +500,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_value_c_s_asig4.setFont(fontTex)  
                         
-        self.check_box_c_s_asig4 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_s_asig4 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_s_asig4.stateChanged.connect(self.valuechange_checkBox2_4)                            
                                                   
         self.cuarto_semestre2_s_asig4 = QtWidgets.QHBoxLayout()
@@ -531,7 +531,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_value_c_s_asig5.setFont(fontTex)  
 
-        self.check_box_c_s_asig5 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_s_asig5 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_s_asig5.stateChanged.connect(self.valuechange_checkBox2_5)                            
                 
         self.cuarto_semestre2_s_asig5 = QtWidgets.QHBoxLayout()
@@ -563,7 +563,7 @@ class CuartoCurso(QtWidgets.QFrame):
         fontTex = QtGui.QFont("ini_time", 15, QtGui.QFont.Bold, True)
         self.label_value_c_s_asig6.setFont(fontTex)  
                          
-        self.check_box_c_s_asig6 = QtWidgets.QCheckBox('Omitir', self)
+        self.check_box_c_s_asig6 = QtWidgets.QCheckBox(self.dicc.omitir, self)
         self.check_box_c_s_asig6.stateChanged.connect(self.valuechange_checkBox2_6)                            
                                             
         self.cuarto_semestre2_s_asig6 = QtWidgets.QHBoxLayout()
@@ -606,7 +606,7 @@ class CuartoCurso(QtWidgets.QFrame):
         self.cuarto_semestres_layoutBox.addWidget(self.cuarto_semestres2_groupBox)     
         self.cuarto_semestres_layoutBox.addStretch(1)
         self.cuarto_semestres_groupBox = QtWidgets.QGroupBox()
-        self.cuarto_semestres_groupBox.setTitle("Valoraciones") 
+        self.cuarto_semestres_groupBox.setTitle(self.dicc.op_valoraciones) 
         self.cuarto_semestres_groupBox.setLayout(self.cuarto_semestres_layoutBox)
         
         self.cuarto_semestres_layout = QtWidgets.QHBoxLayout()
@@ -616,16 +616,16 @@ class CuartoCurso(QtWidgets.QFrame):
         self.cuarto_semestres_frame.setLayout(self.cuarto_semestres_layout)
       
     def values_primer_sem(self):
-        valasig1= self.slider_c_p_asig1.value() if self.label_value_c_p_asig1.text() != 'NO'  else 0
-        valasig2= self.slider_c_p_asig2.value() if self.label_value_c_p_asig2.text() != 'NO'  else 0
-        valasig3= self.slider_c_p_asig3.value() if self.label_value_c_p_asig3.text() != 'NO'  else 0
-        valasig4= self.slider_c_p_asig4.value() if self.label_value_c_p_asig4.text() != 'NO'  else 0
-        valasig5= self.slider_c_p_asig5.value() if self.label_value_c_p_asig5.text() != 'NO'  else 0
-        valasig6= self.slider_c_p_asig6.value() if self.label_value_c_p_asig6.text() != 'NO'  else 0
-        valasig7= self.slider_c_p_asig7.value() if self.label_value_c_p_asig7.text() != 'NO'  else 0
-        valasig8= self.slider_c_p_asig8.value() if self.label_value_c_p_asig8.text() != 'NO'  else 0
-        valasig9= self.slider_c_p_asig9.value() if self.label_value_c_p_asig9.text() != 'NO'  else 0
-        valasig10= self.slider_c_p_asig10.value() if self.label_value_c_p_asig10.text() != 'NO'  else 0
+        valasig1= self.slider_c_p_asig1.value() if self.label_value_c_p_asig1.text() != self.dicc.no  else 0
+        valasig2= self.slider_c_p_asig2.value() if self.label_value_c_p_asig2.text() != self.dicc.no  else 0
+        valasig3= self.slider_c_p_asig3.value() if self.label_value_c_p_asig3.text() != self.dicc.no  else 0
+        valasig4= self.slider_c_p_asig4.value() if self.label_value_c_p_asig4.text() != self.dicc.no  else 0
+        valasig5= self.slider_c_p_asig5.value() if self.label_value_c_p_asig5.text() != self.dicc.no  else 0
+        valasig6= self.slider_c_p_asig6.value() if self.label_value_c_p_asig6.text() != self.dicc.no  else 0
+        valasig7= self.slider_c_p_asig7.value() if self.label_value_c_p_asig7.text() != self.dicc.no  else 0
+        valasig8= self.slider_c_p_asig8.value() if self.label_value_c_p_asig8.text() != self.dicc.no  else 0
+        valasig9= self.slider_c_p_asig9.value() if self.label_value_c_p_asig9.text() != self.dicc.no  else 0
+        valasig10= self.slider_c_p_asig10.value() if self.label_value_c_p_asig10.text() != self.dicc.no  else 0
         valoraciones={
             self.label_c_p_asig1.text(): valasig1,
             self.label_c_p_asig2.text(): valasig2,
@@ -644,7 +644,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig1.text()]==0:
                 self.slider_c_p_asig1.setValue(1)
                 self.slider_c_p_asig1.setEnabled(False)
-                self.label_value_c_p_asig1.setText('NO')
+                self.label_value_c_p_asig1.setText(self.dicc.no)
                 self.check_box_c_p_asig1.setChecked(True)
             else:
                 self.slider_c_p_asig1.setEnabled(True)
@@ -653,7 +653,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig2.text()]==0:
                 self.slider_c_p_asig2.setValue(1)
                 self.slider_c_p_asig2.setEnabled(False)
-                self.label_value_c_p_asig2.setText('NO')
+                self.label_value_c_p_asig2.setText(self.dicc.no)
                 self.check_box_c_p_asig2.setChecked(True)
             else:
                 self.slider_c_p_asig2.setEnabled(True)
@@ -662,7 +662,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig3.text()]==0:
                 self.slider_c_p_asig3.setValue(1)
                 self.slider_c_p_asig3.setEnabled(False)
-                self.label_value_c_p_asig3.setText('NO')
+                self.label_value_c_p_asig3.setText(self.dicc.no)
                 self.check_box_c_p_asig3.setChecked(True)
             else:
                 self.slider_c_p_asig3.setEnabled(True)
@@ -671,7 +671,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig4.text()]==0:
                 self.slider_c_p_asig4.setValue(1)
                 self.slider_c_p_asig4.setEnabled(False)
-                self.label_value_c_p_asig4.setText('NO')
+                self.label_value_c_p_asig4.setText(self.dicc.no)
                 self.check_box_c_p_asig4.setChecked(True)
             else:
                 self.slider_c_p_asig4.setEnabled(True)
@@ -680,7 +680,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig5.text()]==0:
                 self.slider_c_p_asig5.setValue(1)
                 self.slider_c_p_asig5.setEnabled(False)
-                self.label_value_c_p_asig5.setText('NO')
+                self.label_value_c_p_asig5.setText(self.dicc.no)
                 self.check_box_c_p_asig5.setChecked(True)
             else:
                 self.slider_c_p_asig5.setEnabled(True)
@@ -689,7 +689,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig6.text()]==0:
                 self.slider_c_p_asig6.setValue(6)
                 self.slider_c_p_asig6.setEnabled(False)
-                self.label_value_c_p_asig6.setText('NO')
+                self.label_value_c_p_asig6.setText(self.dicc.no)
                 self.check_box_c_p_asig6.setChecked(True)
             else:
                 self.slider_c_p_asig6.setEnabled(True)
@@ -698,7 +698,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig7.text()]==0:
                 self.slider_c_p_asig7.setValue(6)
                 self.slider_c_p_asig7.setEnabled(False)
-                self.label_value_c_p_asig7.setText('NO')
+                self.label_value_c_p_asig7.setText(self.dicc.no)
                 self.check_box_c_p_asig7.setChecked(True)
             else:
                 self.slider_c_p_asig7.setEnabled(True)
@@ -707,7 +707,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig8.text()]==0:
                 self.slider_c_p_asig8.setValue(6)
                 self.slider_c_p_asig8.setEnabled(False)
-                self.label_value_c_p_asig8.setText('NO')
+                self.label_value_c_p_asig8.setText(self.dicc.no)
                 self.check_box_c_p_asig8.setChecked(True)
             else:
                 self.slider_c_p_asig8.setEnabled(True)
@@ -716,7 +716,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig9.text()]==0:
                 self.slider_c_p_asig9.setValue(6)
                 self.slider_c_p_asig9.setEnabled(False)
-                self.label_value_c_p_asig9.setText('NO')
+                self.label_value_c_p_asig9.setText(self.dicc.no)
                 self.check_box_c_p_asig9.setChecked(True)
             else:
                 self.slider_c_p_asig9.setEnabled(True)
@@ -725,18 +725,18 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_p_asig10.text()]==0:
                 self.slider_c_p_asig10.setValue(6)
                 self.slider_c_p_asig10.setEnabled(False)
-                self.label_value_c_p_asig10.setText('NO')
+                self.label_value_c_p_asig10.setText(self.dicc.no)
                 self.check_box_c_p_asig10.setChecked(True)
             else:
                 self.slider_c_p_asig10.setEnabled(True)
                 self.slider_c_p_asig10.setValue(diccionario[self.label_c_p_asig10.text()])      
     def values_segundo_sem(self):
-        valasig1= self.slider_c_s_asig1.value() if self.label_value_c_s_asig1.text() != 'NO'  else 0
-        valasig2= self.slider_c_s_asig2.value() if self.label_value_c_s_asig2.text() != 'NO'  else 0
-        valasig3= self.slider_c_s_asig3.value() if self.label_value_c_s_asig3.text() != 'NO'  else 0
-        valasig4= self.slider_c_s_asig4.value() if self.label_value_c_s_asig4.text() != 'NO'  else 0
-        valasig5= self.slider_c_s_asig5.value() if self.label_value_c_s_asig5.text() != 'NO'  else 0
-        valasig6= self.slider_c_s_asig6.value() if self.label_value_c_s_asig6.text() != 'NO'  else 0
+        valasig1= self.slider_c_s_asig1.value() if self.label_value_c_s_asig1.text() != self.dicc.no  else 0
+        valasig2= self.slider_c_s_asig2.value() if self.label_value_c_s_asig2.text() != self.dicc.no  else 0
+        valasig3= self.slider_c_s_asig3.value() if self.label_value_c_s_asig3.text() != self.dicc.no  else 0
+        valasig4= self.slider_c_s_asig4.value() if self.label_value_c_s_asig4.text() != self.dicc.no  else 0
+        valasig5= self.slider_c_s_asig5.value() if self.label_value_c_s_asig5.text() != self.dicc.no  else 0
+        valasig6= self.slider_c_s_asig6.value() if self.label_value_c_s_asig6.text() != self.dicc.no  else 0
         
         valoraciones={
             self.label_c_asig1.text():valasig1,
@@ -752,7 +752,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_asig1.text()]==0:
                 self.slider_c_s_asig1.setValue(1)
                 self.slider_c_s_asig1.setEnabled(False)
-                self.label_value_c_s_asig1.setText('NO')
+                self.label_value_c_s_asig1.setText(self.dicc.no)
                 self.check_box_c_s_asig1.setChecked(True)
             else:
                 self.slider_c_s_asig1.setEnabled(True)
@@ -761,7 +761,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_asig2.text()]==0:
                 self.slider_c_s_asig2.setValue(1)
                 self.slider_c_s_asig2.setEnabled(False)
-                self.label_value_c_s_asig2.setText('NO')
+                self.label_value_c_s_asig2.setText(self.dicc.no)
                 self.check_box_c_s_asig2.setChecked(True)
             else:
                 self.slider_c_s_asig2.setEnabled(True)
@@ -770,7 +770,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_asig3.text()]==0:
                 self.slider_c_s_asig3.setValue(1)
                 self.slider_c_s_asig3.setEnabled(False)
-                self.label_value_c_s_asig3.setText('NO')
+                self.label_value_c_s_asig3.setText(self.dicc.no)
                 self.check_box_c_s_asig3.setChecked(True)
             else:
                 self.slider_c_s_asig3.setEnabled(True)
@@ -779,7 +779,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_asig4.text()]==0:
                 self.slider_c_s_asig4.setValue(1)
                 self.slider_c_s_asig4.setEnabled(False)
-                self.label_value_c_s_asig4.setText('NO')
+                self.label_value_c_s_asig4.setText(self.dicc.no)
                 self.check_box_c_s_asig4.setChecked(True)
             else:
                 self.slider_c_s_asig4.setEnabled(True)
@@ -788,7 +788,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_asig5.text()]==0:
                 self.slider_c_s_asig5.setValue(1)
                 self.slider_c_s_asig5.setEnabled(False)
-                self.label_value_c_s_asig5.setText('NO')
+                self.label_value_c_s_asig5.setText(self.dicc.no)
                 self.check_box_c_s_asig5.setChecked(True)
             else:
                 self.slider_c_s_asig5.setEnabled(True)
@@ -797,7 +797,7 @@ class CuartoCurso(QtWidgets.QFrame):
             if diccionario[self.label_c_asig6.text()]==0:
                 self.slider_c_s_asig6.setValue(1)
                 self.slider_c_s_asig6.setEnabled(False)
-                self.label_value_c_s_asig6.setText('NO')
+                self.label_value_c_s_asig6.setText(self.dicc.no)
                 self.check_box_c_s_asig6.setChecked(True)
             else:
                 self.slider_c_s_asig6.setEnabled(True)
@@ -844,7 +844,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig1.setEnabled(False)
             self.label_c_p_asig1.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig1.setText('NO')
+            self.label_value_c_p_asig1.setText(self.dicc.no)
         else:
             self.slider_c_p_asig1.setEnabled(True)
             self.label_c_p_asig1.setStyleSheet('color: black; ')
@@ -854,7 +854,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig2.setEnabled(False)
             self.label_c_p_asig2.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig2.setText('NO')
+            self.label_value_c_p_asig2.setText(self.dicc.no)
         else:
             self.slider_c_p_asig2.setEnabled(True)
             self.label_c_p_asig2.setStyleSheet('color: black; ')
@@ -864,7 +864,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig3.setEnabled(False)
             self.label_c_p_asig3.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig3.setText('NO')
+            self.label_value_c_p_asig3.setText(self.dicc.no)
         else:
             self.slider_c_p_asig3.setEnabled(True)
             self.label_c_p_asig3.setStyleSheet('color: black; ')
@@ -874,7 +874,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig4.setEnabled(False)
             self.label_c_p_asig4.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig4.setText('NO')
+            self.label_value_c_p_asig4.setText(self.dicc.no)
         else:
             self.slider_c_p_asig4.setEnabled(True)
             self.label_c_p_asig4.setStyleSheet('color: black; ')
@@ -884,7 +884,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig5.setEnabled(False)
             self.label_c_p_asig5.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig5.setText('NO')
+            self.label_value_c_p_asig5.setText(self.dicc.no)
         else:
             self.slider_c_p_asig5.setEnabled(True)
             self.label_c_p_asig5.setStyleSheet('color: black; ')
@@ -894,7 +894,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig6.setEnabled(False)
             self.label_c_p_asig6.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig6.setText('NO')
+            self.label_value_c_p_asig6.setText(self.dicc.no)
         else:
             self.slider_c_p_asig6.setEnabled(True)
             self.label_c_p_asig6.setStyleSheet('color: black; ')
@@ -904,7 +904,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig7.setEnabled(False)
             self.label_c_p_asig7.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig7.setText('NO')
+            self.label_value_c_p_asig7.setText(self.dicc.no)
         else:
             self.slider_c_p_asig7.setEnabled(True)
             self.label_c_p_asig7.setStyleSheet('color: black; ')
@@ -914,7 +914,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig8.setEnabled(False)
             self.label_c_p_asig8.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig8.setText('NO')
+            self.label_value_c_p_asig8.setText(self.dicc.no)
         else:
             self.slider_c_p_asig8.setEnabled(True)
             self.label_c_p_asig8.setStyleSheet('color: black; ')
@@ -924,7 +924,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig9.setEnabled(False)
             self.label_c_p_asig9.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig9.setText('NO')
+            self.label_value_c_p_asig9.setText(self.dicc.no)
         else:
             self.slider_c_p_asig9.setEnabled(True)
             self.label_c_p_asig9.setStyleSheet('color: black; ')
@@ -934,7 +934,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_p_asig10.setEnabled(False)
             self.label_c_p_asig10.setStyleSheet('color: grey; ')
-            self.label_value_c_p_asig10.setText('NO')
+            self.label_value_c_p_asig10.setText(self.dicc.no)
         else:
             self.slider_c_p_asig10.setEnabled(True)
             self.label_c_p_asig10.setStyleSheet('color: black; ')
@@ -945,7 +945,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_s_asig6.setEnabled(False)
             self.label_c_asig6.setStyleSheet('color: grey; ')
-            self.label_value_c_s_asig6.setText('NO')
+            self.label_value_c_s_asig6.setText(self.dicc.no)
         else:
             self.slider_c_s_asig6.setEnabled(True)
             self.label_c_asig6.setStyleSheet('color: black; ')
@@ -955,7 +955,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_s_asig5.setEnabled(False)
             self.label_c_asig5.setStyleSheet('color: grey; ')
-            self.label_value_c_s_asig5.setText('NO')
+            self.label_value_c_s_asig5.setText(self.dicc.no)
         else:
             self.slider_c_s_asig5.setEnabled(True)
             self.label_c_asig5.setStyleSheet('color: black; ')
@@ -965,7 +965,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_s_asig4.setEnabled(False)
             self.label_c_asig4.setStyleSheet('color: grey; ')
-            self.label_value_c_s_asig4.setText('NO')
+            self.label_value_c_s_asig4.setText(self.dicc.no)
         else:
             self.slider_c_s_asig4.setEnabled(True)
             self.label_c_asig4.setStyleSheet('color: black; ')
@@ -976,7 +976,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_s_asig3.setEnabled(False)
             self.label_c_asig3.setStyleSheet('color: grey; ')
-            self.label_value_c_s_asig3.setText('NO')
+            self.label_value_c_s_asig3.setText(self.dicc.no)
         else:
             self.slider_c_s_asig3.setEnabled(True)
             self.label_c_asig3.setStyleSheet('color: black; ')
@@ -986,7 +986,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_s_asig2.setEnabled(False)
             self.label_c_asig2.setStyleSheet('color: grey; ')
-            self.label_value_c_s_asig2.setText('NO')
+            self.label_value_c_s_asig2.setText(self.dicc.no)
         else:
             self.slider_c_s_asig2.setEnabled(True)
             self.label_c_asig2.setStyleSheet('color: black; ')
@@ -996,7 +996,7 @@ class CuartoCurso(QtWidgets.QFrame):
         if state == QtCore.Qt.Checked:
             self.slider_c_s_asig1.setEnabled(False)
             self.label_c_asig1.setStyleSheet('color: grey; ')
-            self.label_value_c_s_asig1.setText('NO')
+            self.label_value_c_s_asig1.setText(self.dicc.no)
         else:
             self.slider_c_s_asig1.setEnabled(True)
             self.label_c_asig1.setStyleSheet('color: black; ')

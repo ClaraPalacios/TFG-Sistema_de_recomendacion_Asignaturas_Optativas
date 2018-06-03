@@ -2,16 +2,18 @@
 from proyecto.dicc.Dicc import Dicc
 from PyQt5 import QtWidgets
 from PyQt5 import QtCore
-import os
 from proyecto.gui.VentanaPrincipal.PanelDePestannas.Panel_de_pestannas import Panel_de_pestannas
+from proyecto.gui.Autenticacion.VisorHtml import VisorHtml
 # from proyecto.gui.VisorHtml import VisorHtml
 # from proyecto.gui.Window import Window
-class ValoracionesAsignaturas(QtWidgets.QMainWindow):
+class VentanaPrincipal(QtWidgets.QMainWindow):
 
-    def __init__(self,idioma_path, parent=None):
-        super(ValoracionesAsignaturas, self).__init__(parent)
+    def __init__(self,idioma_path,user, parent=None):
+        self.path=idioma_path
+        self.user=user
+        super(VentanaPrincipal, self).__init__(parent)
         self.dicc = Dicc()
-        self.setWindowTitle(self.dicc.vn_proyecto)
+        self.setWindowTitle(self.dicc.vn_proyecto+"  Usuario:("+user+")")
         self.resize(1450, 700)
 
         #Show/hide frame 0=hide 1=show
@@ -22,12 +24,18 @@ class ValoracionesAsignaturas(QtWidgets.QMainWindow):
         self.cerrar_all.setStatusTip("ini_p_salir")
         self.cerrar_all.triggered.connect(self.cerrar)       
         
+        self.ayuda = QtWidgets.QAction(self.dicc.ayuda, self)
+        self.ayuda.setShortcut(self.dicc.ayuda)
+        self.ayuda.setStatusTip(self.dicc.ayuda)
+        self.ayuda.triggered.connect(self.ayuda_fun)  
 
         ##Barratareas de arriba
         main_menu = self.menuBar()
         #menu1 barra de tareas
         self.file_menu = main_menu.addMenu(self.dicc.vn_opciones) 
         self.file_menu.addAction(self.cerrar_all)
+        self.ayuda_menu = main_menu.addMenu(self.dicc.ayuda) 
+        self.ayuda_menu.addAction(self.ayuda)
         
         self.menuPrincipal()
 #         self.cursos()
@@ -69,8 +77,12 @@ class ValoracionesAsignaturas(QtWidgets.QMainWindow):
         """   
         self.close()
 
-        self.main = ValoracionesAsignaturas(os.getcwd())
-        self.main.setWindowTitle(self.dicc.vn_proyecto)
+        
+    def ayuda_fun(self):
+        """
+        
+        """   
+        main = VisorHtml("file:///"+self.path + "/proyecto/gui/VentanaPrincipal/ayuda.html")
+        main.exec_()
 
-        self.main.show()
-
+        print("Hello ClaraWorld   ",str)
