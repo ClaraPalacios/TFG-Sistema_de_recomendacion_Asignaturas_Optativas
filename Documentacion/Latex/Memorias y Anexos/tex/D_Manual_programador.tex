@@ -104,3 +104,17 @@ Corresponde con la tercera pestaña de gráficos auxiliares para el usuario. Est
 
 
 \section{Base de Datos} 
+El procedimiento para almacenar los usuarios y ponderaciones, así como los datos de entrenamiento para los sistemas de recomendación, en la base de datos es uno de los temas más importantes de este proyecto, por lo que consideramos conveniente introducir una sección expresamente para desarrollarlo. 
+El acceso directo a la base de datos en Cloud no es viable en nuestro caso, no podemos acceder a los datos en sí, sino a los End Points, ya que el acceso a la Base de Datos no es gratuita, por lo que se debería de utilizar un API de forma intermedia que acceda a dichos datos. 
+El API que accede a la BD debe estar alojado directamente en el mismo lugar del Host de PythonAnyWhere. 
+\subsection{Swagger}
+Swagger es una herramienta elegida para consumir APIs REST. Nosotros utilizaremos dicha herramienta para validar los usuarios y contraseñas, así como para registrarse, eliminar un usuario o modificarlo. 
+La dirección del swagger utilizada es la siguiente:  \url{http://claratfg2.pythonanywhere.com/apidocs/}
+\\Para obtener todos los usurios, basta con ejecutar la función User\_Get\_All del swagger, dándonos todos los usuarios existentes que se hayan registrado,  con sus contraseñas encriptadas. Al pulsar Try-out, se ejecuta la función correspondiente. Un ejemplo de la obtención de todos los usuarios es la siguiente: \ref{fig:D.1.6}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.90\textwidth]{swagger}
+\caption{Obtención de los usuarios, swagger}
+\label{fig:D.1.6}
+\end{figure}
+\\Para evitar que cualquier usuario acceda al swagger con la incorporación de una contraseña para el acceso. Sin embargo, por falta de tiempo, recursos y conocimientos no se ha realizado dicha implementación. 
