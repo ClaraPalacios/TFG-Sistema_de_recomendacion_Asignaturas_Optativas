@@ -107,7 +107,7 @@ La siguiente imagen hace referencia a dicha pestaña: ~\ref{fig:C.2.4}
 
 \section{Diseño de Interfaz Gráfica }
 \subsection{Inicio de Sesión}
-La interfaz de inicio de sesión de la primera versión ~\ref{fig:C.3.1}  permite introducir el usuario y la contraseña en caso de estar registrado. En caso contrario, se debe pulsar "Registrarse" para crear una nueva cuenta. 
+La interfaz de inicio de sesión de la primera versión ~\ref{fig:C.3.1}  permite introducir el usuario y la contraseña en caso de estar registrado. En caso contrario, se debe pulsar ``Registrarse'' para crear una nueva cuenta. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.90\textwidth]{INTERFAZ_Inicio_sesion}
@@ -188,6 +188,7 @@ La interacción que se le permite al usuario en dicha pestaña será la siguient
 \item \textbf{Guardar}: Guardar los datos insertados  manualmente  por el usuario. 
 \item \textbf{Modificación}: Se permitirá al usuario modificar las calificaciones en caso de haber insertado incorrectamente la ponderación. 
 \item \textbf{Anulación}: Se permitirá al usuario no aplicar una determinada asignatura que haya convalidado para no ser calculada en el sistema de recomendación. 
+\item \textbf{Carga}: Se permite al usuario la carga de sus datos rellenados anteriormente. 
 \end{itemize}
 
 \subsection{Selección del sistema de Recomendación}
@@ -199,7 +200,7 @@ La interacción que se le permite-tras habilitarse-será la siguiente:
 \end{itemize}
 
 \subsection{Muestra de otros datos}
-La tercera pestaña hacer referencia  a la muestra de datos al usuario. Para ello, en un principio, no se le añadirá funcionalidad auxiliar al usuario.
+La tercera pestaña hacer referencia  a la muestra de datos al usuario. Para ello, en un principio,la  funcionalidad auxiliar que se le permite al  usuario es la siguiente:.
 Al usuario se le permite: 
 \begin{itemize}
 \item \textbf{Calcular}: Seleccionar el cálculo deseado (Media, Mediana, Máximo y Mínimo)
@@ -234,7 +235,7 @@ El paquete Core almacena dos paquetes en su interior:
 \item Usuarios : Este paquete contendrá la clase para el desarrollo del filtro colaborativo basado en Usuarios, clase que recibe la tabla de datos y la matriz de similitud, ambos datos recibidos del paquete Util. 
 \item Util: Este paquete desarrolla la matriz de distancias y la matriz de similitud en dos clases diferentes para  su utilización en los filtros colaborativos basados en memoria.  
 \end{itemize}
-\item F\_B\_Modelos: Este paquete aún no ha sido desarrollado. 
+\item F\_B\_Modelos: Este paquete contiene en su interior la clase necesaria para el desarrollo del sistema de recomendación basado en modelos basado en regresión lineal. 
 \end{itemize}
 \item \textbf{I\_O}: Este paquete I\_O desarrollará las entradas y salidas de datos, tanto por fichero, por bases de datos y por GoogleDrive. De esta forma:
 \begin{itemize}
@@ -249,13 +250,13 @@ El paquete GUI almacena el código para el desarrollo del la interfaz gráfica p
 \begin{itemize}
 \item \textbf{Autenticación}: Este paquete contiene en su interior la clase de inicio sesión, para introducir el usuario y la contraseña para ejecutar la aplicación. A su vez, dicho paquete contiene: 
 \begin{itemize}
-\item VentanaPrincipal: El paquete VentanaPrincipal contiene la clase para mostrar el esqueleto de lo que será la ventana que se muestre tras iniciar sesión. A su vez, dicho paquete contendrá en su interior dos paquetes e para el desarrollo de  las pestañas y las opciones de la interfaz. 
+\item VentanaPrincipal: El paquete VentanaPrincipal contiene la clase para mostrar el esqueleto de lo que será la ventana que se muestre tras iniciar sesión. A su vez, dicho paquete contendrá en su interior dos paquetes para el desarrollo de  las pestañas y las opciones de la interfaz. 
 \begin{itemize}
 \item Panel\_De\_Pestañas : Este paquete contiene las clases para desarrollar la interfaz gráfica con la que interactuará el usuario. 
 \begin{itemize}
 \item Asignaturas: Este paquete contiene las clases para almacenar los nombres de las asignaturas, así como los cursos para realizar las ponderaciones. Este paquete hace referencia a la primera pestaña.   
-\item Estadisticas: El paquete Estadística contiene los datos para el desarrollo de las estadísticas de la aplicación. 
-\item Modelos: Este paquete implementa las clases y métodos para mostrar el Top 10 de los sistemas de recomendación para las asignaturas de cuarto curso y la muestra de los resultados. 
+\item Estadisticas: El paquete Estadística contiene los datos para el desarrollo de las estadísticas de la aplicación. Corresponde a la tercera pestaña de la interfaz. 
+\item Modelos: Este paquete implementa las clases y métodos para mostrar el Top 10 de los sistemas de recomendación para las asignaturas de cuarto curso y la muestra de los resultados. Este paquete corresponde con la segunda pestaña de la interfaz gráfica. 
 \end{itemize}
 
 \item Menu\_Opciones: Este paquete contiene la implementación del cerrado de la página. 
@@ -265,7 +266,7 @@ El paquete GUI almacena el código para el desarrollo del la interfaz gráfica p
 \section{Diseño Procedimental}
 Los diferentes pasos para el correcto funcionamiento de la aplicación son los siguientes: 
 \subsection{Recogida de datos}
-En este apartado no se ha realizado una programación propiamente dicha. Se ha utilizado typeform para la creación del cuestionario anónimo. con el siguiente enlace: \url{https://clarapalacios.typeform.com/to/RQRRfY}
+En este apartado no se ha realizado una programación propiamente dicha. Se ha utilizado Typeform para la creación del cuestionario anónimo. con el siguiente enlace: \url{https://clarapalacios.typeform.com/to/RQRRfY}
 La portada del cuestionario es la siguiente. 
 ~\ref{fig:D.1.1}
 \begin{figure}[h]
@@ -295,7 +296,7 @@ La tercera pestaña mostrará gráficos y datos de interés para el usuario con 
 \section{Diagrama de Clases Final}
 Este proyecto cuenta con dos partes: 
 \subsection{Autenticación}
-La autenticación consta de un paquete src con una única clase, utilizada para almacenar y recuperar los datos de la base de datos (tanto los datos de las asignaturas como del usuario. 
+La autenticación consta de un paquete src con una única clase, utilizada para almacenar y recuperar los datos de la base de datos (tanto los datos de las asignaturas como del usuario). 
 Al haber problemas con las inserciones de asignaturas con espacios y tildes, se han tenido que traducir dichas asignaturas para poder almacenarlas en la BD. ~\ref{fig:C.4.1}
 \begin{figure}[h]
 \centering
@@ -303,7 +304,7 @@ Al haber problemas con las inserciones de asignaturas con espacios y tildes, se 
 \caption{Diagrama de Clases de la Autenticación}
 \label{fig:C.4.1}
 \end{figure}
-Hay que tener en cuenta que no se debe confundir dicho paquete con el incluido en GUI, el cual 
+Hay que tener en cuenta que no se debe confundir dicho paquete con el incluido en GUI.
 
 \subsection{Sistema de recomendación de Asignaturas Optativas}
 En el sistema de recomendación, al igual que en la primera versión, los paquetes se subdividen en GUI,  Core y Dicc. Actualmente, dichos paquetes se encuentran incluidos en un paquete Proyecto, de forma que todos los paquetes se encuentren centralizado  en una única carpeta. Los paquetes GUI y Core permanecen invariables según lo que se ha realizado en la primera versión, mientras que se ha modificado el paquete del diccionario. 

@@ -33,6 +33,15 @@ $user_{n}$ & 4         & ?           & ...          & 3       \\ \bottomrule
 \end{table}
 
 Posteriormente se ajusta el modelo para proponer al usuario un valor recomendado para el item desconocido (?).
+\\En este trabajo se ajustará un modelo de regresión lineal. Conocida la matriz de ratings que los usuarios han dado a los diferentes items, se estiman los parámetros de un modelo lineal que calcula el rating que el usuario j da al item i:\begin{equation}
+\widehat{y_{ij}} = x^{i}\Theta ^{jT}
+\end{equation}\\Donde las {x\_{i}}i=1,2,... representan el espacio de características de los items, y las {j}j=1,2,... representan el espacio de preferencias de los usuarios. La estimación de los parámetros se obtiene minimizando la siguiente función objetivo o función de coste:\\
+\begin{equation}
+min_{\Theta ^{(1)}...\Theta ^{(u)} x^{1}...x^{m}} \frac{1}{2}\sum_{(i,j):r(i,j)=1}^{ }(x^{(i)}(\Theta ^{(j)})^{T}-y^{i,j})^{2}+\frac{\lambda }{2}\sum_{i=1}^{m}\sum_{k=1}^{n}(x_{k}^{(i)})^{2}\sum_{j=1}^{u}\sum_{k=1}^{n}(\theta _{k}^{(j)})^{2}
+\end{equation}
+\\El parámetro  es un parámetro de regularización que permite modular el posible sobreajuste del modelo.  Este filtro colaborativo es un problema idéntico al problema matemático de aproximación “low-rank”.
+\\  
+
 \subsubsection{Basado en memoria}
 La estimación de los items se basa en los rating del cliente con respecto a los items de los diferentes usuarios. El sistema busca las similitudes entre las preferencias de los usuarios para ofrecer una recomendación. 
 A su vez, el sistema de recomendación con filtro colaborativo basado en memoria se puede subdividir en: 
