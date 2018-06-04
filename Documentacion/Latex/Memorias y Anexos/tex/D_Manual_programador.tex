@@ -27,7 +27,7 @@ Para obtener los datos almacenados en Drive, se ha necesitado activar el API Goo
 \label{fig:D.1.2}
 \end{figure}  
 \item Acceder a \url{https://console.developers.google.com/}
-\item Buscar GoogleDrive Api, y activar dicha api.\ref{fig:D.1.3} 
+\item Buscar GoogleDrive API, y activar dicha API.\ref{fig:D.1.3} 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.90\textwidth]{activar_google_drive}
@@ -41,7 +41,7 @@ Para obtener los datos almacenados en Drive, se ha necesitado activar el API Goo
 \caption{Obtener Credenciales}
 \label{fig:D.1.3}
 \end{figure}  
-\item Activar las credenciales para acceder al documento en Google Drive. \ref{fig:D.1.4} De esta forma, un cliente puede acceder a dichos datos. (El administrador en este caso). Pulsar "Qué credenciales necesito"
+\item Activar las credenciales para acceder al documento en Google Drive. \ref{fig:D.1.4} De esta forma, un cliente puede acceder a dichos datos. (El administrador en este caso). Pulsar ``Qué credenciales necesito''
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.90\textwidth]{credenciales_seleccionar_api}
@@ -56,18 +56,18 @@ Para obtener los datos almacenados en Drive, se ha necesitado activar el API Goo
 \label{fig:D.1.5}
 \end{figure}
 \item Tras pulsar continuar, se descargará un fichero json, y mostrará un mensaje por pantalla. 
-\item Abrir el fichero json y copiar el correo electrónico obtenido, compartiéndolo en el documento existente en google drive. 
+\item Abrir el fichero json y copiar el correo electrónico obtenido, compartiéndolo en el documento existente en Google Drive. 
 \end{itemize}
 Una vez pudiendo acceder a dichos datos, se debe acceder desde el código utilizando la librería ServiceAccountCredentials. Se debe tener en cuenta que el fichero json debe de encontrarse en el mismo directorio que el código que desee acceder al mismo. 
 
 
 \section{Tratamiento de los datos}
-Los datos recibidos desde la API contienen columnas no necesarias para el proyecto, tales como el Token y la fecha de rellenado. Por otra parte, al recibir los datos, en caso de no haberse cursado, el valor será un string vacío, por lo que habrá que modificar ese string por un NaN (de la librería numpy), para diferenciar de las calificaciones marcadas con cero por los usuarios.   Los datos devueltos por esta función de tratamiento se almacenan en un dataframe
+Los datos recibidos desde la API contienen columnas no necesarias para el proyecto, tales como el Token y la fecha de rellenado. Por otra parte, al recibir los datos, en caso de no haberse cursado, el valor será un string vacío, por lo que habrá que modificar ese string por un NaN (de la librería numpy), para diferenciar de las calificaciones marcadas con cero por los usuarios.   Los datos devueltos por esta función de tratamiento se almacenan en un dataframe.
 
 \section{Sistemas de recomendación}
 El desarrollo de los sistemas de recomendación se simplifica reutilizando las funciones de cálculo de matriz de similitud y de matriz de distancias, realizándolas de forma genérica para evitar la duplicidad del código. 
 \subsection{Basado en usuarios y productos}
-Se recibe la matriz de similitud y el diccionario de las asignaturas de 4 para calcular la predicción de las asignaturas y devolvérselas. 
+Se recibe la matriz de similitud y el diccionario de las asignaturas del cuarto curso para calcular la predicción de las asignaturas y devolvérselas. 
 
 \subsection{Util}
 El paquete util implementa tanto el coeficiente de Pearson como la matriz de similitud. 
@@ -82,14 +82,14 @@ El paquete I\_O\_Datos implementa la recuperación de datos tanto de drive, de u
 Para la lectura de datos en binario, se obtiene todo el dataframe eliminándose las columnas innecesarias,  y devolviéndose un dataframe con el que se pueda trabajar. 
 
 \subsection{GoogleDrive}
-El funcionamiento de esta opción se ha realizado en la primera sección de forma que no se entrará en detalles
+El funcionamiento de esta opción se ha realizado en la primera sección de forma que no se entrará en detalles.
 
 \subsection{API\_Rest}
 En esta clase, se obtienen-a través de un json- y se almacenan los datos de Cloud reemplazando tildes y espacios en blanco de los nombres de las asignaturas. Por otra parte, se deben eliminar las columnas no necesarias. 
 Finalmente, la clase devuelve un dataframe para poder trabajar con él. 
 
 \section{Diccionario}
-El diccionario utilizado sirve tanto para los elementos de la interfaz gráfica (secciones, botones...) como el almacenamiento y subdivisión de las asignaturas por semestres, así como la caracterización de las asignaturas. 
+El diccionario utilizado sirve tanto para los elementos de la interfaz gráfica (secciones, botones...) como el almacenamiento y subdivisión de las asignaturas por semestres, así como la caracterización de las mismas. 
 
 \section{Interfaz gráfica}
 La interfaz gráfica se ha desarrollado utilizando PyQt5. Para su estructura, se ha subdividido el código en paquetes, de forma haya un paquete por cada pestaña y un panel de pestañas y la ventana principal. 
@@ -117,4 +117,4 @@ La dirección del swagger utilizada es la siguiente:  \url{http://claratfg2.pyth
 \caption{Obtención de los usuarios, swagger}
 \label{fig:D.1.6}
 \end{figure}
-\\Para evitar que cualquier usuario acceda al swagger con la incorporación de una contraseña para el acceso. Sin embargo, por falta de tiempo, recursos y conocimientos no se ha realizado dicha implementación. 
+\\Para evitar que cualquier usuario acceda al swagger se podría implementar una contraseña para el acceso. Sin embargo, por falta de tiempo, recursos y conocimientos no se ha realizado dicha implementación. 
