@@ -123,12 +123,12 @@ class Modelos(QtWidgets.QWidget):
         los datos, y pintándose las estadísticas. 
         """
         try:
-            self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
-            
+            tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
+            tabla= tabla.replace(0,np.nan)
             distancias = Distancias()
-            filtro_Basado_Usuarios = Filtro_Basado_Usuarios(self.tabla, distancias.coef_corr_pearson)
+            filtro_Basado_Usuarios = Filtro_Basado_Usuarios(tabla, distancias.coef_corr_pearson)
             
-            usuario = self.tabla.shape[0]-1
+            usuario = tabla.shape[0]-1
             predic = dict(filtro_Basado_Usuarios.calcula_Prediccion_Cuarto(usuario))
             predic = sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
             self.predict_model1 = predic
@@ -145,7 +145,7 @@ class Modelos(QtWidgets.QWidget):
             self.top_cuarto_semestres_frame._static_ax2.cla()
             self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
             
-            self.tabla=self.tabla.drop(self.tabla.index[[self.tabla.shape[0]-1]])
+            tabla=tabla.drop(tabla.index[[tabla.shape[0]-1]])
     
         except:
             pass
@@ -155,11 +155,12 @@ class Modelos(QtWidgets.QWidget):
         y pintando las estadísticas. 
         """
         try:
-            self.tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
+            tabla=self.tabla.append(pd.DataFrame([self.load_valoraciones()]),ignore_index=True)
+            tabla= tabla.replace(0,np.nan)
             distancias = Distancias()
-            filtro_Basado_Productos = Filtro_Basado_Productos(self.tabla, distancias.coef_corr_pearson)
+            filtro_Basado_Productos = Filtro_Basado_Productos(tabla, distancias.coef_corr_pearson)
             
-            usuario = self.tabla.shape[0]-1
+            usuario = tabla.shape[0]-1
             predic = dict(filtro_Basado_Productos.calcula_Prediccion_Cuarto(usuario))
             predic = sorted(predic.items(), key=operator.itemgetter(1), reverse=True)
             self.predict_model2 = predic
@@ -175,7 +176,7 @@ class Modelos(QtWidgets.QWidget):
             self.top_cuarto_semestres_frame._static_ax2.cla()
             self.top_cuarto_semestres_frame.pinta_segunda_grafica(porcentajes.keys(),porcentajes.values()) 
             
-            self.tabla=self.tabla.drop(self.tabla.index[[self.tabla.shape[0]-1]])
+            tabla=tabla.drop(tabla.index[[tabla.shape[0]-1]])
         except:
             pass
     def ejecutar_modelo3(self):
