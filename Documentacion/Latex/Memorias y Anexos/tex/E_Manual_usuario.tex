@@ -12,13 +12,15 @@ De forma previa a la utilización de la aplicación, se deberá tener instalado 
 \begin{itemize}
 \item Anaconda en su última versión estable 5.6, con la versión de Python 3.6. Dicha descarga se puede realizar a través del siguiente enlace: \url{https://www.anaconda.com/download/}
 \end{itemize}
-\item \textbf{Librerías  y Paquetes auxiliares}
+\item \textbf{Librerías, módulos  y Paquetes auxiliares}
 \begin{itemize}
 \item Matplotlib en la versión 2.0 o superior. En caso de no disponer de dicha librería actualizada, se puede actualizar con el siguiente comando: ``conda update --all''.
 \item flask con el comando ``pip install flask''
 \item flask\_marshmallow con el comando ``pip install flask\_marshmallow''
 \item flasgger con el comando ``pip install flasgger''
 \item SQLAlchemy con el comando ``pip install SQLAlchemy'' y el comando ``pip install flask\_sqlalchemy''
+\item Numpy (instalado por defecto en Anaconda)
+\item Pandas (instalado por defecto en Anaconda)
 \end{itemize}
 \item \textbf{Proyecto}
 \begin{itemize}
@@ -49,6 +51,8 @@ En el modo administrador, además, será necesario el acceso a la API de GoogleD
 \item flask\_marshmallow con el comando ``pip install flask\_marshmallow''
 \item flasgger con el comando ``pip install flasgger''
 \item SQLAlchemy con el comando ``pip install SQLAlchemy'' y el comando ``pip install flask\_sqlalchemy''
+\item Numpy (instalado por defecto en Anaconda)
+\item Pandas (instalado por defecto en Anaconda)
 \end{itemize}
 \item \textbf{Datos Auxiliares}
 \begin{itemize}
@@ -66,11 +70,10 @@ En el modo administrador, además, será necesario el acceso a la API de GoogleD
 \end{itemize}
 
 \section{Ejecución del proyecto}
-
+Para la ejecución del proyecto, se deben ejecutar dos ficheros disponibles en el escritorio, los cuales ejecutarán el servidor en local y la aplicación. Si se quiere ejecutar en local, se debe pulsar previamente el fichero disponible, aunque esta ejecución es opcional. 
 
 \section{Utilización}
 Tras la ejecución del proyecto, se abrirá una pestaña en la que el usuario debe introducir su correo y contraseña. 
-
 \subsection{Inicio sesión}
 Para iniciar sesión, el usuario debe introducir su correo y contraseña, y en caso de introducirlo de forma correcta, se abrirá la pestaña principal.\ref{fig:E.2.1.1} En caso contrario, permanecerá dicha pestaña con los campos vacíos de nuevo para reintroducir los datos, mostrando en una ventana emergente el error obtenido.  
 \begin{figure}[h]
@@ -86,7 +89,7 @@ Para iniciar sesión, el usuario debe introducir su correo y contraseña, y en c
 \caption{Inicio de sesión}
 \label{fig:E.2.1.2}
 \end{figure}
-\\Por otra parte, si es la primera vez que un usuario se registra por primera vez, debe pulsar el botón "Registrarse" como indica la siguiente figura \ref{fig:E.2.1.3}
+\\Por otra parte, si es la primera vez que un usuario se registra, debe pulsar el botón ``Registrarse''  como indica la siguiente figura \ref{fig:E.2.1.3}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.80\textwidth]{para_registrarse}
@@ -143,7 +146,7 @@ En los botones de control, se permite \textbf{guardar} y \textbf{cargar} los dat
 
 
 \subsubsection{Version1.1}
-La versión que será entregada de forma definitiva, y que será entregada al tribunal varía levemente en la interfaz gráfica. Al igual que en la Versión 1.0, aparece dicha ventana tras iniciar sesión. La ventana para la ponderación de las asignaturas tiene el siguiente aspecto: \ref{fig:E.2.5.1}
+La versión que será entregada de forma definitiva  al tribunal para su defensa, varía levemente en la interfaz gráfica. Al igual que en la Versión 1.0, aparece dicha ventana tras iniciar sesión. La ventana para la ponderación de las asignaturas tiene el siguiente aspecto: \ref{fig:E.2.5.1}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.80\textwidth]{INTERFAZ_1_1_Principal}
@@ -169,14 +172,14 @@ La segunda pestaña, con las recomendaciones obtenidas, tienen el siguiente aspe
 \end{figure}
 La funcionalidad de dicha pestaña se puede subdividir en: 
 \subsubsection{Selección y carga del sistema de recomendación}
-El área izquierda se utiliza para seleccionar el sistema de recomendación, siendo por defecto el F.C basado en memoria basado en Usuarios, estando deshabilitados los demás filtros colaborativos. \ref{fig:E.2.7} \\Como se puede observar, únicamente el primer filtro se encuentra habilitado, mientras que los dos sucesivos (basado en productos y  Filtro Colaborativo basado en modelo) se encuentran deshabilitados. 
+El área izquierda se utiliza para seleccionar el sistema de recomendación, siendo por defecto el F.C basado en memoria basado en Usuarios, estando deshabilitados los demás filtros colaborativos. \ref{fig:E.2.7} \\Como se puede observar, únicamente el primer filtro se encuentra habilitado, mientras que los dos sucesivos (Filtro Colaborativo basado en Productos y  Filtro Colaborativo basado en Modelo) se encuentran deshabilitados. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.80\textwidth]{INTERFAZ_seleccion_V1-0}
 \caption{Muestra de los botones deshabilitados}
 \label{fig:E.2.7}
 \end{figure}
-En cambio, si pulsamos el botón "Cargar F.C Productos" se habilita automáticamente la muestra de datos del Filtro Colaborativo basado en Productos. Esto lo podemos observar en la siguiente imagen, \ref{fig:E.2.8} en donde se ha pulsado el botón para el ejemplo. 
+En cambio, si pulsamos el botón ``Cargar F.C Productos'' se habilita automáticamente la muestra de datos del Filtro Colaborativo basado en Productos. Esto lo podemos observar en la siguiente imagen, \ref{fig:E.2.8} en donde se ha pulsado el botón para el ejemplo. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.80\textwidth]{INTERFAZ_seleccion2_V1-0}
@@ -184,28 +187,28 @@ En cambio, si pulsamos el botón "Cargar F.C Productos" se habilita automáticam
 \label{fig:E.2.8}
 \end{figure}
 \\
-Por otro lado, el área central indica las calificaciones redondeadas de las asignaturas recomendadas, con valores del 1-5, ordenadas de forma descendente.\ref{fig:E.2.9} 
+\\Por otro lado, el área central indica las calificaciones redondeadas de las asignaturas recomendadas, con valores del 1-5, ordenadas de forma descendente.\ref{fig:E.2.9} 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.80\textwidth]{INTERFAZ_Recomendacion_Asignaturas_V1-0}
 \caption{Muestra de los resultados de un filtro colaborativo}
 \label{fig:E.2.9}
 \end{figure}
-Para poder observar los valores reales que nos ha ofrecido el sistema de recomendación, deberíamos observar la gráfica de la derecha, en donde las calificaciones no están redondeadas. Para diferenciarlas, basta con colocar el ratón sobre una asignatura para observar el número de la asignatura, y poder verlo en la gráfica. \ref{fig:E.2.10} 
+\\Para poder observar los valores reales que nos ha ofrecido el sistema de recomendación, deberíamos observar la gráfica de la derecha, en donde las calificaciones no están redondeadas. Para diferenciarlas, basta con colocar el ratón sobre una asignatura para observar el número de la asignatura, y poder verlo en la gráfica. \ref{fig:E.2.10} 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.80\textwidth]{INTERFAZ_Rellenado_Valores_V1-0}
 \caption{Muestra del orden de la asignatura en la gráfica}
 \label{fig:E.2.10}
 \end{figure}
-Así, podemos ver que, "Control por Computador", es la asignatura 1, por lo que en la gráfica, será la primera barra, con una ponderación ligeramente superior al 4. De esta forma, se puede observar que no todas las asignaturas tienen una calificación de 4, por lo que la gráfica de barras resulta útil para ver las diferencias entre las asignaturas. \ref{fig:E.2.11} 
+\\Así, podemos ver que, ``Control por Computador'', es la asignatura 1, por lo que en la gráfica, será la primera barra, con una ponderación ligeramente superior al 4. De esta forma, se puede observar que no todas las asignaturas tienen una calificación de 4, por lo que la gráfica de barras resulta útil para ver las diferencias entre las asignaturas. \ref{fig:E.2.11} 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.80\textwidth]{INTERFAZ_Grafica_V1-0}
 \caption{Muestra de la gráfica de asignaturas recomendadas}
 \label{fig:E.2.11}
 \end{figure}
-\\Por otra parte, también tenemos un gráfico que indica las preferencias en los diferentes áreas del usuario, para indicar qué campos son de mayor interés para el mismo, de forma que el usuario pueda conocer el campo por el que se podría decantar en un futuro. \ref{fig:E.2.12} 
+\\\\Por otra parte, también tenemos un gráfico que indica las preferencias en los diferentes áreas del usuario, para indicar qué campos son de mayor interés para el mismo, de forma que el usuario pueda conocer el campo por el que se podría decantar en un futuro. \ref{fig:E.2.12} 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.80\textwidth]{INTERFAZ_Areas_V1-0}
